@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22F83A3F2BBDEF5E00196A1D /* AgiloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */; };
+		22F83A412BBDEF5E00196A1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A402BBDEF5E00196A1D /* ContentView.swift */; };
+		22F83A432BBDEF6100196A1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F83A422BBDEF6100196A1D /* Assets.xcassets */; };
+		22F83A472BBDEF6100196A1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F83A462BBDEF6100196A1D /* Preview Assets.xcassets */; };
+		22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A4E2BBDF04A00196A1D /* MainView.swift */; };
+		22F83A522BBF269800196A1D /* WelcomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A512BBF269800196A1D /* WelcomViews.swift */; };
+		22F83A552BBF270500196A1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A542BBF270500196A1D /* User.swift */; };
+		22F83A572BC024A700196A1D /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A562BC024A700196A1D /* Projects.swift */; };
+		22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A592BC024CC00196A1D /* HomeView.swift */; };
+		22F83A5C2BC024E100196A1D /* SpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A5B2BC024E100196A1D /* SpikeView.swift */; };
+		22F83A5F2BC0251900196A1D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A5E2BC0251900196A1D /* ProfileView.swift */; };
+		22F83A612BC0252900196A1D /* ShowMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A602BC0252900196A1D /* ShowMore.swift */; };
+		22F83A632BC0253800196A1D /* SettingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A622BC0253800196A1D /* SettingRow.swift */; };
+		22F83A662BC0262400196A1D /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A652BC0262400196A1D /* SignUp.swift */; };
+		22F83A682BC0263100196A1D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A672BC0263100196A1D /* Login.swift */; };
+		22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A692BC0263D00196A1D /* InputView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		22F83A3B2BBDEF5E00196A1D /* Agilo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agilo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgiloApp.swift; sourceTree = "<group>"; };
+		22F83A402BBDEF5E00196A1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		22F83A422BBDEF6100196A1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22F83A442BBDEF6100196A1D /* Agilo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Agilo.entitlements; sourceTree = "<group>"; };
+		22F83A462BBDEF6100196A1D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22F83A4E2BBDF04A00196A1D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		22F83A512BBF269800196A1D /* WelcomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViews.swift; sourceTree = "<group>"; };
+		22F83A542BBF270500196A1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		22F83A562BC024A700196A1D /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		22F83A592BC024CC00196A1D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		22F83A5B2BC024E100196A1D /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
+		22F83A5E2BC0251900196A1D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		22F83A602BC0252900196A1D /* ShowMore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMore.swift; sourceTree = "<group>"; };
+		22F83A622BC0253800196A1D /* SettingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRow.swift; sourceTree = "<group>"; };
+		22F83A652BC0262400196A1D /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		22F83A672BC0263100196A1D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		22F83A692BC0263D00196A1D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22F83A382BBDEF5E00196A1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22F83A322BBDEF5E00196A1D = {
+			isa = PBXGroup;
+			children = (
+				22F83A3D2BBDEF5E00196A1D /* Agilo */,
+				22F83A3C2BBDEF5E00196A1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22F83A3C2BBDEF5E00196A1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A3B2BBDEF5E00196A1D /* Agilo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22F83A3D2BBDEF5E00196A1D /* Agilo */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */,
+				22F83A402BBDEF5E00196A1D /* ContentView.swift */,
+				22F83A4E2BBDF04A00196A1D /* MainView.swift */,
+				22F83A532BBF26EF00196A1D /* Model */,
+				22F83A4D2BBDF02E00196A1D /* Views */,
+				22F83A422BBDEF6100196A1D /* Assets.xcassets */,
+				22F83A442BBDEF6100196A1D /* Agilo.entitlements */,
+				22F83A452BBDEF6100196A1D /* Preview Content */,
+			);
+			path = Agilo;
+			sourceTree = "<group>";
+		};
+		22F83A452BBDEF6100196A1D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A462BBDEF6100196A1D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		22F83A4D2BBDF02E00196A1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A502BBF265300196A1D /* Welcome */,
+				22F83A582BC024B000196A1D /* MainViews */,
+				22F83A5D2BC024E700196A1D /* SideViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		22F83A502BBF265300196A1D /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A512BBF269800196A1D /* WelcomViews.swift */,
+				22F83A652BC0262400196A1D /* SignUp.swift */,
+				22F83A672BC0263100196A1D /* Login.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		22F83A532BBF26EF00196A1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A642BC0255E00196A1D /* WelcomePhase */,
+				22F83A6D2BC046F900196A1D /* MainViewsModel */,
+				22F83A6B2BC046DE00196A1D /* SideViewModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22F83A582BC024B000196A1D /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A562BC024A700196A1D /* Projects.swift */,
+				22F83A592BC024CC00196A1D /* HomeView.swift */,
+				22F83A5B2BC024E100196A1D /* SpikeView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		22F83A5D2BC024E700196A1D /* SideViews */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A5E2BC0251900196A1D /* ProfileView.swift */,
+				22F83A602BC0252900196A1D /* ShowMore.swift */,
+			);
+			path = SideViews;
+			sourceTree = "<group>";
+		};
+		22F83A642BC0255E00196A1D /* WelcomePhase */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A542BBF270500196A1D /* User.swift */,
+				22F83A692BC0263D00196A1D /* InputView.swift */,
+			);
+			path = WelcomePhase;
+			sourceTree = "<group>";
+		};
+		22F83A6B2BC046DE00196A1D /* SideViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				22F83A622BC0253800196A1D /* SettingRow.swift */,
+			);
+			path = SideViewModel;
+			sourceTree = "<group>";
+		};
+		22F83A6D2BC046F900196A1D /* MainViewsModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainViewsModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22F83A3A2BBDEF5E00196A1D /* Agilo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22F83A4A2BBDEF6100196A1D /* Build configuration list for PBXNativeTarget "Agilo" */;
+			buildPhases = (
+				22F83A372BBDEF5E00196A1D /* Sources */,
+				22F83A382BBDEF5E00196A1D /* Frameworks */,
+				22F83A392BBDEF5E00196A1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Agilo;
+			productName = Agilo;
+			productReference = 22F83A3B2BBDEF5E00196A1D /* Agilo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22F83A332BBDEF5E00196A1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					22F83A3A2BBDEF5E00196A1D = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 22F83A362BBDEF5E00196A1D /* Build configuration list for PBXProject "Agilo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22F83A322BBDEF5E00196A1D;
+			productRefGroup = 22F83A3C2BBDEF5E00196A1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22F83A3A2BBDEF5E00196A1D /* Agilo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22F83A392BBDEF5E00196A1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F83A472BBDEF6100196A1D /* Preview Assets.xcassets in Resources */,
+				22F83A432BBDEF6100196A1D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22F83A372BBDEF5E00196A1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F83A412BBDEF5E00196A1D /* ContentView.swift in Sources */,
+				22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */,
+				22F83A662BC0262400196A1D /* SignUp.swift in Sources */,
+				22F83A682BC0263100196A1D /* Login.swift in Sources */,
+				22F83A5F2BC0251900196A1D /* ProfileView.swift in Sources */,
+				22F83A5C2BC024E100196A1D /* SpikeView.swift in Sources */,
+				22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */,
+				22F83A522BBF269800196A1D /* WelcomViews.swift in Sources */,
+				22F83A632BC0253800196A1D /* SettingRow.swift in Sources */,
+				22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */,
+				22F83A572BC024A700196A1D /* Projects.swift in Sources */,
+				22F83A612BC0252900196A1D /* ShowMore.swift in Sources */,
+				22F83A552BBF270500196A1D /* User.swift in Sources */,
+				22F83A3F2BBDEF5E00196A1D /* AgiloApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		22F83A482BBDEF6100196A1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		22F83A492BBDEF6100196A1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		22F83A4B2BBDEF6100196A1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Agilo/Agilo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Agilo/Preview Content\"";
+				DEVELOPMENT_TEAM = VH2NKLHXDK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PPaules.com.Agilo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22F83A4C2BBDEF6100196A1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Agilo/Agilo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Agilo/Preview Content\"";
+				DEVELOPMENT_TEAM = VH2NKLHXDK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PPaules.com.Agilo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22F83A362BBDEF5E00196A1D /* Build configuration list for PBXProject "Agilo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F83A482BBDEF6100196A1D /* Debug */,
+				22F83A492BBDEF6100196A1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22F83A4A2BBDEF6100196A1D /* Build configuration list for PBXNativeTarget "Agilo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F83A4B2BBDEF6100196A1D /* Debug */,
+				22F83A4C2BBDEF6100196A1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22F83A332BBDEF5E00196A1D /* Project object */;
+}
