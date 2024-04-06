@@ -8,15 +8,12 @@ import SwiftUI
 
 struct MainView: View {
     @State private var showMenu = false
+    @Namespace var nameSpace
     
     var body: some View {
         NavigationStack{
             
         ZStack{
-            
-            background(){
-                Image("dd copy")
-            }
             
             Divider()
             TabView {

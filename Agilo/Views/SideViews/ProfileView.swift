@@ -31,7 +31,6 @@ struct ProfileView: View {
                             isShowing.toggle()
                         }
                 
-                
                     HStack {
                         ScrollView{
                             VStack(alignment: .leading, spacing: 29){
@@ -210,8 +209,7 @@ struct ProfileView: View {
                         }
                         .padding()
                         .frame(width: 285, alignment: .leading)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.675, green: 0.76, blue: 0.74)/*@END_MENU_TOKEN@*/)
-                        
+                        .background(Color(.systemMint))
                         Spacer()
                            
                     }

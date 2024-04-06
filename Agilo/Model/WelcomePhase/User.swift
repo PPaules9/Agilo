@@ -7,7 +7,8 @@
 
 import Foundation
 
-class User: Identifiable, Codable {
+
+class User: Identifiable, Codable, ObservableObject {
      let id : String
      let fullName: String
      let email: String
