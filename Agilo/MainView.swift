@@ -7,55 +7,60 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var showMenu = false
+    @State private var profileViewisShowing = false
     @Namespace var nameSpace
     
     var body: some View {
         NavigationStack{
             
-        ZStack{
-            
-            Divider()
-            TabView {
+            ZStack{
                 
-                HomeView()
-                    .tabItem {
-                        Label("Home", systemImage: "house")
-                    }
+                Divider()
+                TabView {
+                    
+                    HomeView()
+                        .tabItem {
+                            Label("Home", systemImage: "house")
+                        }
+                    
+                    Projects()
+                        .tabItem {
+                            Label("TaskHub", systemImage: "calendar.badge.checkmark")
+                        }
+                    
+                    SpikeView()
+                        .tabItem {
+                            Label("Spike", systemImage: "figure.walk.motion.trianglebadge.exclamationmark")
+                        }
+                    
+                    ProfileView(profileViewisShowing: $profileViewisShowing)
+                        .tabItem {
+                            Label("Profile", systemImage: "person.crop.circle")
+                        } .onTapGesture {
+                            profileViewisShowing = true
+                        }
+                }
+                .cornerRadius(profileViewisShowing ? 20 : 10)
+                .offset(x: profileViewisShowing ? 300 : 0, y: profileViewisShowing ? 45 : 0)
                 
-                Projects()
-                    .tabItem {
-                        Label("TaskHub", systemImage: "calendar.badge.checkmark")
-                    }
+                ProfileView(profileViewisShowing: $profileViewisShowing)
                 
-                SpikeView()
-                    .tabItem {
-                        Label("Spike", systemImage: "figure.walk.motion.trianglebadge.exclamationmark")
-                    }
-                
-                ProfileView(isShowing: $showMenu)
-                    .tabItem {
-                        Label("Profile", systemImage: "person.crop.circle")
-                    } .onTapGesture {
-                        showMenu = true
-                    }
             }
             
-            ProfileView(isShowing: $showMenu)
-            
-        }
-        
-        .toolbar(showMenu ? .hidden : .visible, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    showMenu.toggle()
-                }, label: {
-                    Image(systemName: "line.3.horizontal")
-                })
+            .toolbar(profileViewisShowing ? .hidden : .visible, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            profileViewisShowing.toggle()
+                        }
+                        
+                    }, label: {
+                        Image(systemName: "line.3.horizontal")
+                    })
+                }
             }
         }
-    }
     }
 }
 

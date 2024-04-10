@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingRow: View {
+    @Environment(\.colorScheme) var colorScheme
+
     let imageName: String
     let title: String
     let tintColor: Color
@@ -20,10 +22,10 @@ struct SettingRow: View {
                 .foregroundColor(tintColor)
             
             Text(title)
-                .font(.custom("Charter", size: 16))
+                .font(.custom("Charter", size: 20))
                 .font(.subheadline)
                 .bold()
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? .black : .white)
         }
     }
 }

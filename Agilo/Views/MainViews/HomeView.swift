@@ -27,7 +27,17 @@ struct HomeView: View {
             }
             
             VStack(alignment: .leading){
-                Text("Hello World")
+                VStack {
+                    Circle()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color("myGreen2"))
+                    Spacer()
+                    Divider()
+                        .rotationEffect(.degrees(90))
+                        .frame(height: 50)
+                    
+                }
+                
             }
             .padding()
             .frame(width:350, height: 200)

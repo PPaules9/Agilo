@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @Binding var isShowing: Bool
+    @Binding var profileViewisShowing: Bool
     @State private var appVersion = "1.0.0"
+    @State private var showSettings = false
     
+    @Environment(\.colorScheme) var colorScheme
+    let lightGradient = LinearGradient(gradient: Gradient(colors: [Color("Purple2"), Color("ib")]), startPoint: .center, endPoint: .bottom)
+    let darkGradient = LinearGradient(gradient: Gradient(colors: [Color("c"), Color("Purple2")]), startPoint: .center, endPoint: .bottom)
+        
+    var profileBackgroundColor: LinearGradient {
+      colorScheme == .light ? lightGradient : darkGradient
+    }
     
     var body: some View {
-        ZStack{
-            if isShowing {
+        ZStack(alignment: .topTrailing){
+            if profileViewisShowing {
                 
                 
                 //for Testing Puroses only
@@ -23,20 +31,35 @@ struct ProfileView: View {
                 //UnComment this
                 //if let user = viewModel.currentUser {
                     
+                Button(action: {
+                    withAnimation(.easeOut){
+                        profileViewisShowing.toggle()
+                    }
+                }, label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(Color(.black))
+                        .frame(width: 32, height: 32)
+                        .background(.cyan)
+                        .cornerRadius(15)
+                        .padding()
+                        .shadow(radius: 20)
+                        .offset(y : -15)
+                })
                     
-                    Rectangle()
-                    .opacity(0.8)
-                        .ignoresSafeArea()
-                        .onTapGesture {
-                            isShowing.toggle()
-                        }
+//                Rectangle()
+//                    .opacity(0.8)
+//                        .ignoresSafeArea()
+//                        .onTapGesture {
+//                            profileViewisShowing.toggle()
+//                        }
+                        
                 
                     HStack {
                         ScrollView(showsIndicators: false){
                             VStack(alignment: .leading, spacing: 29){
                                     HStack{
                                         Text(testUser.initials)
-                                            .font(.custom("Charter", size: 25))
+                                            .font(.custom("Charter", size: 28))
                                             .font(.title)
                                             .fontWeight(.semibold)
                                             .foregroundColor(.white)
@@ -47,17 +70,18 @@ struct ProfileView: View {
                                         VStack (alignment: .leading, spacing: 4 ){
                                             
                                             Text(testUser.fullName)
-                                                .font(.custom("Charter", size: 16))
+                                                .font(.custom("Charter", size: 18))
                                                 .fontWeight(.semibold)
                                                 .padding(.top, 4)
                                             
                                             Text(testUser.email)
-                                                .font(.custom("Charter", size: 14))
+                                                .font(.custom("Charter", size: 16))
                                                 .font(.footnote)
-                                                .foregroundStyle(.gray)
+                                                .foregroundStyle(.tint)
                                             
                                         }
                                     }
+                                    .padding(.top)
                                 
                                 //If User Unsubscribed
                                     Button{
@@ -66,11 +90,11 @@ struct ProfileView: View {
                                         HStack{
                                             VStack(alignment: .leading, spacing: 10){
                                                 Text("Unlock All Features")
-                                                    .font(.custom("Charter", size: 14))
+                                                    .font(.custom("Charter", size: 16))
                                                     .foregroundStyle(.white)
                                                 
                                                 Text("Pro Agilo Manger")
-                                                    .font(.custom("Charter", size: 20))
+                                                    .font(.custom("Charter", size: 22))
                                                     .foregroundStyle(.white)
                                                     .bold()
                                             }
@@ -85,8 +109,11 @@ struct ProfileView: View {
                                 
                                 
                                 Button{
+                                    showSettings.toggle()
                                 } label: {
                                     SettingRow(imageName: "gear", title: "Settings", tintColor: .blue)
+                                }.sheet(isPresented: $showSettings){
+                                    SettingsView()
                                 }
                                 
                                 Button{
@@ -203,8 +230,10 @@ struct ProfileView: View {
                             
                         }
                         .padding()
-                        .frame(width: 320, alignment: .leading)
-                        .background((LinearGradient(gradient: Gradient(colors: [Color("Purple1"), Color("ib")]), startPoint: .center, endPoint: .bottom)))
+                        .padding(.top)
+//                        .frame(width: 330, alignment: .leading)
+
+                        .ignoresSafeArea()
                         Spacer()
                             
                     }
@@ -212,15 +241,16 @@ struct ProfileView: View {
             
             }
         //}
-        // Add an X Button at top to exist the view
-        .navigationBarBackButtonHidden()
-        .transition((.move(edge: .leading)))
-        .animation(.smooth, value: isShowing)
         
+        .background(profileBackgroundColor)
+        .padding(.top, 0.1)
+        .navigationBarBackButtonHidden()
+//        .transition((.move(edge: .leading)))
+//        .animation(.smooth, value: profileViewisShowing)
     }
     
 }
 
 #Preview {
-    ProfileView(isShowing: .constant(true))
+    ProfileView(profileViewisShowing: .constant(true))
 }
