@@ -11,8 +11,8 @@ struct BackgroundColor: View {
     var body: some View {
         ZStack{
             RadialGradient(stops: [
-                .init(color: .blue, location: 0.3),
-                .init(color: .mediumPurple, location: 0.3)
+                .init(color: .myGreen1, location: 0.3),
+                .init(color: .white, location: 0.3)
             ], center: .top, startRadius: 200, endRadius: 700)
             .ignoresSafeArea()
         }

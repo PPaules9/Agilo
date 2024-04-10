@@ -25,14 +25,14 @@ struct ProfileView: View {
                     
                     
                     Rectangle()
-                        .opacity(0.5)
+                    .opacity(0.8)
                         .ignoresSafeArea()
                         .onTapGesture {
                             isShowing.toggle()
                         }
                 
                     HStack {
-                        ScrollView{
+                        ScrollView(showsIndicators: false){
                             VStack(alignment: .leading, spacing: 29){
                                     HStack{
                                         Text(testUser.initials)
@@ -79,7 +79,7 @@ struct ProfileView: View {
                                             Spacer()
                                         }
                                 }
-                                .frame(width: 250, height: 75)
+                                .frame(width: 280, height: 85)
                                 .background(.cyan)
                                 .cornerRadius(15)
                                 
@@ -102,11 +102,6 @@ struct ProfileView: View {
                                 Button{
                                 } label: {
                                     SettingRow(imageName: "platter.filled.top.iphone", title: "Widgets", tintColor: .blue)
-                                }
-
-                                Button{
-                                } label: {
-                                    SettingRow(imageName: "gear", title: "Settings", tintColor: .blue)
                                 }
                                 
                                 //Contact Info
@@ -166,7 +161,7 @@ struct ProfileView: View {
                                     //viewModel.signOut()
                                     print("User is Signed Out")
                                 } label: {
-                                    SettingRow(imageName: "arrow.left.circle", title: "Sign Out", tintColor: Color(.systemGray))
+                                    SettingRow(imageName: "arrow.left.circle", title: "Sign Out", tintColor: Color("c"))
                                 }
                                 
                                 
@@ -174,18 +169,18 @@ struct ProfileView: View {
                                     //Delete
                                     print("User has Delete his Account")
                                 } label: {
-                                    SettingRow(imageName: "trash.circle", title: "Delete Account", tintColor: Color(.systemGray))
+                                    SettingRow(imageName: "trash.circle", title: "Delete Account", tintColor: Color("c"))
                                 }
                                 
                                 HStack{
-                                    SettingRow(imageName: "gearshape", title: "Version", tintColor: Color(.systemGray))
+                                    SettingRow(imageName: "gearshape", title: "Version", tintColor: Color("c"))
                                     
                                     
                                     Spacer()
                                     
                                     Text(appVersion)
                                         .font(.subheadline)
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(Color("c"))
                                         .font(.custom("Charter", size: 16))
                                     
                                 }
@@ -208,17 +203,20 @@ struct ProfileView: View {
                             
                         }
                         .padding()
-                        .frame(width: 285, alignment: .leading)
-                        .background(Color(.systemMint))
+                        .frame(width: 320, alignment: .leading)
+                        .background((LinearGradient(gradient: Gradient(colors: [Color("Purple1"), Color("ib")]), startPoint: .center, endPoint: .bottom)))
                         Spacer()
-                           
+                            
                     }
                 }
+            
             }
         //}
+        // Add an X Button at top to exist the view
         .navigationBarBackButtonHidden()
         .transition((.move(edge: .leading)))
         .animation(.smooth, value: isShowing)
+        
     }
     
 }

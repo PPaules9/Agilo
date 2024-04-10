@@ -17,22 +17,28 @@ struct MainView: View {
             
             Divider()
             TabView {
-                Projects()
-                    .tabItem {
-                        Label("Projects", systemImage: "calendar.badge.checkmark")
-                    }
                 
                 HomeView()
                     .tabItem {
                         Label("Home", systemImage: "house")
                     }
                 
+                Projects()
+                    .tabItem {
+                        Label("TaskHub", systemImage: "calendar.badge.checkmark")
+                    }
                 
                 SpikeView()
                     .tabItem {
                         Label("Spike", systemImage: "figure.walk.motion.trianglebadge.exclamationmark")
                     }
                 
+                ProfileView(isShowing: $showMenu)
+                    .tabItem {
+                        Label("Profile", systemImage: "person.crop.circle")
+                    } .onTapGesture {
+                        showMenu = true
+                    }
             }
             
             ProfileView(isShowing: $showMenu)
@@ -47,12 +53,6 @@ struct MainView: View {
                 }, label: {
                     Image(systemName: "line.3.horizontal")
                 })
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: ShowMore()) {
-                    Image(systemName: "ellipsis.circle")
-                    // Menu icon (3 dots)
-                }
             }
         }
     }

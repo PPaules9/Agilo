@@ -22,6 +22,7 @@ struct SettingRow: View {
             Text(title)
                 .font(.custom("Charter", size: 16))
                 .font(.subheadline)
+                .bold()
                 .foregroundColor(.black)
         }
     }

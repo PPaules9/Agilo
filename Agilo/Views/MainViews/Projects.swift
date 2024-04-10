@@ -16,19 +16,50 @@ struct Projects: View {
         ZStack{
             if !show {
                 ProjectCardView(namespace: namespace, show: $show)
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: ShowMore()) {
+                                Image(systemName: "plus.square")
+                                // Menu icon (3 dots)
+                            }
+                        }
+                    }
                 
             } else {
                 ProjectDetailView(namespace: namespace, show: $show)
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: ShowMore()) {
+                                Image(systemName: "plus.square")
+                                // Menu icon (3 dots)
+                            }
+                        }
+                    }
             }
         }
+        
         .onTapGesture {
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                 show.toggle()
             }
         }
+        
     }
+    
 }
 
 #Preview {
     Projects()
 }
+/*
+ 
+ This is will mainly about every one specific task in the current sprint
+Project View: In this tab, users can access a list of projects they’ve created or are participating in. They can view details about each project, including its backlog, sprint history, and team members. This view allows for comprehensive project management and tracking.
+ 
+ **Project View**:
+    - **Project List**: Present a list of projects created by the user or shared with them, along with key project details such as project name, team members, and current status (e.g., active, completed).
+    - **Project Details**: Upon selecting a specific project, display comprehensive project details including the backlog of user stories, sprint history, release plans, and any associated documents or files.
+    - **Team Collaboration**: Enable users to manage team collaboration by viewing team member roles, assigning tasks, and communicating within the project via comments or chat functionality.
+    - **Progress Tracking**: Provide visual representations of project progress, such as sprint burndown charts, velocity charts, and cumulative flow diagrams, to help users monitor project health and identify potential bottlenecks.
+
+*/
