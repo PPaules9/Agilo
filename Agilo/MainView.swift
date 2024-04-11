@@ -7,15 +7,14 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var profileViewisShowing = false
+    @State private var moreViewisShowing = false
     @Namespace var nameSpace
     
     var body: some View {
         NavigationStack{
             
             ZStack{
-                
-                Divider()
+                                
                 TabView {
                     
                     HomeView()
@@ -33,30 +32,28 @@ struct MainView: View {
                             Label("Spike", systemImage: "figure.walk.motion.trianglebadge.exclamationmark")
                         }
                     
-                    ProfileView(profileViewisShowing: $profileViewisShowing)
+                    MoreView(moreViewisShowing: $moreViewisShowing)
                         .tabItem {
-                            Label("Profile", systemImage: "person.crop.circle")
-                        } .onTapGesture {
-                            profileViewisShowing = true
+                            Label("More", systemImage: "line.3.horizontal")
                         }
                 }
-                .cornerRadius(profileViewisShowing ? 20 : 10)
-                .offset(x: profileViewisShowing ? 300 : 0, y: profileViewisShowing ? 45 : 0)
-                
-                ProfileView(profileViewisShowing: $profileViewisShowing)
-                
+                .offset(x: moreViewisShowing ? 400 : 0)
+                    
+                MoreView(moreViewisShowing: $moreViewisShowing)
+                      .transition(.slide)
+                      .toolbar(moreViewisShowing ? .hidden : .visible, for: .navigationBar)
             }
             
-            .toolbar(profileViewisShowing ? .hidden : .visible, for: .navigationBar)
+//            .toolbar(moreViewisShowing ? .hidden : .visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
-                        withAnimation(.spring()) {
-                            profileViewisShowing.toggle()
+                        withAnimation(.easeIn) {
+                            moreViewisShowing.toggle()
                         }
                         
                     }, label: {
-                        Image(systemName: "line.3.horizontal")
+                        Image(systemName: "person.crop.circle")
                     })
                 }
             }

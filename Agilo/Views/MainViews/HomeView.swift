@@ -11,7 +11,7 @@ struct HomeView: View {
     @State var rotation: CGFloat = 0.0
 
     var body: some View {
-        ScrollView {
+        ScrollView (showsIndicators: false){
             ScrollView(.horizontal, showsIndicators: false){
                 HStack(spacing: 30){
                     HomeCard()
@@ -22,27 +22,153 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 200)
                 .padding(.leading)
-
+                
                 Divider()
             }
             
             VStack(alignment: .leading){
-                VStack {
-                    Circle()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(Color("myGreen2"))
+                HStack {
+                    Text("DAILY CHECKIN")
+                    .font(.custom("Arial", size: 14))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.gray)
                     Spacer()
-                    Divider()
-                        .rotationEffect(.degrees(90))
-                        .frame(height: 50)
-                    
                 }
+            }
+            .padding(.top)
+            .frame(width: 325, height: 30)
+            
+            
+            HStack {
+                VStack{
+                    Spacer()
+                        Divider()
+                            .rotationEffect(.degrees(90))
+                            .frame(width: 240)
+                            .offset(y: 130)
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color("myGreen2"))
+                        Spacer()
+                    }
+                .frame(width: 25, height: 200)
+                
+                VStack{
+                    Text("Unlock All Features")
+                        .font(.custom("Charter", size: 16))
+                        .foregroundStyle(.white)
+                    
+                    Text("Pro Agilo Manger")
+                        .font(.custom("Charter", size: 22))
+                        .foregroundStyle(.white)
+                        .bold()
+                }
+                .frame(width: 320, height: 300)
+                .background(.cyan)
+                .cornerRadius(20)
+                Spacer()
+            }
+            .padding(.top)
+            .padding(.horizontal)
+            .frame(width: 380)
+            
+            
+            HStack {
+                VStack{
+                    Spacer()
+                        Divider()
+                            .rotationEffect(.degrees(90))
+                            .frame(width: 130)
+                            .offset(y: 90)
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color(.systemGray3))
+                        Spacer()
+                    }
+                .frame(width: 25, height: 200)
+                
+                VStack{
+                    Text("Unlock All Features")
+                        .font(.custom("Charter", size: 16))
+                        .foregroundStyle(.white)
+                    
+                    Text("Pro Agilo Manger")
+                        .font(.custom("Charter", size: 22))
+                        .foregroundStyle(.white)
+                        .bold()
+                }
+                .frame(width: 320, height: 130)
+                .background(Color(.purple1))
+                .cornerRadius(20)
+                Spacer()
+            }
+            .padding(.horizontal)
+            .frame(width: 380, height: 160)
+            
+            HStack {
+                VStack{
+                    Spacer()
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color(.systemGray3))
+                        Spacer()
+                    }
+                .frame(width: 25, height: 200)
+                
+                VStack{
+                    Text("Unlock All Features")
+                        .font(.custom("Charter", size: 16))
+                        .foregroundStyle(.white)
+                    
+                    Text("Pro Agilo Manger")
+                        .font(.custom("Charter", size: 22))
+                        .foregroundStyle(.white)
+                        .bold()
+                }
+                .frame(width: 320, height: 130)
+                .background(Color(.purple1))
+                .cornerRadius(20)
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.bottom)
+            .frame(width: 380, height: 140)
+            
+            HStack{
+                ZStack{
+                    Capsule()
+                        .frame(width: 60, height: 25)
+                        .foregroundStyle(Color(.systemGray6))
+                    HStack{
+                        Image(systemName: "arrowtriangle.right")
+                            .foregroundColor(Color.gray)
+
+                        Text("9")
+                            .font(.custom("Arial", size: 14))
+                        
+                    }
+                }
+                    Text("Daily Streak")
+                        .font(.custom("Arial", size: 14))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.gray)
                 
             }
+            .padding(.bottom, 9)
+            
+            Divider()
+            
+            VStack(alignment: .leading) {
+                Text("Complete View")
+                Text("Complete View")
+                Text("Complete View")
+                Text("Complete View")
+            }
+            .frame(width: 350)
             .padding()
-            .frame(width:350, height: 200)
             
         }
+        .navigationTitle("Today")
         .padding(.top, 10)
     }
 }

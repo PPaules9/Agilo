@@ -15,21 +15,33 @@ struct Projects: View {
     var body: some View {
         ZStack{
             if !show {
-                ProjectCardView(namespace: namespace, show: $show)
-                    .toolbar{
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ShowMore()) {
-                                Image(systemName: "plus.square")
-                                // Menu icon (3 dots)
-                            }
-                        }
+                ScrollView{
+                    VStack{
+                        ProjectCardView(namespace: namespace, show: $show)
+                        ProjectCardView(namespace: namespace, show: $show)
                     }
+                    
+                }
+                
+                ZStack{
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "plus.app")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .background(.black)
+                            .foregroundColor(.white)
+                            .cornerRadius(5)
+                            .offset(x: 140, y: 290)
+                    })
+                }
                 
             } else {
                 ProjectDetailView(namespace: namespace, show: $show)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ShowMore()) {
+                            NavigationLink(destination: ProfileView()) {
                                 Image(systemName: "plus.square")
                                 // Menu icon (3 dots)
                             }
