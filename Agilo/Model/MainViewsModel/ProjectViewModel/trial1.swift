@@ -1,13 +1,13 @@
 //
-//  ProjectCardView.swift
+//  trial1.swift
 //  Agilo
 //
-//  Created by Pavly Paules on 06/04/2024.
+//  Created by Pavly Paules on 12/04/2024.
 //
 
 import SwiftUI
 
-struct ProjectCardView: View {
+struct trial1: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
     
@@ -16,7 +16,7 @@ struct ProjectCardView: View {
             Spacer()
             
             VStack(alignment: .leading, spacing: 12) {
-                Text("Project 1")
+                Text("Project 2")
                     .font(.largeTitle.weight(.bold))
                     .matchedGeometryEffect(id: "title", in: namespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -59,11 +59,10 @@ struct ProjectCardView: View {
     }
 }
 
-
-struct ProjectCardView_Previews: PreviewProvider {
+struct trial1_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        ProjectCardView(namespace: namespace, show: .constant(true))
+        trial1(namespace: namespace, show: .constant(true))
     }
 }

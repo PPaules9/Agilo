@@ -7,22 +7,29 @@
 
 import SwiftUI
 
+
 struct MoreView: View {
     @State private var appVersion = "1.0.0"
-    
+
     @Binding var moreViewisShowing: Bool
+    @State private var showProfileView = false
     @State private var showSettings = false
     
     @Environment(\.colorScheme) var colorScheme
     
-    let lightGradient = LinearGradient(gradient: Gradient(colors: [Color("Purple2"), Color("ib")]), startPoint: .center, endPoint: .bottom)
-    let darkGradient = LinearGradient(gradient: Gradient(colors: [Color("c"), Color("Purple2")]), startPoint: .center, endPoint: .bottom)
+    let lightGradient = LinearGradient(gradient: Gradient(colors: [Color("Purple2"), Color("ib")]),
+                                       startPoint: .top,
+                                       endPoint: UnitPoint(x: 2, y: 1.2))
+    
+    let darkGradient = LinearGradient(gradient: Gradient(colors: [Color("c"), Color("Purple2")]), startPoint: UnitPoint(x: 2, y: 0.8), endPoint: UnitPoint(x: 2, y: 2))
     
     var profileBackgroundColor: LinearGradient {
         colorScheme == .light ? lightGradient : darkGradient
     }
     
-    
+    var iconBackgroundColor: Color {
+        colorScheme == .light ? Color("c") : .gray
+    }
     
     var body: some View {
         if moreViewisShowing {
@@ -39,14 +46,19 @@ struct MoreView: View {
                     ScrollView(showsIndicators: false){
                         VStack(alignment: .leading, spacing: 29){
                             HStack{
-                                Text(testUser.initials)
-                                    .font(.custom("Charter", size: 28))
-                                    .font(.title)
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                                    .frame(width: 72, height: 72)
-                                    .background(Color(.systemGray3))
-                                    .clipShape(Circle())
+                                Button(action:  {
+                                    //show ProfileView by boolean
+                                    showProfileView = true
+                                }, label:{
+                                    Text(testUser.initials)
+                                        .font(.custom("Charter", size: 30))
+                                        .font(.title)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                                        .frame(width: 75, height: 75)
+                                        .background(Color(.systemGray3))
+                                        .clipShape(Circle())
+                                })
                                 
                                 VStack (alignment: .leading, spacing: 4 ){
                                     
@@ -61,6 +73,7 @@ struct MoreView: View {
                                         .foregroundStyle(.tint)
                                     
                                 }
+                                
                             }
                             .padding(.top)
                             
@@ -83,11 +96,13 @@ struct MoreView: View {
                                     
                                     Spacer()
                                 }
+
                             }
-                            .frame(width: 350, height: 100)
+                            .frame(width: 340, height: 100)
                             .background(.cyan)
                             .cornerRadius(15)
-                            
+                            .shadow(radius: 2)
+
                             
                             Button{
                                 showSettings.toggle()
@@ -164,12 +179,12 @@ struct MoreView: View {
                             Divider()
                             
                             
-                            Button{
-                                //sign out
+                            Button {
+                                // Sign out action
                                 //viewModel.signOut()
                                 print("User is Signed Out")
                             } label: {
-                                SettingRow(imageName: "arrow.left.circle", title: "Sign Out", tintColor: Color("c"))
+                                SettingRow(imageName: "arrow.left.circle", title: "Sign Out", tintColor:Color(iconBackgroundColor))
                             }
                             
                             
@@ -177,35 +192,39 @@ struct MoreView: View {
                                 //Delete
                                 print("User has Delete his Account")
                             } label: {
-                                SettingRow(imageName: "trash.circle", title: "Delete Account", tintColor: Color("c"))
+                                SettingRow(imageName: "trash.circle", title: "Delete Account", tintColor: Color(iconBackgroundColor))
                             }
                             
                             HStack{
-                                SettingRow(imageName: "gearshape", title: "Version", tintColor: Color("c"))
+                                SettingRow(imageName: "gearshape", title: "Version", tintColor: Color(iconBackgroundColor))
                                 
                                 
                                 Spacer()
                                 
                                 Text(appVersion)
                                     .font(.subheadline)
-                                    .foregroundColor(Color("c"))
+                                    .foregroundColor(Color(iconBackgroundColor))
                                     .font(.custom("Charter", size: 16))
                                 
                             }
                             
+                            
                             VStack(spacing: 6){
                                 Text("Agilo 1.0.0 (15/03)")
-                                    .font(.custom("Arial", size: 12))
+                                    .font(.custom("Arial", size: 11))
+                                    
                                 Text("Made with ☕️ and ❤️ by Pavly A.Hanna")
-                                    .font(.custom("Arial", size: 12))
+                                    .font(.custom("Arial", size: 11))
                                     .font(.body)
                             }
-                            .frame(width:350, height: 100)
+                            .frame(width:350, height: 50)
                         }
                     }
                     .padding()
                     Spacer()
                 }
+                .navigationBarBackButtonHidden()
+                
                 
                 Button(action: {
                     withAnimation(.easeOut){
@@ -214,20 +233,18 @@ struct MoreView: View {
                 }, label: {
                     Image(systemName: "xmark")
                         .foregroundStyle(Color(.black))
-                        .frame(width: 32, height: 32)
+                        .frame(width: 35, height: 35)
                         .background(.cyan)
                         .cornerRadius(15)
                         .padding()
-                        .shadow(radius: 20)
+                        .shadow(radius: 10)
                         .offset(x: -10, y : 30)
                 })
                 
-            //}
+                //}
             }
             .background(profileBackgroundColor)
             .navigationBarBackButtonHidden()
-            .transition(.slide)
-            
         }
         
         

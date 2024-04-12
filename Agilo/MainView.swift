@@ -9,42 +9,54 @@ import SwiftUI
 struct MainView: View {
     @State private var moreViewisShowing = false
     @Namespace var nameSpace
-    
+    @State private var selectedTab = 1 // to show the middle tab first
+
     var body: some View {
         NavigationStack{
             
             ZStack{
-                                
-                TabView {
-                    
+                
+                TabView(selection: $selectedTab){
                     HomeView()
+                        .tag(1)
                         .tabItem {
                             Label("Home", systemImage: "house")
                         }
                     
-                    Projects()
+                    SearchView()
+                        .tag(2)
                         .tabItem {
-                            Label("TaskHub", systemImage: "calendar.badge.checkmark")
+                            Label("Explore", systemImage: "magnifyingglass")
+                        }
+                    
+                    Projects()
+                        .tag(3)
+                        .tabItem {
+                            Label("TaskHub", systemImage: "plus.app")
                         }
                     
                     SpikeView()
+                        .tag(4)
                         .tabItem {
-                            Label("Spike", systemImage: "figure.walk.motion.trianglebadge.exclamationmark")
+                            Label("ProjectHub", systemImage: "figure.walk.motion.trianglebadge.exclamationmark")
                         }
                     
-                    MoreView(moreViewisShowing: $moreViewisShowing)
+                
+                    ProfileView()
+                        .tag(5)
                         .tabItem {
-                            Label("More", systemImage: "line.3.horizontal")
+                            Label("Profile", systemImage: "person")
                         }
+                    
                 }
-                .offset(x: moreViewisShowing ? 400 : 0)
-                    
+                .offset(x: moreViewisShowing ? 900 : 0)
+                .navigationTitle(selectedTab == 1 ? "Dashboard" : "")
+                
+                
                 MoreView(moreViewisShowing: $moreViewisShowing)
-                      .transition(.slide)
-                      .toolbar(moreViewisShowing ? .hidden : .visible, for: .navigationBar)
+                    .toolbar(moreViewisShowing ? .hidden : .visible, for: .navigationBar)
             }
             
-//            .toolbar(moreViewisShowing ? .hidden : .visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
@@ -53,10 +65,11 @@ struct MainView: View {
                         }
                         
                     }, label: {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "line.3.horizontal")
                     })
                 }
-            }
+            } 
+            
         }
     }
 }

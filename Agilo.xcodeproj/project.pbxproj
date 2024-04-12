@@ -12,6 +12,12 @@
 		226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */; };
 		226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */; };
 		226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */; };
+		22BB32582BC950F200224DB2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB32572BC950F200224DB2 /* SearchView.swift */; };
+		22BB325C2BC9687D00224DB2 /* ProgressChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB325B2BC9687C00224DB2 /* ProgressChart.swift */; };
+		22BB325E2BC9696900224DB2 /* EnergyLevelChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB325D2BC9696900224DB2 /* EnergyLevelChart.swift */; };
+		22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB325F2BC96A2D00224DB2 /* CurrentProject.swift */; };
+		22BB32642BC9723B00224DB2 /* trial1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB32632BC9723B00224DB2 /* trial1.swift */; };
+		22BB32662BC9724500224DB2 /* trial2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB32652BC9724500224DB2 /* trial2.swift */; };
 		22F83A3F2BBDEF5E00196A1D /* AgiloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */; };
 		22F83A432BBDEF6100196A1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F83A422BBDEF6100196A1D /* Assets.xcassets */; };
 		22F83A472BBDEF6100196A1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F83A462BBDEF6100196A1D /* Preview Assets.xcassets */; };
@@ -35,6 +41,12 @@
 		226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
 		226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
+		22BB32572BC950F200224DB2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		22BB325B2BC9687C00224DB2 /* ProgressChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChart.swift; sourceTree = "<group>"; };
+		22BB325D2BC9696900224DB2 /* EnergyLevelChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyLevelChart.swift; sourceTree = "<group>"; };
+		22BB325F2BC96A2D00224DB2 /* CurrentProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProject.swift; sourceTree = "<group>"; };
+		22BB32632BC9723B00224DB2 /* trial1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trial1.swift; sourceTree = "<group>"; };
+		22BB32652BC9724500224DB2 /* trial2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trial2.swift; sourceTree = "<group>"; };
 		22F83A3B2BBDEF5E00196A1D /* Agilo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agilo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgiloApp.swift; sourceTree = "<group>"; };
 		22F83A422BBDEF6100196A1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				222128742BC69D5200663C84 /* HomeCard.swift */,
+				22BB325B2BC9687C00224DB2 /* ProgressChart.swift */,
+				22BB325D2BC9696900224DB2 /* EnergyLevelChart.swift */,
+				22BB325F2BC96A2D00224DB2 /* CurrentProject.swift */,
 			);
 			path = HomeViewModel;
 			sourceTree = "<group>";
@@ -76,8 +91,10 @@
 		222128762BC69DBF00663C84 /* ProjectViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */,
 				226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */,
+				226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */,
+				22BB32632BC9723B00224DB2 /* trial1.swift */,
+				22BB32652BC9724500224DB2 /* trial2.swift */,
 			);
 			path = ProjectViewModel;
 			sourceTree = "<group>";
@@ -164,6 +181,7 @@
 				22F83A562BC024A700196A1D /* Projects.swift */,
 				22F83A592BC024CC00196A1D /* HomeView.swift */,
 				22F83A5B2BC024E100196A1D /* SpikeView.swift */,
+				22BB32572BC950F200224DB2 /* SearchView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -276,18 +294,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */,
+				22BB32582BC950F200224DB2 /* SearchView.swift in Sources */,
 				226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */,
 				22F83A662BC0262400196A1D /* SignUp.swift in Sources */,
 				220EA7D52BC714190092AB8E /* SettingsView.swift in Sources */,
 				22F83A682BC0263100196A1D /* Login.swift in Sources */,
 				22F83A5F2BC0251900196A1D /* MoreView.swift in Sources */,
+				22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */,
+				22BB32642BC9723B00224DB2 /* trial1.swift in Sources */,
 				222128752BC69D5200663C84 /* HomeCard.swift in Sources */,
 				22F83A5C2BC024E100196A1D /* SpikeView.swift in Sources */,
 				22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */,
 				226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */,
+				22BB32662BC9724500224DB2 /* trial2.swift in Sources */,
 				22F83A522BBF269800196A1D /* WelcomViews.swift in Sources */,
 				22F83A632BC0253800196A1D /* SettingRow.swift in Sources */,
+				22BB325C2BC9687D00224DB2 /* ProgressChart.swift in Sources */,
 				22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */,
+				22BB325E2BC9696900224DB2 /* EnergyLevelChart.swift in Sources */,
 				22F83A572BC024A700196A1D /* Projects.swift in Sources */,
 				226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */,
 				22F83A612BC0252900196A1D /* ProfileView.swift in Sources */,

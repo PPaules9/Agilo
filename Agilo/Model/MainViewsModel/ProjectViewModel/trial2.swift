@@ -1,13 +1,13 @@
 //
-//  ProjectDetailView.swift
+//  trial2.swift
 //  Agilo
 //
-//  Created by Pavly Paules on 06/04/2024.
+//  Created by Pavly Paules on 12/04/2024.
 //
 
 import SwiftUI
 
-struct ProjectDetailView: View {
+struct trial2: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
     
@@ -80,10 +80,10 @@ struct ProjectDetailView: View {
     }
 }
 
-struct ProjectDetailView_Previews: PreviewProvider {
+struct trial2_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        ProjectDetailView(namespace: namespace, show: .constant(true))
+        trial2(namespace: namespace, show: .constant(true))
     }
 }
