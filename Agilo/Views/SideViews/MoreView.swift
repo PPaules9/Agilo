@@ -18,10 +18,10 @@ struct MoreView: View {
     @Environment(\.colorScheme) var colorScheme
     
     let lightGradient = LinearGradient(gradient: Gradient(colors: [Color("Purple2"), Color("ib")]),
-                                       startPoint: .top,
+                                       startPoint: UnitPoint(x: 2, y: 0.9),
                                        endPoint: UnitPoint(x: 2, y: 1.2))
     
-    let darkGradient = LinearGradient(gradient: Gradient(colors: [Color("c"), Color("Purple2")]), startPoint: UnitPoint(x: 2, y: 0.8), endPoint: UnitPoint(x: 2, y: 2))
+    let darkGradient = LinearGradient(gradient: Gradient(colors: [Color("c"), Color("Purple2")]), startPoint: UnitPoint(x: 2, y: 0.9), endPoint: UnitPoint(x: 2, y: 2))
     
     var profileBackgroundColor: LinearGradient {
         colorScheme == .light ? lightGradient : darkGradient
@@ -58,19 +58,24 @@ struct MoreView: View {
                                         .frame(width: 75, height: 75)
                                         .background(Color(.systemGray3))
                                         .clipShape(Circle())
+                                        .fontDesign(.monospaced)
+
                                 })
                                 
                                 VStack (alignment: .leading, spacing: 4 ){
                                     
                                     Text(testUser.fullName)
-                                        .font(.custom("Charter", size: 18))
+                                        .font(.custom("Charter", size: 22))
                                         .fontWeight(.semibold)
                                         .padding(.top, 4)
+
                                     
                                     Text(testUser.email)
                                         .font(.custom("Charter", size: 16))
                                         .font(.footnote)
                                         .foregroundStyle(.tint)
+                                        .fontDesign(.monospaced)
+
                                     
                                 }
                                 
@@ -86,11 +91,14 @@ struct MoreView: View {
                                         Text("Unlock All Features")
                                             .font(.custom("Charter", size: 18))
                                             .foregroundStyle(.white)
-                                        
+                                            .fontDesign(.monospaced)
+
                                         Text("Pro Agilo Manger")
                                             .font(.custom("Charter", size: 24))
                                             .foregroundStyle(.white)
                                             .bold()
+                                            .fontDesign(.monospaced)
+
                                     }
                                     .padding(.leading)
                                     
@@ -103,124 +111,178 @@ struct MoreView: View {
                             .cornerRadius(15)
                             .shadow(radius: 2)
 
-                            
-                            Button{
-                                showSettings.toggle()
-                            } label: {
-                                SettingRow(imageName: "gear", title: "Settings", tintColor: .blue)
-                            }.sheet(isPresented: $showSettings){
-                                SettingsView()
+                            ZStack{
+                                Rectangle()
+                                    .fill(.thinMaterial)
+                                    .cornerRadius(20)
+                                    .frame(width: 350, height: 210)
+
+                                    VStack(alignment: .leading, spacing: 25){
+                                            Button{
+                                                showSettings.toggle()
+                                            } label: {
+                                                SettingRow(imageName: "gear", title: "Settings", tintColor: .blue)
+                                            }.sheet(isPresented: $showSettings){
+                                                SettingsView()
+                                            }                                            
+                                            Button{
+                                            } label: {
+                                                SettingRow(imageName: "bell.badge", title: "Reminders", tintColor: .blue)
+                                            }
+                                            
+                                            Button{
+                                            } label: {
+                                                SettingRow(imageName: "chart.bar", title: "Charts", tintColor: .blue)
+                                            }
+                                            
+                                            Button{
+                                            } label: {
+                                                SettingRow(imageName: "platter.filled.top.iphone", title: "Widgets", tintColor: .blue)
+                                            }
+                                        
+                                    }
                             }
-                            
-                            Button{
-                            } label: {
-                                SettingRow(imageName: "bell.badge", title: "Reminders", tintColor: .blue)
-                            }
-                            
-                            Button{
-                            } label: {
-                                SettingRow(imageName: "chart.bar", title: "Charts", tintColor: .blue)
-                            }
-                            
-                            Button{
-                            } label: {
-                                SettingRow(imageName: "platter.filled.top.iphone", title: "Widgets", tintColor: .blue)
-                            }
-                            
+                            .frame(width:350, height: 200)
                             //Contact Info
-                            Divider()
                             
-                            Button{
+                            ZStack{
+                                Rectangle()
+                                    .fill(.thinMaterial)
+                                    .cornerRadius(20)
+                                    .frame(width: 350, height: 100)
                                 
-                                print("Make a Link to twitter")
-                            } label: {
-                                SettingRow(imageName: "x.square", title: "Follow on Twitter / X", tintColor: .blue)
+                                VStack(alignment: .leading, spacing: 25){
+                                    Button{
+                                        
+                                        print("Make a Link to twitter")
+                                    } label: {
+                                        SettingRow(imageName: "x.square", title: "Follow on Twitter / X", tintColor: .blue)
+                                    }
+                                    
+                                    Button{
+                                        
+                                        print("Make a Link to Mail")
+                                    } label: {
+                                        SettingRow(imageName: "captions.bubble", title: "Send Feedback", tintColor: .blue)
+                                    }
+                                }
                             }
-                            
-                            Button{
-                                
-                                print("Make a Link to Mail")
-                            } label: {
-                                SettingRow(imageName: "captions.bubble", title: "Send Feedback", tintColor: .blue)
-                            }
-                            
-                            
+                            .frame(width:350, height: 80)
+
                             //App Info
-                            Divider()
-                            
-                            Button{
+
+                            ZStack{
+                                Rectangle()
+                                    .fill(.thinMaterial)
+                                    .cornerRadius(20)
+                                    .frame(width: 350, height: 200)
                                 
-                                print("Make a Link to AppStore")
-                            } label: {
-                                SettingRow(imageName: "star.square", title: "Rate The App", tintColor: .blue)
+                                VStack(alignment: .leading, spacing: 25){
+                                    Button{
+                                        
+                                        print("Make a Link to AppStore")
+                                    } label: {
+                                        SettingRow(imageName: "star.square", title: "Rate The App", tintColor: .blue)
+                                    }
+                                    
+                                    Button{
+                                        print("Write a Privacy Page")
+                                    } label: {
+                                        SettingRow(imageName: "lock.circle.dotted", title: "Privacy Policy", tintColor: .blue)
+                                    }
+                                    
+                                    Button{
+                                        
+                                        print("Make a page about the app")
+                                    } label: {
+                                        SettingRow(imageName: "hand.raised.square.on.square", title: "Terms of use", tintColor: .blue)
+                                    }
+                                    
+                                    
+                                    Button{
+                                        
+                                        print("Make a page about the app")
+                                    } label: {
+                                        SettingRow(imageName: "i.circle", title: "About", tintColor: .blue)
+                                    }
+                                }
                             }
-                            
-                            Button{
-                                print("Write a Privacy Page")
-                            } label: {
-                                SettingRow(imageName: "lock.circle.dotted", title: "Privacy Policy", tintColor: .blue)
-                            }
-                            
-                            Button{
+                            .frame(width:350, height: 200)
+
+                            ZStack{
+                                Rectangle()
+                                    .fill(.thinMaterial)
+                                    .cornerRadius(20)
+                                    .frame(width: 350, height: 160)
                                 
-                                print("Make a page about the app")
-                            } label: {
-                                SettingRow(imageName: "hand.raised.square.on.square", title: "Terms of use", tintColor: .blue)
+                                VStack(alignment: .leading, spacing: 25){
+                                    Button {
+                                        // Sign out action
+                                        //viewModel.signOut()
+                                        print("User is Signed Out")
+                                    } label: {
+                                        SettingRow(imageName: "arrow.left.circle", title: "Sign Out", tintColor:Color(iconBackgroundColor))
+                                    }
+                                    
+                                    
+                                    Button{
+                                        //Delete
+                                        print("User has Delete his Account")
+                                    } label: {
+                                        SettingRow(imageName: "trash.circle", title: "Delete Account", tintColor: Color(iconBackgroundColor))
+                                    }
+                                    
+                                    HStack{
+                                        VStack {
+                                            HStack{
+                                                Image(systemName: "gearshape")
+                                                    .imageScale(.small)
+                                                    .font(.title)
+                                                    .foregroundColor(Color(iconBackgroundColor))
+                                                    .frame(width: 40)
+                                                
+                                                Text("Version")
+                                                    .font(.custom("Charter", size: 18))
+                                                    .font(.subheadline)
+                                                    .bold()
+                                                    .foregroundColor(colorScheme == .light ? .black : .white)
+                                                    .fontDesign(.monospaced)
+                                                    .shadow(radius: 1)
+                                                
+                                                Spacer()
+                                                
+                                                Text(appVersion)
+                                                    .font(.subheadline)
+                                                    .foregroundColor(Color(iconBackgroundColor))
+                                                    .font(.custom("Charter", size: 16))
+                                                
+                                            }
+                                            .padding(.horizontal)
+                                            
+                                           
+                                        }
+                                    }
+                                }
                             }
-                            
-                            
-                            Button{
-                                
-                                print("Make a page about the app")
-                            } label: {
-                                SettingRow(imageName: "i.circle", title: "About", tintColor: .blue)
-                            }
-                            
-                            Divider()
-                            
-                            
-                            Button {
-                                // Sign out action
-                                //viewModel.signOut()
-                                print("User is Signed Out")
-                            } label: {
-                                SettingRow(imageName: "arrow.left.circle", title: "Sign Out", tintColor:Color(iconBackgroundColor))
-                            }
-                            
-                            
-                            Button{
-                                //Delete
-                                print("User has Delete his Account")
-                            } label: {
-                                SettingRow(imageName: "trash.circle", title: "Delete Account", tintColor: Color(iconBackgroundColor))
-                            }
-                            
-                            HStack{
-                                SettingRow(imageName: "gearshape", title: "Version", tintColor: Color(iconBackgroundColor))
-                                
-                                
-                                Spacer()
-                                
-                                Text(appVersion)
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(iconBackgroundColor))
-                                    .font(.custom("Charter", size: 16))
-                                
-                            }
-                            
-                            
+                            .frame(width:350, height: 150)
+
                             VStack(spacing: 6){
                                 Text("Agilo 1.0.0 (15/03)")
                                     .font(.custom("Arial", size: 11))
-                                    
+                                    .fontDesign(.monospaced)
+
                                 Text("Made with ☕️ and ❤️ by Pavly A.Hanna")
                                     .font(.custom("Arial", size: 11))
                                     .font(.body)
+                                    .fontDesign(.monospaced)
+
                             }
                             .frame(width:350, height: 50)
                         }
                     }
-                    .padding()
+                    .padding(.top, 1)
+                    .padding(.bottom, 1)
+                    .padding(.horizontal)
                     Spacer()
                 }
                 .navigationBarBackButtonHidden()
@@ -243,7 +305,7 @@ struct MoreView: View {
                 
                 //}
             }
-            .background(profileBackgroundColor)
+            .padding(.horizontal)
             .navigationBarBackButtonHidden()
         }
         

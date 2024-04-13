@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct SpikeView: View {
+    
     var body: some View {
+        //        if projects.empty {
         ContentUnavailableView {
-            Label("No Spikes Yet", systemImage: "plus")
+            Label("No Projects Yet", systemImage: "plus")
         } description: {
-            Text("There is no Projects yet")
+            Text("Add projects from the add Button")
         }
+        
+        //        } else {
+        
+        //        }
     }
+    
 }
-
 #Preview {
     SpikeView()
 }

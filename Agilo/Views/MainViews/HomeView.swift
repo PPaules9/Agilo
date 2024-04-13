@@ -35,6 +35,7 @@ struct HomeView: View {
                             .font(.custom("Arial", size: 14))
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
+                            .fontDesign(.monospaced)
                         Spacer()
                     }
                 }
@@ -60,11 +61,14 @@ struct HomeView: View {
                         Text("Unlock All Features")
                             .font(.custom("Charter", size: 16))
                             .foregroundStyle(.white)
-                        
+                            .fontDesign(.monospaced)
+
                         Text("Pro Agilo Manger")
                             .font(.custom("Charter", size: 22))
                             .foregroundStyle(.white)
                             .bold()
+                            .fontDesign(.monospaced)
+
                     }
                     .frame(width: 320, height: 300)
                     .background(.cyan)

@@ -15,17 +15,29 @@ struct SettingRow: View {
     let tintColor: Color
     
     var body: some View {
-        HStack{
-            Image(systemName: imageName)
-                .imageScale(.small)
-                .font(.title)
-                .foregroundColor(tintColor)
+        VStack {
+            HStack{
+                Image(systemName: imageName)
+                    .imageScale(.small)
+                    .font(.title)
+                    .foregroundColor(tintColor)
+                    .frame(width: 40)
+                
+                Text(title)
+                    .font(.custom("Charter", size: 18))
+                    .font(.subheadline)
+                    .bold()
+                    .foregroundColor(colorScheme == .light ? .black : .white)
+                    .fontDesign(.monospaced)
+                    .shadow(radius: 1)
+                
+                Spacer()
+                
+                Image(systemName: "arrow.right.circle")
+
+            }
+            .padding(.horizontal)
             
-            Text(title)
-                .font(.custom("Charter", size: 20))
-                .font(.subheadline)
-                .bold()
-                .foregroundColor(colorScheme == .light ? .black : .white)
         }
     }
 }
