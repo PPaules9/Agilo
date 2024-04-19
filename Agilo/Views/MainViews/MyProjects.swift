@@ -7,24 +7,59 @@
 
 import SwiftUI
 
-struct SpikeView: View {
+struct MyProjects: View {
     
-    var body: some View {
-        //        if projects.empty {
-        ContentUnavailableView {
-            Label("No Projects Yet", systemImage: "plus")
-        } description: {
-            Text("Add projects from the add Button")
-        }
-        
-        //        } else {
-        
-        //        }
+    @Namespace var namespace
+    @Namespace var namespace1
+    @State var show = false
+    @State var show2 = false
+
+        var body: some View {
+            ScrollView(showsIndicators: false){
+                HStack {
+                    ZStack{
+                        if !show {
+                            ProjectCardView(namespace: namespace, show: $show)
+                            
+                        } else {
+                            VStack{
+                                ProjectDetailView(namespace: namespace, show: $show)
+                            }
+                            .frame(height: 650)
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                            show.toggle()
+                        }
+                    }
+                    
+                }
+                HStack {
+                    ZStack{
+                        if !show2 {
+                            trial1(namespace: namespace1, show: $show2)
+                            
+                        } else {
+                            VStack{
+                                trial2(namespace: namespace1, show: $show2)
+                            }
+                            .frame(height: 650)
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                            show2.toggle()
+                        }
+                    }
+                    
+                }
+            }
     }
     
 }
 #Preview {
-    SpikeView()
+    MyProjects()
 }
 
 /*

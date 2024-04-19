@@ -16,9 +16,11 @@ struct SearchView: View {
     }
     var body: some View {
         NavigationStack{
-            Capsule()
+            
+            Rectangle()
                 .foregroundColor(Color(.systemGray3))
-                .frame(width: 350, height: 50)
+                .frame(width: 350, height: 40)
+                .cornerRadius(10)
                   .overlay(
                     
                     TextField("Search Projects here", text: $capsuleText)
@@ -35,6 +37,19 @@ struct SearchView: View {
             
             ScrollView(showsIndicators: false) {
                 VStack{
+                    HStack {
+                        Text("Discover")
+                            .font(.system(size: 21, design: .monospaced))
+                            .foregroundStyle(Color(BackgroundColor))
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(1)
+                            .fontWeight(.bold)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top)
+
+                    
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack(spacing: 15){
                             Button(action: {
@@ -145,12 +160,12 @@ struct SearchView: View {
                             
                         }
                     }
-                    .padding()
+                    .padding(.horizontal)
                     
                     Spacer()
                     
                     HStack {
-                        Text("LET'S FIND YOU A PROJECT")
+                        Text("Suggested")
                             .font(.system(size: 21, design: .monospaced))
                             .foregroundStyle(Color(BackgroundColor))
                             .multilineTextAlignment(.leading)
@@ -396,18 +411,15 @@ struct SearchView: View {
                 .padding(.top)
                 .padding(.leading)
                 
-                HStack{
-                VStack(alignment: .leading){
-                        Section{
-                            Text("adskbfda")
-                            Text("adskbfda")
-                            Text("adskbfda")
-                            Text("adskbfda")
-                        }
+                VStack {
+                    Form {
+                        Text("Complete View")
+                        Text("Complete View")
+                        Text("Complete View")
                     }
-                    Spacer()
+                    .fontDesign(.monospaced)
                 }
-                .padding()
+                .frame(width: 350, height: 500)
 
             }
             .navigationTitle("Explore")

@@ -9,39 +9,73 @@ import SwiftUI
 
 struct SettingRow: View {
     @Environment(\.colorScheme) var colorScheme
+    let lastItem: Bool
 
     let imageName: String
     let title: String
     let tintColor: Color
     
     var body: some View {
-        VStack {
-            HStack{
-                Image(systemName: imageName)
-                    .imageScale(.small)
-                    .font(.title)
-                    .foregroundColor(tintColor)
-                    .frame(width: 40)
+        if lastItem {
+            VStack {
+                HStack{
+                    Image(systemName: imageName)
+                        .imageScale(.small)
+                        .font(.title)
+                        .foregroundColor(tintColor)
+                        .frame(width: 40)
+                    
+                    Text(title)
+                        .font(.custom("Charter", size: 18))
+                        .font(.subheadline)
+                        .foregroundColor(colorScheme == .light ? .black : .white)
+                        .fontDesign(.monospaced)
+                        .shadow(radius: 1)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "arrow.right.circle")
+                    
+                }
+                .padding(.horizontal)
                 
-                Text(title)
-                    .font(.custom("Charter", size: 18))
-                    .font(.subheadline)
-                    .bold()
-                    .foregroundColor(colorScheme == .light ? .black : .white)
-                    .fontDesign(.monospaced)
-                    .shadow(radius: 1)
-                
-                Spacer()
-                
-                Image(systemName: "arrow.right.circle")
-
             }
-            .padding(.horizontal)
+            .frame(width: 380, height: 20)
+        } else {
+            VStack {
+                HStack{
+                    Image(systemName: imageName)
+                        .imageScale(.small)
+                        .font(.title)
+                        .foregroundColor(tintColor)
+                        .frame(width: 40)
+                    
+                    Text(title)
+                        .font(.custom("Charter", size: 18))
+                        .font(.subheadline)
+                        .foregroundColor(colorScheme == .light ? .black : .white)
+                        .fontDesign(.monospaced)
+                        .shadow(radius: 1)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "arrow.right.circle")
+                    
+                }
+                .padding(.horizontal)
+                Divider()
+                    .frame(height: 0.01) // Adjust height as needed
+                    .background(Color(.systemGray5)) // Set border color
+                //                .blur(radius: 2)
+                    .offset(y: -5)
+                
+            }
+            .frame(width: 380, height: 20)
             
         }
     }
 }
 
 #Preview {
-    SettingRow(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
+    SettingRow(lastItem: false, imageName: "gear", title: "Version", tintColor: Color(.systemGray))
 }

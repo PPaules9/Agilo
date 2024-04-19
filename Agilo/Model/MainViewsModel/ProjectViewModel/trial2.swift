@@ -44,12 +44,18 @@ struct trial2: View {
                         .font(.largeTitle.weight(.bold))
                         .matchedGeometryEffect(id: "title", in: namespace)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .fontDesign(.monospaced)
+
                     Text("Deadline: 12 Aug 2024".uppercased())
                         .font(.footnote.weight(.semibold))
                         .matchedGeometryEffect(id: "subtitle", in: namespace)
+                        .fontDesign(.monospaced)
+
                     Text("Currently you are working on Build the App interface")
                         .font(.footnote)
                         .matchedGeometryEffect(id: "text", in: namespace)
+                        .fontDesign(.monospaced)
+
                     
                     Divider()
                     
@@ -61,6 +67,8 @@ struct trial2: View {
                             .padding(8)
                             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                         Text("This Task is belong to Daniel")
+                            .fontDesign(.monospaced)
+
                     }
                 }
                     .padding(20)

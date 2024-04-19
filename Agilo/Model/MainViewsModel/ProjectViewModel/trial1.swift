@@ -21,16 +21,22 @@ struct trial1: View {
                     .matchedGeometryEffect(id: "title", in: namespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .shadow(radius: 20)
+                    .fontDesign(.monospaced)
+
                 
                 Text("Deadline: 12 Aug 2024".uppercased())
                     .font(.footnote.weight(.semibold))
                     .matchedGeometryEffect(id: "subtitle", in: namespace)
                     .shadow(radius: 20)
+                    .fontDesign(.monospaced)
+
 
                 Text("Currently you are working on Build the App interface")
                     .font(.footnote)
                     .matchedGeometryEffect(id: "text", in: namespace)
                     .shadow(radius: 20)
+                    .fontDesign(.monospaced)
+
 
             }
             .padding(20)
@@ -54,8 +60,7 @@ struct trial1: View {
                 .matchedGeometryEffect(id: "mask", in: namespace)
         )
         .padding(.horizontal, 20)
-        .padding(.vertical, 10)
-        .frame(height: 280)
+        .frame(height: 270)
     }
 }
 

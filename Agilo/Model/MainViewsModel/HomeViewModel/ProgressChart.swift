@@ -22,13 +22,13 @@ struct ProgressChart: View {
                           .foregroundColor(.white)
                           .frame(width: 24, height: 24)
                         Text("Heart Rate")
-                        // MARK: Add SFProDisplay-Semibold file to Xcode, and reference it below:
                           .font(.custom("SFProDisplay-Semibold", size: 13))
+                          .fontDesign(.monospaced)
                           .tracking(0.89)
                           .foregroundColor(.white)
                           .fixedSize(horizontal: false, vertical: true)
                     }
-                    .frame(width: .infinity, height: .infinity, alignment: .leading)
+                    .frame(width: 150, height: 20, alignment: .leading)
                     Spacer()
                     SegmentedControlView(selection: $selection_ca2, items: ["Dec","Jan","Feb"], selectedSegmentTintColor: Color(hex: 0x974c84, alpha: 1), selectedSegmentTextColor: Color(hex: 0xffffff, alpha: 1))
                     .scaleEffect(0.8)
@@ -63,15 +63,10 @@ struct ProgressChart: View {
             , startPoint: UnitPoint(x: 0.1786061951567302, y: 0.883022221559489), endPoint: UnitPoint(x: 0.8213938048432697, y: 0.11697777844051105))
             )
             .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .overlay(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-            .stroke(Color(hex: 0x000000, alpha: 1), style: StrokeStyle(lineWidth: 1, lineJoin: .round))
-            .opacity(0.05)
-            )
-            .shadow(color: Color(hex: 0x000000, alpha: 0.18), radius: 49, x: 2, y: 2)
+            
             .saveSize(in: $geo)
         }
-        .frame(width: 315, height: 175)
+        .frame(width:350, height: 200)
     }
     
     public struct Data: View {

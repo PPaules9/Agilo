@@ -17,14 +17,21 @@ struct EnergyLevelChart: View {
                 
                 VStack(alignment: .leading, spacing: 20){
                     Text("Your Energy Level is")
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
                         .foregroundStyle(Color(.white))
+                        .fontDesign(.monospaced)
+
                     Text("83/100")
                         .bold()
                         .foregroundStyle(Color(.white))
+                        .fontDesign(.monospaced)
+                        .font(.system(size: 14))
+
+
                 }
+                .frame(width: 300, height: 200)
                 .padding()
                 .offset(x: -5)
             }
@@ -32,6 +39,8 @@ struct EnergyLevelChart: View {
                 //                withAnimation(.smooth)
             }
         }
+        .frame(width:350, height: 200)
+
     }
 }
 

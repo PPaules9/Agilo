@@ -11,7 +11,6 @@ struct HomeCard: View {
     @State var rotation: CGFloat = 0.0
 
     var body: some View {
-        VStack{
             ZStack{
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .frame(width: 320, height: 180)
@@ -25,25 +24,38 @@ struct HomeCard: View {
                             .stroke(lineWidth: 3)
                             .frame(width: 315, height: 175)
                     }
-                VStack(alignment: .leading, spacing: 20){
-                    Text("Current Deadline:")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.leading)
-                        .foregroundStyle(Color(.white))
-                    Text(" 25 Aug 2024")
-                        .bold()
-                        .foregroundStyle(Color(.white))
-                }
-                .padding()
-                .offset(x: -5)
+                HStack {
+                    VStack(alignment: .leading, spacing: 20){
+                        Text("Current Deadline:")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .foregroundStyle(Color(.white))
+                            .fontDesign(.monospaced)
+
+
+                        Text("25 Aug 2024")
+                            .bold()
+                            .foregroundStyle(Color(.white))
+                            .fontDesign(.monospaced)
+                            .font(.system(size: 14))
+
+                    }
+                    .frame(width:350, height: 200)
+                    .padding()
+                    
+                    
+                    Spacer()
+                
             }
+            .frame(width:350, height: 200)
             .onAppear{
                 withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)){
                     rotation = 360
                 }
             }
         }
+        .frame(width:350, height: 200)
     }
 }
 

@@ -35,7 +35,7 @@ struct MainView: View {
                         }
                         .toolbar(exploreViewisShowing ? .hidden : .visible, for: .navigationBar)
                     
-                    Projects()
+                    AddProjects()
                         .tag(3)
                         .tabItem {
                             Label("Add", systemImage: "plus.app")
@@ -43,10 +43,10 @@ struct MainView: View {
 
                         }
                     
-                    SpikeView()
+                    MyProjects()
                         .tag(4)
                         .tabItem {
-                            Label("ProjectsHub", systemImage: "doc.plaintext")
+                            Label("Projects", systemImage: "doc.plaintext")
                                 .fontDesign(.monospaced)
 
                         }
@@ -62,7 +62,7 @@ struct MainView: View {
                 }
                 .offset(x: moreViewisShowing ? 900 : 0)
                 .navigationTitle(selectedTab == 1 ? "Dashboard"
- : (selectedTab == 2 ? "Explore" : ""))
+ : (selectedTab == 2 ? "Explore" : (selectedTab == 3 ? "Add  a project" : (selectedTab == 4 ? "Projects" : "Profile"))))
 
                 
                 MoreView(moreViewisShowing: $moreViewisShowing)

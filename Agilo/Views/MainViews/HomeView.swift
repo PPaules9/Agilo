@@ -16,7 +16,7 @@ struct HomeView: View {
         NavigationStack{
             ScrollView (showsIndicators: false){
                 ScrollView(.horizontal, showsIndicators: false){
-                    HStack(spacing: 30){
+                    HStack(spacing: 10){
                         CurrentProject()
                         HomeCard()
                         ProgressChart()
@@ -98,11 +98,15 @@ struct HomeView: View {
                         Text("Unlock All Features")
                             .font(.custom("Charter", size: 16))
                             .foregroundStyle(.white)
+                            .fontDesign(.monospaced)
+
                         
                         Text("Pro Agilo Manger")
                             .font(.custom("Charter", size: 22))
                             .foregroundStyle(.white)
                             .bold()
+                            .fontDesign(.monospaced)
+
                     }
                     .frame(width: 320, height: 130)
                     .background(Color(.purple1))
@@ -126,11 +130,15 @@ struct HomeView: View {
                         Text("Unlock All Features")
                             .font(.custom("Charter", size: 16))
                             .foregroundStyle(.white)
+                            .fontDesign(.monospaced)
+
                         
                         Text("Pro Agilo Manger")
                             .font(.custom("Charter", size: 22))
                             .foregroundStyle(.white)
                             .bold()
+                            .fontDesign(.monospaced)
+
                     }
                     .frame(width: 320, height: 130)
                     .background(Color(.purple1))
@@ -149,9 +157,13 @@ struct HomeView: View {
                         HStack{
                             Image(systemName: "arrowtriangle.right")
                                 .foregroundColor(Color.gray)
+                                .font(.system(size: 12))
+
                             
                             Text("9")
                                 .font(.custom("Arial", size: 14))
+                                .fontDesign(.monospaced)
+
                             
                         }
                     }
@@ -159,6 +171,8 @@ struct HomeView: View {
                         .font(.custom("Arial", size: 14))
                         .fontWeight(.semibold)
                         .foregroundColor(Color.gray)
+                        .fontDesign(.monospaced)
+
                     
                 }
                 .padding(.bottom, 9)
@@ -183,43 +197,61 @@ struct HomeView: View {
                     
                 }
                 
+                
                 Divider()
                 
+                VStack {
+                    Form {
+                        Text("[ ] Done ?")
+                        Text("[ ] Done ?")
+                        Text("[ ] Done ?")
+                    }
+                    .fontDesign(.monospaced)
+
+                    
+                }
+                .frame(width: 350, height: 200)
+                
+                
+                
                 VStack(alignment: .leading) {
-                    Text("Complete View")
-                    Text("Complete View")
-                    Text("Complete View")
-                    Text("Complete View")
-                    Text("Complete View")
-                    Text("Complete View")
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack(spacing: 10){
+                            CurrentProject()
+                            HomeCard()
+                            ProgressChart()
+                            EnergyLevelChart()
+                        }
+                        .frame(height: 190)
+                        
+                        Divider()
+                    }
+                    VStack {
+                        Form {
+                            Text("Complete View")
+                            Text("Complete View")
+                            Text("Complete View")
+                        }
+                        .fontDesign(.monospaced)
+
+                        
+                    }
+                    .frame(width: 350, height: 500)
                     
-                    Text("Complete View")
+                    VStack(spacing: 20){
+                        HStack {
+                            Text("Need Inspiration?")
+                                .fontDesign(.monospaced)
+                            Spacer()
+                        }
+
+                        Text("\("'")Quote Quote Quote Quote Quote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote Quote.\("'")")
+                            .font(.caption)
+                            .fontDesign(.monospaced)
+
+                    }
+                    .frame(width:350, height: 150)
                     
-                    Text("Complete View")
-                    Text("Complete View")
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    Text("Complete View")
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    
-                    Text("Complete View")
-                    Text("Complete View")
-                    Text("Complete View")
                     
                 }
                 .frame(width: 350)

@@ -24,9 +24,9 @@
 		22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A4E2BBDF04A00196A1D /* MainView.swift */; };
 		22F83A522BBF269800196A1D /* WelcomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A512BBF269800196A1D /* WelcomViews.swift */; };
 		22F83A552BBF270500196A1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A542BBF270500196A1D /* User.swift */; };
-		22F83A572BC024A700196A1D /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A562BC024A700196A1D /* Projects.swift */; };
+		22F83A572BC024A700196A1D /* AddProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A562BC024A700196A1D /* AddProjects.swift */; };
 		22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A592BC024CC00196A1D /* HomeView.swift */; };
-		22F83A5C2BC024E100196A1D /* SpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A5B2BC024E100196A1D /* SpikeView.swift */; };
+		22F83A5C2BC024E100196A1D /* MyProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A5B2BC024E100196A1D /* MyProjects.swift */; };
 		22F83A5F2BC0251900196A1D /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A5E2BC0251900196A1D /* MoreView.swift */; };
 		22F83A612BC0252900196A1D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A602BC0252900196A1D /* ProfileView.swift */; };
 		22F83A632BC0253800196A1D /* SettingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A622BC0253800196A1D /* SettingRow.swift */; };
@@ -55,9 +55,9 @@
 		22F83A4E2BBDF04A00196A1D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		22F83A512BBF269800196A1D /* WelcomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViews.swift; sourceTree = "<group>"; };
 		22F83A542BBF270500196A1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		22F83A562BC024A700196A1D /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		22F83A562BC024A700196A1D /* AddProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjects.swift; sourceTree = "<group>"; };
 		22F83A592BC024CC00196A1D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		22F83A5B2BC024E100196A1D /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
+		22F83A5B2BC024E100196A1D /* MyProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjects.swift; sourceTree = "<group>"; };
 		22F83A5E2BC0251900196A1D /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		22F83A602BC0252900196A1D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		22F83A622BC0253800196A1D /* SettingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRow.swift; sourceTree = "<group>"; };
@@ -178,10 +178,11 @@
 		22F83A582BC024B000196A1D /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				22F83A562BC024A700196A1D /* Projects.swift */,
 				22F83A592BC024CC00196A1D /* HomeView.swift */,
-				22F83A5B2BC024E100196A1D /* SpikeView.swift */,
 				22BB32572BC950F200224DB2 /* SearchView.swift */,
+				22F83A5B2BC024E100196A1D /* MyProjects.swift */,
+				22F83A562BC024A700196A1D /* AddProjects.swift */,
+				22F83A602BC0252900196A1D /* ProfileView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -191,7 +192,6 @@
 			children = (
 				22F83A5E2BC0251900196A1D /* MoreView.swift */,
 				22BB32562BC863CE00224DB2 /* MoreViewList */,
-				22F83A602BC0252900196A1D /* ProfileView.swift */,
 			);
 			path = SideViews;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */,
 				22BB32642BC9723B00224DB2 /* trial1.swift in Sources */,
 				222128752BC69D5200663C84 /* HomeCard.swift in Sources */,
-				22F83A5C2BC024E100196A1D /* SpikeView.swift in Sources */,
+				22F83A5C2BC024E100196A1D /* MyProjects.swift in Sources */,
 				22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */,
 				226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */,
 				22BB32662BC9724500224DB2 /* trial2.swift in Sources */,
@@ -312,7 +312,7 @@
 				22BB325C2BC9687D00224DB2 /* ProgressChart.swift in Sources */,
 				22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */,
 				22BB325E2BC9696900224DB2 /* EnergyLevelChart.swift in Sources */,
-				22F83A572BC024A700196A1D /* Projects.swift in Sources */,
+				22F83A572BC024A700196A1D /* AddProjects.swift in Sources */,
 				226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */,
 				22F83A612BC0252900196A1D /* ProfileView.swift in Sources */,
 				22F83A552BBF270500196A1D /* User.swift in Sources */,
