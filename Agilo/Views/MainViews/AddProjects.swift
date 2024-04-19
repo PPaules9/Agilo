@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct AddProjects: View {
-    
-    
+    @Binding var projects : Int
 
         var body: some View {
-            Text("Hello")
+            ContentUnavailableView {
+                Label("Add a Project", systemImage: "plus")
+            } description: {
+                Text("You Can Access your Projects in the Projects tab")
+            } actions: {
+                NavigationLink("Create a project now", destination: Add(projects: $projects))
+                .buttonStyle(.borderedProminent)
+            }
     }
     
 }
 
 #Preview {
-    AddProjects()
+    AddProjects(projects: .constant(1))
 }
 /*
  

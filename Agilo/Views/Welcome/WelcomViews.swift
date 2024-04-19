@@ -9,11 +9,12 @@ import SwiftUI
 
 struct WelcomViews: View {
     @EnvironmentObject var user : User
-    
+    @Binding var projects: Int
+
     var body: some View {
             Group{
                 if user != nil {
-                    MainView()
+                    MainView(projects: $projects)
                 } else {
                     content
                 }
@@ -85,7 +86,7 @@ struct WelcomViews: View {
                 }
                 .toolbar{
                     ToolbarItem(placement: .topBarTrailing){
-                        NavigationLink(destination: MainView()){
+                        NavigationLink(destination: MainView(projects: $projects)){
                             Text("Skip")
                                 .shadow(radius: 10)
                         }
@@ -96,5 +97,5 @@ struct WelcomViews: View {
     }
 
 #Preview {
-    WelcomViews()
+    WelcomViews(projects: .constant(0))
 }

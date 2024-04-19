@@ -18,17 +18,15 @@ struct SearchView: View {
         NavigationStack{
             
             Rectangle()
-                .foregroundColor(Color(.systemGray3))
+                .foregroundColor(Color(.systemGray4))
                 .frame(width: 350, height: 40)
                 .cornerRadius(10)
-                  .overlay(
-                    
+                .overlay(
                     TextField("Search Projects here", text: $capsuleText)
                       .foregroundColor(.white)
                       .fontWeight(.bold)
                       .padding()
                       .font(.system(.title3, design: .monospaced))
-
                   )
                   .onTapGesture {
                     // Handle search logic here
@@ -200,7 +198,7 @@ struct SearchView: View {
                                         HStack {
                                             Text("Get")
                                                 .bold()
-                                                .foregroundStyle(Color(.mainBlack))
+                                                .foregroundStyle(BackgroundColor)
                                         }
                                     }
                                     .offset(x: 90, y: 170)

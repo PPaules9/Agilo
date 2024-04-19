@@ -11,221 +11,228 @@ struct HomeView: View {
     @Namespace var namespace
     @State var rotation: CGFloat = 0.0
     @State var show = false
+    @Environment(\.colorScheme) var colorScheme
+    @Binding var projects: Int
+
+    var BackgroundColor: Color {
+        colorScheme == .light ?  Color(hue: 1.0, saturation: 0.338, brightness: 0.197) : Color(.white)
+    }
+    
     
     var body: some View {
-        NavigationStack{
-            ScrollView (showsIndicators: false){
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack(spacing: 10){
-                        CurrentProject()
-                        HomeCard()
-                        ProgressChart()
-                        EnergyLevelChart()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 200)
-                    .padding(.leading)
-                    
-                    Divider()
-                }
+        
+        if projects == 0 {
+            ContentUnavailableView {
+                Label("Thier is no Projects yet", systemImage: "plus")
+            } description: {
+                Text("You don't have any projects")
+            } actions: {
+                NavigationLink("Create a project now", destination: Add(projects: $projects))
                 
-                VStack(alignment: .leading){
+            }
+        } else {
+            NavigationStack{
+                ScrollView (showsIndicators: false){
+                    
+                    HorizontalHomeScrollView()
+                    
+                    VStack(alignment: .leading){
+                        HStack {
+                            Text(" ✓ DAILY CHECKIN")
+                                .font(.custom("Arial", size: 13))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.gray)
+                                .fontDesign(.monospaced)
+                            Spacer()
+                        }
+                    }
+                    .padding(.top)
+                    .frame(width: 325, height: 30)
+                    
+                    
                     HStack {
-                        Text("DAILY CHECKIN")
+                        VStack{
+                            Spacer()
+                            Divider()
+                                .rotationEffect(.degrees(90))
+                                .frame(width: 240)
+                                .offset(y: 130)
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color("myGreen2"))
+                            Spacer()
+                        }
+                        .frame(width: 25, height: 200)
+                        
+                        VStack{
+                            Text("Unlock All Features")
+                                .font(.custom("Charter", size: 16))
+                                .foregroundStyle(.white)
+                                .fontDesign(.monospaced)
+                            
+                            Text("Pro Agilo Manger")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            
+                        }
+                        .frame(width: 320, height: 300)
+                        .background(.cyan)
+                        .cornerRadius(20)
+                        Spacer()
+                    }
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .frame(width: 380)
+                    
+                    
+                    HStack {
+                        VStack{
+                            Spacer()
+                            Divider()
+                                .rotationEffect(.degrees(90))
+                                .frame(width: 130)
+                                .offset(y: 90)
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color(.systemGray3))
+                            Spacer()
+                        }
+                        .frame(width: 25, height: 200)
+                        
+                        VStack{
+                            Text("Unlock All Features")
+                                .font(.custom("Charter", size: 16))
+                                .foregroundStyle(.white)
+                                .fontDesign(.monospaced)
+                            
+                            
+                            Text("Pro Agilo Manger")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            
+                        }
+                        .frame(width: 320, height: 130)
+                        .background(Color(.purple1))
+                        .cornerRadius(20)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .frame(width: 380, height: 160)
+                    
+                    HStack {
+                        VStack{
+                            Spacer()
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color(.systemGray3))
+                            Spacer()
+                        }
+                        .frame(width: 25, height: 200)
+                        
+                        VStack{
+                            Text("Unlock All Features")
+                                .font(.custom("Charter", size: 16))
+                                .foregroundStyle(.white)
+                                .fontDesign(.monospaced)
+                            
+                            
+                            Text("Pro Agilo Manger")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            
+                        }
+                        .frame(width: 320, height: 130)
+                        .background(Color(.purple1))
+                        .cornerRadius(20)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .frame(width: 380, height: 140)
+                    
+                    HStack{
+                        ZStack{
+                            Capsule()
+                                .frame(width: 60, height: 25)
+                                .foregroundStyle(Color(.systemGray6))
+                            HStack{
+                                Image(systemName: "arrowtriangle.right")
+                                    .foregroundColor(Color.gray)
+                                    .font(.system(size: 12))
+                                
+                                
+                                Text("9")
+                                    .font(.custom("Arial", size: 14))
+                                    .fontDesign(.monospaced)
+                                
+                                
+                            }
+                        }
+                        Text(" ☼ Daily Streak")
                             .font(.custom("Arial", size: 14))
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
                             .fontDesign(.monospaced)
-                        Spacer()
-                    }
-                }
-                .padding(.top)
-                .frame(width: 325, height: 30)
-                
-                
-                HStack {
-                    VStack{
-                        Spacer()
-                        Divider()
-                            .rotationEffect(.degrees(90))
-                            .frame(width: 240)
-                            .offset(y: 130)
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color("myGreen2"))
-                        Spacer()
-                    }
-                    .frame(width: 25, height: 200)
-                    
-                    VStack{
-                        Text("Unlock All Features")
-                            .font(.custom("Charter", size: 16))
-                            .foregroundStyle(.white)
-                            .fontDesign(.monospaced)
-
-                        Text("Pro Agilo Manger")
-                            .font(.custom("Charter", size: 22))
-                            .foregroundStyle(.white)
-                            .bold()
-                            .fontDesign(.monospaced)
-
-                    }
-                    .frame(width: 320, height: 300)
-                    .background(.cyan)
-                    .cornerRadius(20)
-                    Spacer()
-                }
-                .padding(.top)
-                .padding(.horizontal)
-                .frame(width: 380)
-                
-                
-                HStack {
-                    VStack{
-                        Spacer()
-                        Divider()
-                            .rotationEffect(.degrees(90))
-                            .frame(width: 130)
-                            .offset(y: 90)
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(.systemGray3))
-                        Spacer()
-                    }
-                    .frame(width: 25, height: 200)
-                    
-                    VStack{
-                        Text("Unlock All Features")
-                            .font(.custom("Charter", size: 16))
-                            .foregroundStyle(.white)
-                            .fontDesign(.monospaced)
-
                         
-                        Text("Pro Agilo Manger")
-                            .font(.custom("Charter", size: 22))
-                            .foregroundStyle(.white)
-                            .bold()
-                            .fontDesign(.monospaced)
-
-                    }
-                    .frame(width: 320, height: 130)
-                    .background(Color(.purple1))
-                    .cornerRadius(20)
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .frame(width: 380, height: 160)
-                
-                HStack {
-                    VStack{
-                        Spacer()
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(.systemGray3))
-                        Spacer()
-                    }
-                    .frame(width: 25, height: 200)
-                    
-                    VStack{
-                        Text("Unlock All Features")
-                            .font(.custom("Charter", size: 16))
-                            .foregroundStyle(.white)
-                            .fontDesign(.monospaced)
-
                         
-                        Text("Pro Agilo Manger")
-                            .font(.custom("Charter", size: 22))
-                            .foregroundStyle(.white)
-                            .bold()
-                            .fontDesign(.monospaced)
-
                     }
-                    .frame(width: 320, height: 130)
-                    .background(Color(.purple1))
-                    .cornerRadius(20)
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.bottom)
-                .frame(width: 380, height: 140)
-                
-                HStack{
-                    ZStack{
-                        Capsule()
-                            .frame(width: 60, height: 25)
-                            .foregroundStyle(Color(.systemGray6))
-                        HStack{
-                            Image(systemName: "arrowtriangle.right")
-                                .foregroundColor(Color.gray)
-                                .font(.system(size: 12))
-
-                            
-                            Text("9")
-                                .font(.custom("Arial", size: 14))
-                                .fontDesign(.monospaced)
-
-                            
+                    .padding(.bottom, 9)
+                    
+                    Divider()
+                    //MARK: - Current Project
+                    VStack {
+                        HStack {
+                            Text("Your Current Project")
+                                .font(.system(size: 21, design: .monospaced))
+                                .foregroundStyle(Color(BackgroundColor))
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(1)
+                                .fontWeight(.bold)
+                            Spacer()
                         }
+                        .padding(.horizontal)
+                        .padding(.top)
+                        
+                        ZStack{
+                            if !show {
+                                ProjectCardView(namespace: namespace, show: $show)
+                            } else {
+                                VStack{
+                                    ProjectDetailView(namespace: namespace, show: $show)
+                                }
+                                .frame(height: 600)
+                            }
+                        }
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                                show.toggle()
+                            }
+                        }
+                        
+                        
                     }
-                    Text("Daily Streak")
-                        .font(.custom("Arial", size: 14))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.gray)
+                    
+                    Divider()
+                    
+                    //MARK: - Switch Between Projects
+                    
+                    VStack {
+                        Form {
+                            Text("Switch between Projects")
+                            Text("Change the View based on the current Project")
+                        }
                         .fontDesign(.monospaced)
-
-                    
-                }
-                .padding(.bottom, 9)
-                
-                HStack {
-                    ZStack{
-                        if !show {
-                            ProjectCardView(namespace: namespace, show: $show)
-                        } else {
-                            VStack{
-                            ProjectDetailView(namespace: namespace, show: $show)
-                        }
-                        .frame(height: 600)
-                        }
-                    }
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                            show.toggle()
-                        }
-                    }
-                    
-                    
-                }
-                
-                
-                Divider()
-                
-                VStack {
-                    Form {
-                        Text("[ ] Done ?")
-                        Text("[ ] Done ?")
-                        Text("[ ] Done ?")
-                    }
-                    .fontDesign(.monospaced)
-
-                    
-                }
-                .frame(width: 350, height: 200)
-                
-                
-                
-                VStack(alignment: .leading) {
-                    ScrollView(.horizontal, showsIndicators: false){
-                        HStack(spacing: 10){
-                            CurrentProject()
-                            HomeCard()
-                            ProgressChart()
-                            EnergyLevelChart()
-                        }
-                        .frame(height: 190)
                         
-                        Divider()
+                        
                     }
+                    .frame(width: 350, height: 200)
+                    
                     VStack {
                         Form {
                             Text("Complete View")
@@ -233,39 +240,25 @@ struct HomeView: View {
                             Text("Complete View")
                         }
                         .fontDesign(.monospaced)
-
+                        
+                        
+                        //MARK: - MotivationalHomeViewPart
+                        
+                        MotivationalHomeViewPart()
                         
                     }
-                    .frame(width: 350, height: 500)
-                    
-                    VStack(spacing: 20){
-                        HStack {
-                            Text("Need Inspiration?")
-                                .fontDesign(.monospaced)
-                            Spacer()
-                        }
-
-                        Text("\("'")Quote Quote Quote Quote Quote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote QuoteQuote Quote.\("'")")
-                            .font(.caption)
-                            .fontDesign(.monospaced)
-
-                    }
-                    .frame(width:350, height: 150)
-                    
+                    .frame(width: 350)
+                    .padding()
                     
                 }
-                .frame(width: 350)
-                .padding()
-                
+                .padding(.top, 10)
             }
-            .padding(.top, 10)
+            
         }
-        
     }
 }
-
 #Preview {
-    HomeView()
+    HomeView(projects: .constant(1))
 }
 
 /*

@@ -12,6 +12,7 @@ struct MainView: View {
     @Namespace var nameSpace
     @State private var selectedTab = 1 // to show the middle tab first
     @State private var searchProject = ""
+    @Binding var projects: Int
 
     var body: some View {
         NavigationStack{
@@ -19,7 +20,7 @@ struct MainView: View {
             ZStack{
                 
                 TabView(selection: $selectedTab){
-                    HomeView()
+                    HomeView(projects: $projects)
                         .tag(1)
                         .tabItem {
                             Label("Home", systemImage: "house")
@@ -35,7 +36,7 @@ struct MainView: View {
                         }
                         .toolbar(exploreViewisShowing ? .hidden : .visible, for: .navigationBar)
                     
-                    AddProjects()
+                    AddProjects(projects: $projects)
                         .tag(3)
                         .tabItem {
                             Label("Add", systemImage: "plus.app")
@@ -62,7 +63,7 @@ struct MainView: View {
                 }
                 .offset(x: moreViewisShowing ? 900 : 0)
                 .navigationTitle(selectedTab == 1 ? "Dashboard"
- : (selectedTab == 2 ? "Explore" : (selectedTab == 3 ? "Add  a project" : (selectedTab == 4 ? "Projects" : "Profile"))))
+ : (selectedTab == 2 ? "Explore" : (selectedTab == 3 ? "Add Project" : (selectedTab == 4 ? "Projects" : "Profile"))))
 
                 
                 MoreView(moreViewisShowing: $moreViewisShowing)
@@ -85,9 +86,10 @@ struct MainView: View {
                 
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    MainView()
+    MainView(projects: .constant(0))
 }

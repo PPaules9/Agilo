@@ -10,10 +10,9 @@ import SwiftUI
 struct ProfileView: View {
     
     var body: some View {
-        VStack(alignment: .leading, spacing:0) {
-            VStack(alignment: .center, spacing:5) {
-                Text("Hello")
-            }
+        VStack(alignment: .center, spacing:5) {
+            Text("Hello")
+            
         }
     }
 }

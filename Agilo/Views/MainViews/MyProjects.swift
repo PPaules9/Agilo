@@ -13,7 +13,8 @@ struct MyProjects: View {
     @Namespace var namespace1
     @State var show = false
     @State var show2 = false
-
+    @State var project = 0
+    
         var body: some View {
             ScrollView(showsIndicators: false){
                 HStack {
