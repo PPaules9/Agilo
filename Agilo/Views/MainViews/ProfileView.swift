@@ -10,9 +10,19 @@ import SwiftUI
 struct ProfileView: View {
     
     var body: some View {
-        VStack(alignment: .center, spacing:5) {
-            Text("Hello")
-            
+        NavigationStack{
+            VStack(spacing:5) {
+                Text("Profile (Edit Name, and email")
+                Text("Password")
+                Text("Enter your Mobile Number")
+
+                Text("Badges")
+                Text("Affiliate program, Refer a Friend, and get 1 month Free primeum feature")
+                Text("Location")
+                Text("Account ID")
+                Text("Member Scince 2020")
+
+            }
         }
     }
 }

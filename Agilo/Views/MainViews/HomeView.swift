@@ -13,6 +13,9 @@ struct HomeView: View {
     @State var show = false
     @Environment(\.colorScheme) var colorScheme
     @Binding var projects: Int
+    @State var percentage1: Double = 0
+    @State var percentage2: Double = 0
+    @State var percentage3: Double = 0
 
     var BackgroundColor: Color {
         colorScheme == .light ?  Color(hue: 1.0, saturation: 0.338, brightness: 0.197) : Color(.white)
@@ -34,7 +37,40 @@ struct HomeView: View {
             NavigationStack{
                 ScrollView (showsIndicators: false){
                     
-                    HorizontalHomeScrollView()
+                    HStack {
+                        Text("SUNDAY, 28 April")
+                            .font(.headline)
+                        .fontDesign(.monospaced)
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+
+                    
+                    ZStack {
+                        Text("SPIKE")
+                            .offset(x:140, y: 170)
+                            .foregroundColor(.blue)
+                        
+                        ActivityRings(lineWidth: 30, backgroundColor: Color.indigo.opacity(0.2), foregroundColor: Color.indigo, percentage: percentage1)
+                            .frame(width: 160, height: 160)
+                        
+                        
+                        ActivityRings(lineWidth: 40, backgroundColor: Color.mint.opacity(0.2), foregroundColor: Color.mint, percentage: percentage2)
+                            .frame(width: 245, height: 245)
+                            
+                        ActivityRings(lineWidth: 40, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3)
+                            .frame(width: 330, height: 390)
+                            
+                    }
+                    .onTapGesture {
+                        self.percentage1 = 70
+                        self.percentage2 = 60
+                        self.percentage3 = 50
+                    }
+                    
+                    Divider()
+                    
                     
                     VStack(alignment: .leading){
                         HStack {
@@ -175,7 +211,7 @@ struct HomeView: View {
                             }
                         }
                         Text(" ☼ Daily Streak")
-                            .font(.custom("Arial", size: 14))
+                            .font(.custom("Arial", size: 15))
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
                             .fontDesign(.monospaced)
@@ -206,19 +242,19 @@ struct HomeView: View {
                                 VStack{
                                     ProjectDetailView(namespace: namespace, show: $show)
                                 }
-                                .frame(height: 600)
+                                .frame(height: 640)
                             }
                         }
                         .onTapGesture {
                             withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                                 show.toggle()
                             }
-                        }
-                        
-                        
+                        }                        
                     }
                     
                     Divider()
+                    
+//                    HorizontalHomeScrollView()
                     
                     //MARK: - Switch Between Projects
                     

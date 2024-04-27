@@ -50,7 +50,7 @@ struct HomeCard: View {
             }
             .frame(width:350, height: 200)
             .onAppear{
-                withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)){
+                withAnimation(.linear(duration: 25).repeatForever(autoreverses: false)){
                     rotation = 360
                 }
             }

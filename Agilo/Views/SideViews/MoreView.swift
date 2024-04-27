@@ -10,8 +10,6 @@ import SwiftUI
 
 struct MoreView: View {
     @State private var appVersion = "1.0.0"
-
-    @Binding var moreViewisShowing: Bool
     @State private var showProfileView = false
     @State private var showSettings = false
     
@@ -34,9 +32,13 @@ struct MoreView: View {
         colorScheme == .light ? Color("c") : .gray
     }
     
+    
+    
+    
+    
     var body: some View {
-        if moreViewisShowing {
             
+        NavigationStack{
             ZStack(alignment: .topTrailing){
                 
                 //for Testing Puroses only
@@ -71,6 +73,7 @@ struct MoreView: View {
                                         .font(.custom("Charter", size: 22))
                                         .fontWeight(.semibold)
                                         .padding(.top, 4)
+                                        .fontDesign(.rounded)
 
                                     
                                     Text(testUser.email)
@@ -84,7 +87,8 @@ struct MoreView: View {
                                 
                             }
                             .padding(.top)
-                            
+                            .padding(.top)
+
                             //If User Unsubscribed
                             Button{
                                 //Subscribe Button
@@ -92,16 +96,16 @@ struct MoreView: View {
                                 HStack{
                                     VStack(alignment: .leading, spacing: 10){
                                         Text("Unlock All Features")
-                                            .font(.custom("Charter", size: 18))
+                                            .font(.custom("Charter", size: 16))
                                             .foregroundStyle(Color("c"))
                                             .fontDesign(.monospaced)
 
                                         Text("Pro Agilo Manger")
-                                            .font(.custom("Charter", size: 24))
+                                            .font(.custom("Charter", size: 19))
                                             .foregroundStyle(Color("c"))
                                             .bold()
                                             .fontDesign(.monospaced)
-                                            .shadow(color: .gray, radius: 0.5)
+                                            
                                     }
                                     .padding(.leading)
                                     
@@ -114,10 +118,10 @@ struct MoreView: View {
                                 }
 
                             }
-                            .frame(width: 340, height: 100)
-                            .background(Color(hue: 1.0, saturation: 0.047, brightness: 0.944))
+                            .frame(width: 340, height: 90)
+                            .background(.cyan.opacity(0.6))
                             .cornerRadius(15)
-                            .shadow(radius: 3)
+                            .shadow(radius: 5)
                             .offset(x: 8)
                             
                             
@@ -125,7 +129,7 @@ struct MoreView: View {
                             HStack {
                                 Text("General")
                                     .font(.system(size: 14, design: .monospaced))
-                                    .foregroundStyle(Color(BackgroundColor))
+                                    .foregroundStyle(Color(.systemGray2))
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(2)
                                     .fontWeight(.bold)
@@ -142,13 +146,9 @@ struct MoreView: View {
                                     .offset(y: -4)
 
                                     VStack(alignment: .leading, spacing: 25){
-                                            Button{
-                                                showSettings.toggle()
-                                            } label: {
-                                                SettingRow(lastItem: false, imageName: "gear", title: "Settings", tintColor: .blue)
-                                            }.sheet(isPresented: $showSettings){
-                                                SettingsView()
-                                            }                                            
+                                        NavigationLink(destination: SettingsView(),
+                                                       label: { SettingRow(lastItem: false, imageName: "gear", title: "Settings", tintColor: .blue)
+                                        })
                                             Button{
                                             } label: {
                                                 SettingRow(lastItem: false, imageName: "bell.badge", title: "Reminders", tintColor: .blue)
@@ -173,7 +173,7 @@ struct MoreView: View {
                             HStack {
                                 Text("Contact")
                                     .font(.system(size: 14, design: .monospaced))
-                                    .foregroundStyle(Color(BackgroundColor))
+                                    .foregroundStyle(Color(.systemGray2))
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(2)
                                     .fontWeight(.bold)
@@ -186,7 +186,7 @@ struct MoreView: View {
                                 Rectangle()
                                     .fill(.thinMaterial)
                                     .cornerRadius(20)
-                                    .frame(width: 360, height: 100)
+                                    .frame(width: 360, height: 150)
                                     .offset(y: -4)
                                 
                                 VStack(alignment: .leading, spacing: 25){
@@ -201,18 +201,24 @@ struct MoreView: View {
                                         
                                         print("Make a Link to Mail")
                                     } label: {
-                                        SettingRow(lastItem: true, imageName: "captions.bubble", title: "Send Feedback", tintColor: .blue)
+                                        SettingRow(lastItem: false, imageName: "captions.bubble", title: "Send Feedback", tintColor: .blue)
+                                    }
+                                    Button{
+                                        
+                                        print("Make a Link to Mail")
+                                    } label: {
+                                        SettingRow(lastItem: true, imageName: "message", title: "Message Center", tintColor: .blue)
                                     }
                                 }
                             }
-                            .frame(width:360, height: 100)
+                            .frame(width:360, height: 150)
 
                             
                             //MARK: - APP
                             HStack {
                                 Text("APP")
                                     .font(.system(size: 14, design: .monospaced))
-                                    .foregroundStyle(Color(BackgroundColor))
+                                    .foregroundStyle(Color(.systemGray2))
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(2)
                                     .fontWeight(.bold)
@@ -265,7 +271,7 @@ struct MoreView: View {
                             HStack {
                                 Text("Ciao 👋")
                                     .font(.system(size: 13, design: .monospaced))
-                                    .foregroundStyle(Color(BackgroundColor))
+                                    .foregroundStyle(Color(.systemGray2))
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(2)
                                     .fontWeight(.bold)
@@ -314,7 +320,6 @@ struct MoreView: View {
                                                     .font(.subheadline)
                                                     .foregroundColor(colorScheme == .light ? .black : .white)
                                                     .fontDesign(.monospaced)
-                                                    .shadow(radius: 1)
                                                 
                                                 Spacer()
                                                 
@@ -355,32 +360,17 @@ struct MoreView: View {
                 .navigationBarBackButtonHidden()
                 
                 
-                Button(action: {
-                    withAnimation(.easeOut){
-                        moreViewisShowing.toggle()
-                    }
-                }, label: {
-                    Image(systemName: "xmark")
-                        .foregroundStyle(Color(.black))
-                        .frame(width: 35, height: 35)
-                        .background(.cyan)
-                        .cornerRadius(15)
-                        .padding()
-                        .shadow(radius: 10)
-                        .offset(x: -10, y : 30)
-                })
-                
                 //}
             }
             .padding(.horizontal)
             .navigationBarBackButtonHidden()
+
+
         }
-        
-        
     }
     
 }
 
 #Preview {
-    MoreView(moreViewisShowing: .constant(true))
+    MoreView()
 }

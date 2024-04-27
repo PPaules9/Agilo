@@ -26,11 +26,11 @@ struct SettingRow: View {
                         .frame(width: 40)
                     
                     Text(title)
-                        .font(.custom("Charter", size: 18))
+                        .font(.custom("Charter", size: 16))
                         .font(.subheadline)
                         .foregroundColor(colorScheme == .light ? .black : .white)
                         .fontDesign(.monospaced)
-                        .shadow(radius: 1)
+//                        .shadow(radius: 1)
                     
                     Spacer()
                     
@@ -51,11 +51,11 @@ struct SettingRow: View {
                         .frame(width: 40)
                     
                     Text(title)
-                        .font(.custom("Charter", size: 18))
+                        .font(.custom("Charter", size: 16))
                         .font(.subheadline)
                         .foregroundColor(colorScheme == .light ? .black : .white)
                         .fontDesign(.monospaced)
-                        .shadow(radius: 1)
+//                        .shadow(radius: 1)
                     
                     Spacer()
                     
@@ -67,7 +67,7 @@ struct SettingRow: View {
                     .frame(height: 0.01) // Adjust height as needed
                     .background(Color(.systemGray5)) // Set border color
                 //                .blur(radius: 2)
-                    .offset(y: -5)
+                    .offset(x: 64,y: -5)
                 
             }
             .frame(width: 380, height: 20)

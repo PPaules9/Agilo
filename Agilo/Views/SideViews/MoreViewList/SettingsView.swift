@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack{
+                Text("Appearnce Dark Mode & Light Mode")
+                Text("My Subscription")
+                Text("iCloudSync")
+                Text("Language")
+                Text("First Day of the Week?")
+                Text("Get Agilo everywhere")
+            }
+//            .toolbar {
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    Button(action: {
+//                        withAnimation(.easeIn) {
+//                            dismiss()
+//                        }
+//                        
+//                    }
+//                    
+//                    
+//                }
+                
+            
+        }
     }
 }
 

@@ -66,7 +66,7 @@ struct ProjectDetailView: View {
                         SettingsView()
                     }
                     
-                    Text("Project 1")
+                    Text("projectName")
                         .font(.largeTitle.weight(.bold))
                         .matchedGeometryEffect(id: "title", in: namespace)
                         .frame(maxWidth: .infinity, alignment: .leading)

@@ -10,7 +10,7 @@ import SwiftUI
 struct WelcomViews: View {
     @EnvironmentObject var user : User
     @Binding var projects: Int
-
+    
     var body: some View {
             Group{
                 if user != nil {

@@ -10,13 +10,13 @@ import SwiftUI
 struct ProjectCardView: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
-    
+
     var body: some View {
         VStack {
             Spacer()
             
             VStack(alignment: .leading, spacing: 12) {
-                Text("Project 1")
+                Text("projectName")
                     .font(.largeTitle.weight(.bold))
                     .matchedGeometryEffect(id: "title", in: namespace)
                     .frame(maxWidth: .infinity, alignment: .leading)

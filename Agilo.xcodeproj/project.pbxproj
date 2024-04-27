@@ -11,6 +11,10 @@
 		221C07FE2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */; };
 		221C08002BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C07FF2BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift */; };
 		221C08032BD302F70089A9E3 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08022BD302F70089A9E3 /* Add.swift */; };
+		221C08052BD45ED70089A9E3 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08042BD45ED60089A9E3 /* ProjectModel.swift */; };
+		221C08082BDD5DBC0089A9E3 /* ActivityRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08072BDD5DBC0089A9E3 /* ActivityRings.swift */; };
+		221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08092BDD5DDC0089A9E3 /* RingShape.swift */; };
+		221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */; };
 		222128752BC69D5200663C84 /* HomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222128742BC69D5200663C84 /* HomeCard.swift */; };
 		226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */; };
 		226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */; };
@@ -43,6 +47,10 @@
 		221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalHomeScrollView.swift; sourceTree = "<group>"; };
 		221C07FF2BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationalHomeViewPart.swift; sourceTree = "<group>"; };
 		221C08022BD302F70089A9E3 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		221C08042BD45ED60089A9E3 /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
+		221C08072BDD5DBC0089A9E3 /* ActivityRings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRings.swift; sourceTree = "<group>"; };
+		221C08092BDD5DDC0089A9E3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
+		221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProject.swift; sourceTree = "<group>"; };
 		222128742BC69D5200663C84 /* HomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCard.swift; sourceTree = "<group>"; };
 		226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
@@ -83,13 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		221C07FC2BD2EE380089A9E3 /* HomeView */ = {
+		221C07FC2BD2EE380089A9E3 /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
+				221C08072BDD5DBC0089A9E3 /* ActivityRings.swift */,
 				221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */,
 				221C07FF2BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift */,
 			);
-			path = HomeView;
+			path = HomeViews;
 			sourceTree = "<group>";
 		};
 		221C08012BD302BD0089A9E3 /* AddProjectsView */ = {
@@ -100,6 +109,25 @@
 			path = AddProjectsView;
 			sourceTree = "<group>";
 		};
+		221C08062BD8DA920089A9E3 /* ProjectViews */ = {
+			isa = PBXGroup;
+			children = (
+				226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */,
+				226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */,
+				22BB32632BC9723B00224DB2 /* trial1.swift */,
+				22BB32652BC9724500224DB2 /* trial2.swift */,
+			);
+			path = ProjectViews;
+			sourceTree = "<group>";
+		};
+		221C080B2BDD7E850089A9E3 /* SearchModelView */ = {
+			isa = PBXGroup;
+			children = (
+				221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */,
+			);
+			path = SearchModelView;
+			sourceTree = "<group>";
+		};
 		222128732BC69D2800663C84 /* HomeViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +135,7 @@
 				22BB325B2BC9687C00224DB2 /* ProgressChart.swift */,
 				22BB325D2BC9696900224DB2 /* EnergyLevelChart.swift */,
 				22BB325F2BC96A2D00224DB2 /* CurrentProject.swift */,
+				221C08092BDD5DDC0089A9E3 /* RingShape.swift */,
 			);
 			path = HomeViewModel;
 			sourceTree = "<group>";
@@ -114,10 +143,7 @@
 		222128762BC69DBF00663C84 /* ProjectViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */,
-				226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */,
-				22BB32632BC9723B00224DB2 /* trial1.swift */,
-				22BB32652BC9724500224DB2 /* trial2.swift */,
+				221C08042BD45ED60089A9E3 /* ProjectModel.swift */,
 			);
 			path = ProjectViewModel;
 			sourceTree = "<group>";
@@ -152,6 +178,7 @@
 				22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */,
 				22F83A4E2BBDF04A00196A1D /* MainView.swift */,
 				22F83A532BBF26EF00196A1D /* Model */,
+				221C080B2BDD7E850089A9E3 /* SearchModelView */,
 				22F83A4D2BBDF02E00196A1D /* Views */,
 				22F83A422BBDEF6100196A1D /* Assets.xcassets */,
 				22F83A442BBDEF6100196A1D /* Agilo.entitlements */,
@@ -206,7 +233,8 @@
 				22F83A5B2BC024E100196A1D /* MyProjects.swift */,
 				22F83A562BC024A700196A1D /* AddProjects.swift */,
 				22F83A602BC0252900196A1D /* ProfileView.swift */,
-				221C07FC2BD2EE380089A9E3 /* HomeView */,
+				221C08062BD8DA920089A9E3 /* ProjectViews */,
+				221C07FC2BD2EE380089A9E3 /* HomeViews */,
 				221C08012BD302BD0089A9E3 /* AddProjectsView */,
 			);
 			path = MainViews;
@@ -319,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */,
+				221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */,
 				22BB32582BC950F200224DB2 /* SearchView.swift in Sources */,
 				226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */,
 				22F83A662BC0262400196A1D /* SignUp.swift in Sources */,
@@ -327,9 +356,11 @@
 				22F83A5F2BC0251900196A1D /* MoreView.swift in Sources */,
 				22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */,
 				22BB32642BC9723B00224DB2 /* trial1.swift in Sources */,
+				221C08052BD45ED70089A9E3 /* ProjectModel.swift in Sources */,
 				221C08032BD302F70089A9E3 /* Add.swift in Sources */,
 				222128752BC69D5200663C84 /* HomeCard.swift in Sources */,
 				22F83A5C2BC024E100196A1D /* MyProjects.swift in Sources */,
+				221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */,
 				22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */,
 				226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */,
 				22BB32662BC9724500224DB2 /* trial2.swift in Sources */,
@@ -341,6 +372,7 @@
 				22BB325E2BC9696900224DB2 /* EnergyLevelChart.swift in Sources */,
 				22F83A572BC024A700196A1D /* AddProjects.swift in Sources */,
 				221C07FE2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift in Sources */,
+				221C08082BDD5DBC0089A9E3 /* ActivityRings.swift in Sources */,
 				226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */,
 				22F83A612BC0252900196A1D /* ProfileView.swift in Sources */,
 				22F83A552BBF270500196A1D /* User.swift in Sources */,

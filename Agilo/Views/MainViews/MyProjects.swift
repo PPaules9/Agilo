@@ -14,48 +14,56 @@ struct MyProjects: View {
     @State var show = false
     @State var show2 = false
     @State var project = 0
-    
+    @State private var counter = 0
+
         var body: some View {
-            ScrollView(showsIndicators: false){
-                HStack {
-                    ZStack{
-                        if !show {
-                            ProjectCardView(namespace: namespace, show: $show)
-                            
-                        } else {
-                            VStack{
-                                ProjectDetailView(namespace: namespace, show: $show)
+            NavigationStack{
+                ScrollView(showsIndicators: false){
+                    HStack {
+                        ZStack{
+                            if !show {
+                                ProjectCardView(namespace: namespace, show: $show)
+                                
+                            } else {
+                                VStack{
+                                    ProjectDetailView(namespace: namespace, show: $show)
+                                }
+                                .frame(height: 650)
                             }
-                            .frame(height: 650)
                         }
-                    }
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                            show.toggle()
-                        }
-                    }
-                    
-                }
-                HStack {
-                    ZStack{
-                        if !show2 {
-                            trial1(namespace: namespace1, show: $show2)
-                            
-                        } else {
-                            VStack{
-                                trial2(namespace: namespace1, show: $show2)
+                        .onTapGesture {
+                            counter += 1
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                                show.toggle()
                             }
-                            .frame(height: 650)
                         }
+                        
                     }
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                            show2.toggle()
-                        }
-                    }
+                    .sensoryFeedback(.impact(weight: .heavy, intensity: 100), trigger: counter)
                     
+                    
+                    HStack {
+                        ZStack{
+                            if !show2 {
+                                trial1(namespace: namespace1, show: $show2)
+                                
+                            } else {
+                                VStack{
+                                    trial2(namespace: namespace1, show: $show2)
+                                }
+                                .frame(height: 650)
+                            }
+                        }
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                                show2.toggle()
+                            }
+                        }
+                        
+                    }
                 }
             }
+
     }
     
 }

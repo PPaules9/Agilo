@@ -9,19 +9,68 @@ import SwiftUI
 
 struct AddProjects: View {
     @Binding var projects : Int
-
-        var body: some View {
-            ContentUnavailableView {
-                Label("Add a Project", systemImage: "plus")
-            } description: {
-                Text("You Can Access your Projects in the Projects tab")
-            } actions: {
-                NavigationLink("Create a project now", destination: Add(projects: $projects))
-                .buttonStyle(.borderedProminent)
+    @ObservedObject var projectManager = ProjectManager()
+    @State private var showAddProjectView = false
+    @State private var selectedProject: ProjectModel? = nil // Optional ProjectModel
+    
+    var body: some View {
+        //        ContentUnavailableView {
+        //            Label("Add a Project", systemImage: "plus")
+        //        } description: {
+        //            Text("You Can Access your Projects in the Projects tab")
+        //        } actions: {
+        //            NavigationLink("Create a project now", destination: Add(projects: $projects))
+        //                .buttonStyle(.borderedProminent)
+        //        }
+        
+        NavigationView {
+            VStack{
+                
+                    Button {
+                        showAddProjectView.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
+                }
+                .sheet(isPresented: $showAddProjectView) {
+                    AddProjectView(projectManager: projectManager)
+                
             }
+            List {
+                ForEach(projectManager.projects) { project in
+                    ProjectRowView(project: project)
+                        .onTapGesture {
+                            selectedProject = project
+                        }
+                }
+                .onDelete(perform: deleteProjects)
+            }
+            
+        }
+        .alert(item: $selectedProject) { project in // Use unwrapped project
+            Alert(title: Text("Project Actions"),
+                  message: nil,
+                  primaryButton: .destructive(Text("Delete"), action: {
+                if let index = projectManager.projects.firstIndex(of: project) {
+                    deleteProject(at: index)
+                }
+            }),
+                  secondaryButton: .default(Text("Cancel")))
+        }
     }
     
+    func deleteProjects(at offsets: IndexSet) {
+        for offset in offsets {
+            projectManager.deleteProject(at: offset)
+        }
+    }
+    
+    func deleteProject(at index: Int) {
+        projectManager.deleteProject(at: index)
+    }
 }
+
+
 
 #Preview {
     AddProjects(projects: .constant(1))
