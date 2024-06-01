@@ -11,11 +11,11 @@ import SwiftUI
 @main
 struct AgiloApp: App {
     
-    @State private var projects: Int = 0
+    @State private var eventData = EventData()
 
     var body: some Scene {
         WindowGroup {
-            MainView(projects: $projects)
+            MainView(eventData: EventData())
         }
     }
 }

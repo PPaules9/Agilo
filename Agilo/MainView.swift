@@ -8,19 +8,18 @@ import SwiftUI
 
 struct MainView: View {
     @State private var moreViewisShowing = false
-    @State private var exploreViewisShowing = false
     @Namespace var nameSpace
     @State private var selectedTab = 1 // to show the middle tab first
-    @State private var searchProject = ""
-    @Binding var projects: Int
+    @State private var isAddingNewEvent = false
+    @State private var newEvent = Event()
+    @ObservedObject var eventData: EventData
     
     var body: some View {
         NavigationStack{
-            
             ZStack{
                 
                 TabView(selection: $selectedTab){
-                    HomeView(projects: $projects)
+                    HomeView()
                         .tag(1)
                         .tabItem {
                             Label("Home", systemImage: "house")
@@ -34,20 +33,19 @@ struct MainView: View {
                                 .fontDesign(.monospaced)
                             
                         }
-                        .toolbar(exploreViewisShowing ? .hidden : .visible, for: .navigationBar)
                     
-                    AddProjects(projects: $projects)
+                    Projects()
                         .tag(3)
                         .tabItem {
-                            Label("Add", systemImage: "plus.app")
+                            Label("Projects", systemImage: "plus.app")
                                 .fontDesign(.monospaced)
                             
                         }
                     
-                    MyProjects()
+                    backLog(eventData: EventData())
                         .tag(4)
                         .tabItem {
-                            Label("Projects", systemImage: "doc.plaintext")
+                            Label("BackLog", systemImage: "doc.plaintext")
                                 .fontDesign(.monospaced)
                             
                         }
@@ -72,15 +70,17 @@ struct MainView: View {
                 
                 
             }
-            
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: AddProjects(projects: $projects),
-                        label: {
-                        Image(systemName: "plus.circle")
-                        
-                    })
+                    Button{
+                        newEvent = Event()
+                        isAddingNewEvent = true                    }
+                    label: {
+                    Image(systemName: "plus.circle")
+                    
+                    }
                 }
+                
                 
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
@@ -90,6 +90,7 @@ struct MainView: View {
                         
                     }, label: {
                         Image(systemName: "line.3.horizontal")
+                        
                     }).sheet(isPresented: $moreViewisShowing){
                         MoreView()
                     }
@@ -104,18 +105,39 @@ struct MainView: View {
                             .bold()
                             .foregroundStyle(Color(.orange))
                             .offset(x: -8)
-                        
                     }
-                    
+                    //                    .background(Color.teal, in: RoundedRectangle(cornerRadius: 8))
                 }
-                
-                
+            }
+            .sheet(isPresented: $isAddingNewEvent){
+                NavigationStack{
+                    Add(eventData: eventData, event: $newEvent, isNew: true)
+                        .environmentObject(EventData())
+                        .toolbar{
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Cancel"){
+                                    isAddingNewEvent = false
+                                }
+                            }
+                            ToolbarItem {
+                                Button {
+                                    eventData.add(newEvent)
+                                    isAddingNewEvent = false
+                                } label: {
+                                    Text ("Add")
+                                }
+                                .disabled(newEvent.title.isEmpty)
+                            }
+                        }
+                }
             }
         }
-        .navigationBarBackButtonHidden()
     }
 }
-
 #Preview {
-    MainView(projects: .constant(0))
+    MainView(eventData: EventData())
 }
+
+
+
+

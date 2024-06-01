@@ -11,6 +11,7 @@ struct ProjectDetailView: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
     @State private var showProject = false
+    let event: Event
 
     var body: some View {
         ScrollView {
@@ -66,21 +67,21 @@ struct ProjectDetailView: View {
                         SettingsView()
                     }
                     
-                    Text("projectName")
+                    Text(event.title)
                         .font(.largeTitle.weight(.bold))
-                        .matchedGeometryEffect(id: "title", in: namespace)
+                        .matchedGeometryEffect(id: "title_\(event.id)", in: namespace)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .fontDesign(.monospaced)
                     
 
-                    Text("Deadline: 12 Aug 2024".uppercased())
+                    Text(event.date.formatted(date: .abbreviated, time: .shortened))
                         .font(.footnote.weight(.semibold))
-                        .matchedGeometryEffect(id: "subtitle", in: namespace)
+                        .matchedGeometryEffect(id: "subtitle_\(event.id)", in: namespace)
                         .fontDesign(.monospaced)
 
-                    Text("Currently you are working on Build the App interface")
+                    Text("This task belongs to")
                         .font(.footnote)
-                        .matchedGeometryEffect(id: "text", in: namespace)
+                        .matchedGeometryEffect(id: "text_\(event.id)", in: namespace)
                         .fontDesign(.monospaced)
 
                     
@@ -104,7 +105,7 @@ struct ProjectDetailView: View {
                         Rectangle()
                             .fill(.ultraThinMaterial)
                             .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                            .matchedGeometryEffect(id: "blur", in: namespace)
+                            .matchedGeometryEffect(id: "blur_\(event.id)", in: namespace)
                     )
                     .offset(y: 250)
                     .padding(20)
@@ -120,6 +121,6 @@ struct ProjectDetailView_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        ProjectDetailView(namespace: namespace, show: .constant(true))
+        ProjectDetailView(namespace: namespace, show: .constant(true), event: Event())
     }
 }

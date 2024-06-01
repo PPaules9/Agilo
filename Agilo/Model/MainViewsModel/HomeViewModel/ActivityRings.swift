@@ -27,7 +27,7 @@ struct ActivityRings: View {
                     .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                     .fill(foregroundColor)
             }
-            .animation(Animation.easeIn(duration: 1))
+            
             .padding(lineWidth / 2)
         }
     }

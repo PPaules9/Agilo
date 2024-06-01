@@ -360,6 +360,8 @@ struct SearchView: View {
                 .frame(width: 350, height: 500)
 
             }
+            .padding(.top, 10)
+            .background(Color(.orange).blur(radius: 300).opacity(0.3))
         }
     }
 }

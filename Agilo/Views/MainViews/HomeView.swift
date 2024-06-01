@@ -12,45 +12,52 @@ struct HomeView: View {
     @State var rotation: CGFloat = 0.0
     @State var show = false
     @Environment(\.colorScheme) var colorScheme
-    @Binding var projects: Int
-    @State var percentage1: Double = 0
-    @State var percentage2: Double = 0
-    @State var percentage3: Double = 0
+    @State var percentage1: Double = 0.0
+    @State var percentage2: Double = 0.0
+    @State var percentage3: Double = 0.0
+    @State private var timeElapsed = 0 // Start at 0 minutes
 
-    var BackgroundColor: Color {
-        colorScheme == .light ?  Color(hue: 1.0, saturation: 0.338, brightness: 0.197) : Color(.white)
-    }
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect() // Every 60 seconds (1 minute)
+
+    
+    @State private var currentDate = Date()
+    // Stores current date
+
+     var formattedDate: String {
+       let dateFormatter = DateFormatter()
+       dateFormatter.dateFormat = "EEEE, dd MMMM" // Format for "Sunday, 28 April"
+       return dateFormatter.string(from: currentDate)
+     }
     
     
     var body: some View {
         
-        if projects == 0 {
-            ContentUnavailableView {
-                Label("Thier is no Projects yet", systemImage: "plus")
-            } description: {
-                Text("You don't have any projects")
-            } actions: {
-                NavigationLink("Create a project now", destination: Add(projects: $projects))
-                
-            }
-        } else {
+        //Adjust This line to work
+//        if projects == 100 {
+//            ContentUnavailableView {
+//                Label("Thier is no Projects yet", systemImage: "plus")
+//            } description: {
+//                Text("You don't have any projects")
+//            } actions: {
+//                NavigationLink("Create a project now", destination: Add(newProjectPresented: show, item: ProjectManager))
+//
+//            }
+//        } 
+//        else {
+            
             NavigationStack{
                 ScrollView (showsIndicators: false){
                     
                     HStack {
-                        Text("SUNDAY, 28 April")
+                        Text("\(formattedDate)")
                             .font(.headline)
-                        .fontDesign(.monospaced)
-                        
+                            .font(.system(size: 20, design: .monospaced))
                         Spacer()
                     }
                     .padding(.horizontal)
 
                     
                     ZStack {
-                        Text("SPIKE")
-                            .offset(x:140, y: 170)
-                            .foregroundColor(.blue)
                         
                         ActivityRings(lineWidth: 30, backgroundColor: Color.indigo.opacity(0.2), foregroundColor: Color.indigo, percentage: percentage1)
                             .frame(width: 160, height: 160)
@@ -63,19 +70,87 @@ struct HomeView: View {
                             .frame(width: 330, height: 390)
                             
                     }
-                    .onTapGesture {
-                        self.percentage1 = 70
-                        self.percentage2 = 60
-                        self.percentage3 = 50
+                    .onAppear(){
+                        withAnimation(.easeIn(duration: 1.2)){
+                            self.percentage1 = 100.0 -  Double(Date().percentDayRemaining)
+                            self.percentage2 = 30
+                            self.percentage3 = 80
+                        }
+                    }.onReceive(timer) { _ in
+                        timeElapsed += 1
+                    }
+                    HStack{
+                        Text("Sprint 2")
+                            .font(.system(size: 20, design: .monospaced))
+                            .bold()
+                            .foregroundColor(.blue)
+                            .frame(width: 110, height: 35)
+                            .cornerRadius(15)
+
+                        Spacer()
+                        Image(systemName: "pencil.and.list.clipboard")
+                            .foregroundColor(.blue)
+                            .fontDesign(.monospaced)
+                            .frame(width: 40, height: 35)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+
+                        Text("SPIKE")
+                            .foregroundColor(.blue)
+                            .fontDesign(.monospaced)
+                            .frame(width: 80, height:35)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+                    }
+                    .padding(.bottom)
+                    .padding(.horizontal)
+
+                    Divider()
+                    VStack{
+                        HStack{
+                            ActivityRings(lineWidth: 10, backgroundColor: (colorScheme == .dark ? Color.red : Color.indigo).opacity(0.2), foregroundColor: colorScheme == .dark ? Color.red : Color.indigo, percentage: percentage1)
+                                .frame(width: 70, height: 70)
+                            
+                            VStack(alignment: .leading){
+                                Text("Daily Scrum")
+                                Text("5h 45m (\(String(format: "%.0f",100.0 -  Double(Date().percentDayRemaining.rounded())))%)")
+                                    .foregroundStyle(Color(.systemGray))
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        
+                        HStack{
+                            ActivityRings(lineWidth: 10, backgroundColor: Color.mint.opacity(0.2), foregroundColor: Color.teal, percentage: percentage2)
+                                .frame(width: 70, height: 70)
+                            VStack(alignment: .leading){
+                                Text("Sprint Status")
+                                Text("Day 4 (35%)")
+                                    .foregroundStyle(Color(.systemGray))
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        
+                        HStack{
+                            ActivityRings(lineWidth: 10, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3)
+                                .frame(width: 70, height: 70)
+                            VStack(alignment: .leading){
+                                Text("Product Increment")
+                                Text(" 5 out of 10(77%)")
+                                    .foregroundStyle(Color(.systemGray))
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal)
                     }
                     
                     Divider()
                     
-                    
                     VStack(alignment: .leading){
                         HStack {
                             Text(" ✓ DAILY CHECKIN")
-                                .font(.custom("Arial", size: 13))
+                                .font(.custom("Arial", size: 14))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color.gray)
                                 .fontDesign(.monospaced)
@@ -95,18 +170,33 @@ struct HomeView: View {
                                 .offset(y: 130)
                             Circle()
                                 .frame(width: 20, height: 20)
-                                .foregroundColor(Color("myGreen2"))
+                                .foregroundColor(Color(.teal.opacity(2)))
                             Spacer()
                         }
                         .frame(width: 25, height: 200)
                         
                         VStack{
-                            Text("Unlock All Features")
+                            Text("Daily Tasks")
                                 .font(.custom("Charter", size: 16))
                                 .foregroundStyle(.white)
                                 .fontDesign(.monospaced)
                             
-                            Text("Pro Agilo Manger")
+                            Text("Task 1")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            Text("Task 2")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            Text("Task 3")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            Text("Task 4")
                                 .font(.custom("Charter", size: 22))
                                 .foregroundStyle(.white)
                                 .bold()
@@ -114,9 +204,9 @@ struct HomeView: View {
                             
                         }
                         .frame(width: 320, height: 300)
-                        .background(.cyan)
+                        .background(Color(.orange.opacity(0.7)))
                         .cornerRadius(20)
-                        Spacer()
+                        
                     }
                     .padding(.top)
                     .padding(.horizontal)
@@ -132,24 +222,25 @@ struct HomeView: View {
                                 .offset(y: 90)
                             Circle()
                                 .frame(width: 20, height: 20)
-                                .foregroundColor(Color(.systemGray3))
+                                .foregroundColor(Color(.systemGray6))
                             Spacer()
                         }
                         .frame(width: 25, height: 200)
                         
                         VStack{
-                            Text("Unlock All Features")
+                            Text("Take Notes for the Daily Scrum Meeting")
                                 .font(.custom("Charter", size: 16))
                                 .foregroundStyle(.white)
                                 .fontDesign(.monospaced)
                             
                             
-                            Text("Pro Agilo Manger")
-                                .font(.custom("Charter", size: 22))
+                            Text("13 Days till the end of current Sprint")
+                                .font(.custom("Charter", size: 12))
                                 .foregroundStyle(.white)
                                 .bold()
                                 .fontDesign(.monospaced)
-                            
+                                .padding()
+                                .frame(height: 30)
                         }
                         .frame(width: 320, height: 130)
                         .background(Color(.purple1))
@@ -164,19 +255,19 @@ struct HomeView: View {
                             Spacer()
                             Circle()
                                 .frame(width: 20, height: 20)
-                                .foregroundColor(Color(.systemGray3))
+                                .foregroundColor(Color(.systemGray6))
                             Spacer()
                         }
                         .frame(width: 25, height: 200)
                         
                         VStack{
-                            Text("Unlock All Features")
+                            Text("Do A Spike !")
                                 .font(.custom("Charter", size: 16))
                                 .foregroundStyle(.white)
                                 .fontDesign(.monospaced)
                             
                             
-                            Text("Pro Agilo Manger")
+                            Text("Take notes for your spike")
                                 .font(.custom("Charter", size: 22))
                                 .foregroundStyle(.white)
                                 .bold()
@@ -184,7 +275,7 @@ struct HomeView: View {
                             
                         }
                         .frame(width: 320, height: 130)
-                        .background(Color(.purple1))
+                        .background(Color(.indigo.opacity(0.7)))
                         .cornerRadius(20)
                         Spacer()
                     }
@@ -210,12 +301,16 @@ struct HomeView: View {
                                 
                             }
                         }
-                        Text(" ☼ Daily Streak")
-                            .font(.custom("Arial", size: 15))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.gray)
-                            .fontDesign(.monospaced)
-                        
+                        HStack{
+                            Text(" ☼")
+                                .font(.custom("Arial", size: 15))
+
+                            Text("Daily Streak")
+                                .font(.custom("Arial", size: 15))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.gray)
+                                .fontDesign(.monospaced)
+                        }
                         
                     }
                     .padding(.bottom, 9)
@@ -226,7 +321,7 @@ struct HomeView: View {
                         HStack {
                             Text("Your Current Project")
                                 .font(.system(size: 21, design: .monospaced))
-                                .foregroundStyle(Color(BackgroundColor))
+                                
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
                                 .fontWeight(.bold)
@@ -235,21 +330,21 @@ struct HomeView: View {
                         .padding(.horizontal)
                         .padding(.top)
                         
-                        ZStack{
-                            if !show {
-                                ProjectCardView(namespace: namespace, show: $show)
-                            } else {
-                                VStack{
-                                    ProjectDetailView(namespace: namespace, show: $show)
-                                }
-                                .frame(height: 640)
-                            }
-                        }
-                        .onTapGesture {
-                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                                show.toggle()
-                            }
-                        }                        
+//                        ZStack{
+//                            if !show {
+//                                ProjectCardView(namespace: namespace, show: $show)
+//                            } else {
+//                                VStack{
+//                                    ProjectDetailView(namespace: namespace, show: $show)
+//                                }
+//                                .frame(height: 640)
+//                            }
+//                        }
+//                        .onTapGesture {
+//                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+//                                show.toggle()
+//                            }
+//                        }                        
                     }
                     
                     Divider()
@@ -288,30 +383,28 @@ struct HomeView: View {
                     
                 }
                 .padding(.top, 10)
+                .background(Color(.orange).blur(radius: 300).opacity(0.2))
             }
-            
-        }
+            .onAppear {
+                  currentDate = Date() // Update on view appearance
+            }
+        
     }
 }
-#Preview {
-    HomeView(projects: .constant(1))
+
+extension Date {
+    var percentDayRemaining: Double {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: self)
+        let secondsInDay = 24.0 * 60 * 60 // Total seconds in a day (using Double)
+        let elapsedSeconds = self.timeIntervalSince(startOfDay)
+
+        let percentRemaining = (secondsInDay - elapsedSeconds) / secondsInDay * 100
+        return percentRemaining // Return as Double
+    }
 }
 
-/*
- Home View: This tab could display key information about the active project, such as sprint progress, upcoming tasks, and any important notifications. Users can easily access vital project details at a glance.
- 
- **Home View**:
- - **Project Overview**: Display a summary of the active project, including its name, current sprint details (such as sprint number, start date, end date), and overall progress indicators (e.g., completion percentage, burndown chart).
- - **Upcoming Tasks**: Show a list of tasks scheduled for the current sprint, sorted by priority or due date. Include options for users to mark tasks as complete, update task details, or add new tasks directly from this view.
- - **Notifications**: Provide notifications for important updates, such as new task assignments, sprint changes, or upcoming meetings. Users can review and dismiss notifications to stay informed about project activities.
- 
- sprint progress, upcoming tasks, and any important notifications. Users can easily access vital project details at a glance.
- 
- - **Active Project Card:** Display key information about the current project:
- - Project Name
- - Sprint Information (Current Sprint Number & Remaining Days)
- - Quick access button to view the "Product Backlog" for this project.
- - Progress bar indicating completion of the current Sprint (optional).
- - Button to navigate to the detailed "Project View".
- 
- */
+
+#Preview {
+    HomeView()
+}

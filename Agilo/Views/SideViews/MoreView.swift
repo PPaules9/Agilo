@@ -119,7 +119,7 @@ struct MoreView: View {
 
                             }
                             .frame(width: 340, height: 90)
-                            .background(.cyan.opacity(0.6))
+                            .background(.orange.opacity(0.5))
                             .cornerRadius(15)
                             .shadow(radius: 5)
                             .offset(x: 8)
@@ -140,7 +140,7 @@ struct MoreView: View {
                             
                             ZStack{
                                 Rectangle()
-                                    .fill(.thinMaterial)
+                                    .fill(.ultraThinMaterial)
                                     .cornerRadius(20)
                                     .frame(width: 360, height: 190)
                                     .offset(y: -4)
@@ -184,7 +184,7 @@ struct MoreView: View {
                             
                             ZStack{
                                 Rectangle()
-                                    .fill(.thinMaterial)
+                                    .fill(.ultraThinMaterial)
                                     .cornerRadius(20)
                                     .frame(width: 360, height: 150)
                                     .offset(y: -4)
@@ -229,7 +229,7 @@ struct MoreView: View {
                             
                             ZStack{
                                 Rectangle()
-                                    .fill(.thinMaterial)
+                                    .fill(.ultraThinMaterial)
                                     .cornerRadius(20)
                                     .frame(width: 360, height: 190)
                                     .offset(y: -4)
@@ -283,7 +283,7 @@ struct MoreView: View {
                             
                             ZStack{
                                 Rectangle()
-                                    .fill(.thinMaterial)
+                                    .fill(.ultraThinMaterial)
                                     .cornerRadius(20)
                                     .frame(width: 360, height: 145)
                                     .offset(y: -5)
@@ -364,6 +364,7 @@ struct MoreView: View {
             }
             .padding(.horizontal)
             .navigationBarBackButtonHidden()
+            .background(Color(.orange).blur(radius: 300).opacity(0.15))
 
 
         }
