@@ -11,8 +11,12 @@ struct MainView: View {
     @Namespace var nameSpace
     @State private var selectedTab = 1 // to show the middle tab first
     @State private var isAddingNewEvent = false
-    @State private var newEvent = Event()
-    @ObservedObject var eventData: EventData
+    @State private var newEvent = BackLog()
+    @ObservedObject var eventData: BackLogData
+    
+    @ObservedObject var projectContainer : ProjectData
+    @State private var newProject = Project(id: UUID(), name: "", activated: false, backlogData: BackLogData())
+    
     
     var body: some View {
         NavigationStack{
@@ -34,15 +38,15 @@ struct MainView: View {
                             
                         }
                     
-                    Projects()
+                    Projects( projectContainer: ProjectData())
                         .tag(3)
                         .tabItem {
-                            Label("Projects", systemImage: "plus.app")
+                            Label("Project", systemImage: "plus.app")
                                 .fontDesign(.monospaced)
                             
                         }
                     
-                    backLog(eventData: EventData())
+                    backLog(eventData: BackLogData())
                         .tag(4)
                         .tabItem {
                             Label("BackLog", systemImage: "doc.plaintext")
@@ -72,12 +76,21 @@ struct MainView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button{
-                        newEvent = Event()
-                        isAddingNewEvent = true                    }
-                    label: {
-                    Image(systemName: "plus.circle")
-                    
+                    if selectedTab != 4 {
+                        Button{
+                            newEvent = BackLog()
+                            isAddingNewEvent = true                    }
+                        label: {
+                        Image(systemName: "plus.circle")
+                        }
+                        
+                    }else {
+                        Button{
+                            newEvent = BackLog()
+                            isAddingNewEvent = true                    }
+                        label: {
+                        Text("Edit")
+                        }
                     }
                 }
                 
@@ -111,8 +124,10 @@ struct MainView: View {
             }
             .sheet(isPresented: $isAddingNewEvent){
                 NavigationStack{
-                    Add(eventData: eventData, event: $newEvent, isNew: true)
-                        .environmentObject(EventData())
+                    Add(
+                        projectContainer: ProjectData()
+                    )
+                        .environmentObject(ProjectData())
                         .toolbar{
                             ToolbarItem(placement: .cancellationAction) {
                                 Button("Cancel"){
@@ -121,12 +136,11 @@ struct MainView: View {
                             }
                             ToolbarItem {
                                 Button {
-                                    eventData.add(newEvent)
+                                    projectContainer.add(newProject)
                                     isAddingNewEvent = false
                                 } label: {
                                     Text ("Add")
                                 }
-                                .disabled(newEvent.title.isEmpty)
                             }
                         }
                 }
@@ -134,8 +148,11 @@ struct MainView: View {
         }
     }
 }
+
+
 #Preview {
-    MainView(eventData: EventData())
+    MainView(eventData: BackLogData(), projectContainer: ProjectData()
+             )
 }
 
 

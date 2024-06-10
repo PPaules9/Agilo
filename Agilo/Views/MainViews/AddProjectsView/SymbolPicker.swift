@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SymbolPicker: View {
-    @Binding var event: Event
+    @Binding var newProject: Project
     @State private var selectedColor: Color = ColorOptions.default
     @Environment(\.dismiss) private var dismiss
     @State private var symbolNames = EventSymbols.symbolNames
@@ -28,7 +28,7 @@ struct SymbolPicker: View {
                 .padding()
             }
             HStack {
-                Image(systemName: event.symbol)
+                Image(systemName: newProject.symbol)
                     .font(.title)
                     .imageScale(.large)
                     .foregroundColor(selectedColor)
@@ -40,7 +40,7 @@ struct SymbolPicker: View {
                 ForEach(ColorOptions.all, id: \.self) { color in
                     Button {
                         selectedColor = color
-                        event.color = color.rgbaColor
+                        newProject.color = color.rgbaColor
                     } label: {
                         Circle()
                             .foregroundColor(color)
@@ -56,7 +56,7 @@ struct SymbolPicker: View {
                 LazyVGrid(columns: columns) {
                     ForEach(symbolNames, id: \.self) { symbolItem in
                         Button {
-                            event.symbol = symbolItem
+                            newProject.symbol = symbolItem
                         } label: {
                             Image(systemName: symbolItem)
                                 .imageScale(.large)
@@ -70,11 +70,8 @@ struct SymbolPicker: View {
             }
         }
         .onAppear {
-            selectedColor = Color(event.color)
+            selectedColor = Color(newProject.color)
         }
     }
 }
 
-#Preview {
-    SymbolPicker(event: .constant(Event.example))
-}

@@ -46,8 +46,6 @@ struct SearchView: View {
                         Spacer()
                     }
                     .padding(.horizontal)
-                    .padding(.top)
-
                     
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack(spacing: 15){
@@ -361,7 +359,6 @@ struct SearchView: View {
 
             }
             .padding(.top, 10)
-            .background(Color(.orange).blur(radius: 300).opacity(0.3))
         }
     }
 }

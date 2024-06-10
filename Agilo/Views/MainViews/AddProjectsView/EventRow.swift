@@ -9,18 +9,22 @@ import SwiftUI
 
 struct EventRow: View {
     @ScaledMetric var imageWidth: CGFloat = 40
-    let event: Event
+    let event: BackLog
     
     var body: some View {
+        
         HStack {
             Label {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(event.title)
-                        .fontWeight(.bold)
-
-                    Text(event.date.formatted(date: .abbreviated, time: .shortened))
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
+                HStack {
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(event.title)
+                            .fontWeight(.bold)
+                        
+                        Text(event.date.formatted(date: .abbreviated, time: .shortened))
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
                 }
             } icon: {
                 Image(systemName: event.symbol)
@@ -36,9 +40,12 @@ struct EventRow: View {
             }
         }
         .badge(event.remainingTaskCount)
+        .frame(width: 380, height: 45)
+        .cornerRadius(5)
+        .shadow(radius: 5)
     }
 }
 
 #Preview {
-    EventRow(event: Event())
+    EventRow(event: BackLog())
 }

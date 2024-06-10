@@ -13,8 +13,6 @@ struct HorizontalHomeScrollView: View {
             HStack(spacing: 10){
                 CurrentProject()
                 HomeCard()
-                ProgressChart()
-                EnergyLevelChart()
             }
             .frame(maxWidth: .infinity)
             .frame(height: 200)

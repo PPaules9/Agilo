@@ -15,18 +15,7 @@ struct MoreView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    let lightGradient = LinearGradient(gradient: Gradient(colors: [Color("Purple2"), Color("ib")]),
-                                       startPoint: UnitPoint(x: 2, y: 0.9),
-                                       endPoint: UnitPoint(x: 2, y: 1.2))
     
-    let darkGradient = LinearGradient(gradient: Gradient(colors: [Color("c"), Color("Purple2")]), startPoint: UnitPoint(x: 2, y: 0.9), endPoint: UnitPoint(x: 2, y: 2))
-    
-    var BackgroundColor: Color {
-        colorScheme == .light ?  Color(hue: 1.0, saturation: 0.338, brightness: 0.197) : Color(.white)
-    }
-    var profileBackgroundColor: LinearGradient {
-        colorScheme == .light ? lightGradient : darkGradient
-    }
     
     var iconBackgroundColor: Color {
         colorScheme == .light ? Color("c") : .gray
@@ -364,8 +353,6 @@ struct MoreView: View {
             }
             .padding(.horizontal)
             .navigationBarBackButtonHidden()
-            .background(Color(.orange).blur(radius: 300).opacity(0.15))
-
 
         }
     }

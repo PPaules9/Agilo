@@ -10,12 +10,12 @@ import SwiftUI
 struct ProjectCardView: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
-    let event: Event
+    let event: BackLog
     
     
     var body: some View {
         VStack {
-                Label{
+                
                     VStack(alignment: .leading, spacing: 12) {
                         Text(event.title)
                             .font(.title.weight(.bold))
@@ -37,13 +37,7 @@ struct ProjectCardView: View {
                             .shadow(radius: 20)
                             .fontDesign(.monospaced)
                         
-                        
-                    }
-                } icon: {
-                Image(systemName: event.symbol)
-                    .foregroundStyle(Color(event.color))
-                    .padding(.trailing, 15)
-            }
+                }
             .labelStyle(CustomLabelStyle())
                 
                 .padding(20)
@@ -76,6 +70,6 @@ struct ProjectCardView_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        ProjectCardView(namespace: namespace, show: .constant(true), event: Event())
+        ProjectCardView(namespace: namespace, show: .constant(true), event: BackLog())
     }
 }

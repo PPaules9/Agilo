@@ -11,7 +11,7 @@ struct ProjectDetailView: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
     @State private var showProject = false
-    let event: Event
+    let event: BackLog
 
     var body: some View {
         ScrollView {
@@ -32,8 +32,7 @@ struct ProjectDetailView: View {
                     .matchedGeometryEffect(id: "image", in: namespace)
             )
             .background(
-                Image("backgroundPic")
-                    .resizable()
+                Color(.pink.opacity(0.75))
                     .matchedGeometryEffect(id: "background", in: namespace)
             )
             .mask(
@@ -121,6 +120,6 @@ struct ProjectDetailView_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        ProjectDetailView(namespace: namespace, show: .constant(true), event: Event())
+        ProjectDetailView(namespace: namespace, show: .constant(true), event: BackLog())
     }
 }
