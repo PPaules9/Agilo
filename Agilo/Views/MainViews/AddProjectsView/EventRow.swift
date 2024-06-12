@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EventRow: View {
     @ScaledMetric var imageWidth: CGFloat = 40
-    let event: BackLog
+    let event: Project
     
     var body: some View {
         
@@ -17,10 +17,10 @@ struct EventRow: View {
             Label {
                 HStack {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(event.title)
+                        Text(event.name)
                             .fontWeight(.bold)
                         
-                        Text(event.date.formatted(date: .abbreviated, time: .shortened))
+                        Text(event.deadLine.formatted(date: .abbreviated, time: .shortened))
                             .font(.caption2)
                             .foregroundStyle(.secondary)
                     }
@@ -33,13 +33,12 @@ struct EventRow: View {
             }
             .labelStyle(CustomLabelStyle())
             
-            if event.isComplete {
+            if event.isDone {
                 Spacer()
                 Image(systemName: "checkmark")
                     .foregroundStyle(.secondary)
             }
         }
-        .badge(event.remainingTaskCount)
         .frame(width: 380, height: 45)
         .cornerRadius(5)
         .shadow(radius: 5)
@@ -47,5 +46,5 @@ struct EventRow: View {
 }
 
 #Preview {
-    EventRow(event: BackLog())
+    EventRow(event: Project(id: UUID(), name: "", activated: false))
 }

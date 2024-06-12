@@ -13,7 +13,7 @@ struct WelcomViews: View {
     var body: some View {
         Group{
             if user != nil {
-                MainView(eventData: BackLogData(), projectContainer: ProjectData())
+                MainView()
             } else {
                 content
             }
@@ -85,10 +85,7 @@ struct WelcomViews: View {
             }
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing){
-                    NavigationLink(destination: MainView(
-                        eventData: BackLogData(), projectContainer: ProjectData()
-                        )
-                    )
+                    NavigationLink(destination: MainView())
                     {
                         Text("Skip")
                             .shadow(radius: 10)

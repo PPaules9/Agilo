@@ -12,10 +12,9 @@ struct MainView: View {
     @State private var selectedTab = 1 // to show the middle tab first
     @State private var isAddingNewEvent = false
     @State private var newEvent = BackLog()
-    @ObservedObject var eventData: BackLogData
     
-    @ObservedObject var projectContainer : ProjectData
-    @State private var newProject = Project(id: UUID(), name: "", activated: false, backlogData: BackLogData())
+    @State private var projectContainer = ProjectData()
+    @State private var newProject = Project(id: UUID(), name: "", activated: false)
     
     
     var body: some View {
@@ -38,15 +37,15 @@ struct MainView: View {
                             
                         }
                     
-                    Projects( projectContainer: ProjectData())
+                    Projects()
                         .tag(3)
                         .tabItem {
-                            Label("Project", systemImage: "plus.app")
+                            Label("Projects", systemImage: "plus.app")
                                 .fontDesign(.monospaced)
                             
                         }
                     
-                    backLog(eventData: BackLogData())
+                    backLog()
                         .tag(4)
                         .tabItem {
                             Label("BackLog", systemImage: "doc.plaintext")
@@ -124,10 +123,7 @@ struct MainView: View {
             }
             .sheet(isPresented: $isAddingNewEvent){
                 NavigationStack{
-                    Add(
-                        projectContainer: ProjectData()
-                    )
-                        .environmentObject(ProjectData())
+                    Add()
                         .toolbar{
                             ToolbarItem(placement: .cancellationAction) {
                                 Button("Cancel"){
@@ -151,8 +147,7 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(eventData: BackLogData(), projectContainer: ProjectData()
-             )
+    MainView()
 }
 
 
