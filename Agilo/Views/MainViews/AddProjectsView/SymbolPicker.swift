@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct SymbolPicker: View {
-    @Binding var newProject: Project
-    @State private var selectedColor: Color = ColorOptions.default
     @Environment(\.dismiss) private var dismiss
-    @State private var symbolNames = EventSymbols.symbolNames
     @State private var searchInput = ""
     
     var columns = Array(repeating: GridItem(.flexible()), count: 6)
@@ -28,24 +25,12 @@ struct SymbolPicker: View {
                 .padding()
             }
             HStack {
-                Image(systemName: newProject.symbol)
-                    .font(.title)
-                    .imageScale(.large)
-                    .foregroundColor(selectedColor)
-
+                
             }
             .padding()
 
             HStack {
-                ForEach(ColorOptions.all, id: \.self) { color in
-                    Button {
-                        selectedColor = color
-                        newProject.color = color.rgbaColor
-                    } label: {
-                        Circle()
-                            .foregroundColor(color)
-                    }
-                }
+                
             }
             .padding(.horizontal)
             .frame(height: 40)
@@ -53,25 +38,12 @@ struct SymbolPicker: View {
             Divider()
 
             ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(symbolNames, id: \.self) { symbolItem in
-                        Button {
-                            newProject.symbol = symbolItem
-                        } label: {
-                            Image(systemName: symbolItem)
-                                .imageScale(.large)
-                                .foregroundColor(selectedColor)
-                                .padding(5)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-                .drawingGroup()
+                
             }
-        }
-        .onAppear {
-            selectedColor = Color(newProject.color)
         }
     }
 }
 
+#Preview {
+    SymbolPicker()
+}

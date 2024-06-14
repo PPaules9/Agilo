@@ -25,7 +25,7 @@ struct HomeView: View {
 
      var formattedDate: String {
        let dateFormatter = DateFormatter()
-       dateFormatter.dateFormat = "dd MMMM" // Format for "Sunday, 28 April"
+       dateFormatter.dateFormat = "EEEE, dd MMMM" // Format for "Sunday, 28 April"
        return dateFormatter.string(from: currentDate)
      }
     
@@ -49,13 +49,9 @@ struct HomeView: View {
                 ScrollView (showsIndicators: false){
                     
                     HStack {
-                        Text("Today")
-                            .font(.title2)
-
                         Text("\(formattedDate)")
                             .font(.headline)
-                            .font(.system(size: 22, design: .monospaced))
-                            .foregroundStyle(Color(.gray))
+                            .font(.system(size: 20, design: .monospaced))
                         Spacer()
                     }
                     .padding(.horizontal)
@@ -151,7 +147,173 @@ struct HomeView: View {
                     
                     Divider()
                     
-                    DailyChekInView()
+                    VStack(alignment: .leading){
+                        HStack {
+                            Text(" ✓ DAILY CHECKIN")
+                                .font(.custom("Arial", size: 14))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.gray)
+                                .fontDesign(.monospaced)
+                            Spacer()
+                        }
+                    }
+                    .padding(.top)
+                    .frame(width: 325, height: 30)
+                    
+                    
+                    HStack {
+                        VStack{
+                            Spacer()
+                            Divider()
+                                .rotationEffect(.degrees(90))
+                                .frame(width: 240)
+                                .offset(y: 130)
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color(.teal.opacity(2)))
+                            Spacer()
+                        }
+                        .frame(width: 25, height: 200)
+                        
+                        VStack{
+                            Text("Daily Tasks")
+                                .font(.custom("Charter", size: 16))
+                                .foregroundStyle(.white)
+                                .fontDesign(.monospaced)
+                            
+                            Text("Task 1")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            Text("Task 2")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            Text("Task 3")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            Text("Task 4")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            
+                        }
+                        .frame(width: 320, height: 300)
+                        .background(Color(.orange.opacity(0.7)))
+                        .cornerRadius(20)
+                        
+                    }
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .frame(width: 380)
+                    
+                    
+                    HStack {
+                        VStack{
+                            Spacer()
+                            Divider()
+                                .rotationEffect(.degrees(90))
+                                .frame(width: 130)
+                                .offset(y: 90)
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color(.systemGray6))
+                            Spacer()
+                        }
+                        .frame(width: 25, height: 200)
+                        
+                        VStack{
+                            Text("Take Notes for the Daily Scrum Meeting")
+                                .font(.custom("Charter", size: 16))
+                                .foregroundStyle(.white)
+                                .fontDesign(.monospaced)
+                            
+                            
+                            Text("13 Days till the end of current Sprint")
+                                .font(.custom("Charter", size: 12))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                                .padding()
+                                .frame(height: 30)
+                        }
+                        .frame(width: 320, height: 130)
+                        .background(Color(.purple1))
+                        .cornerRadius(20)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .frame(width: 380, height: 160)
+                    
+                    HStack {
+                        VStack{
+                            Spacer()
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color(.systemGray6))
+                            Spacer()
+                        }
+                        .frame(width: 25, height: 200)
+                        
+                        VStack{
+                            Text("Do A Spike !")
+                                .font(.custom("Charter", size: 16))
+                                .foregroundStyle(.white)
+                                .fontDesign(.monospaced)
+                            
+                            
+                            Text("Take notes for your spike")
+                                .font(.custom("Charter", size: 22))
+                                .foregroundStyle(.white)
+                                .bold()
+                                .fontDesign(.monospaced)
+                            
+                        }
+                        .frame(width: 320, height: 130)
+                        .background(Color(.indigo.opacity(0.7)))
+                        .cornerRadius(20)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .frame(width: 380, height: 140)
+                    
+                    HStack{
+                        ZStack{
+                            Capsule()
+                                .frame(width: 60, height: 25)
+                                .foregroundStyle(Color(.systemGray6))
+                            HStack{
+                                Image(systemName: "arrowtriangle.right")
+                                    .foregroundColor(Color.gray)
+                                    .font(.system(size: 12))
+                                
+                                
+                                Text("9")
+                                    .font(.custom("Arial", size: 14))
+                                    .fontDesign(.monospaced)
+                                
+                                
+                            }
+                        }
+                        HStack{
+                            Text(" ☼")
+                                .font(.custom("Arial", size: 15))
+
+                            Text("Daily Streak")
+                                .font(.custom("Arial", size: 15))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.gray)
+                                .fontDesign(.monospaced)
+                        }
+                        
+                    }
+                    .padding(.bottom, 9)
                     
                     Divider()
                     //MARK: - Current Project
@@ -159,6 +321,7 @@ struct HomeView: View {
                         HStack {
                             Text("Your Current Project")
                                 .font(.system(size: 21, design: .monospaced))
+                                
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
                                 .fontWeight(.bold)
@@ -166,7 +329,6 @@ struct HomeView: View {
                         }
                         .padding(.horizontal)
                         .padding(.top)
-                        
                         
 //                        ZStack{
 //                            if !show {
@@ -185,9 +347,6 @@ struct HomeView: View {
 //                        }                        
                     }
                     
-                    Text("Change your Project from here")
-                        .font(.system(size: 42, design: .monospaced))
-
                     Divider()
                     
 //                    HorizontalHomeScrollView()
@@ -213,8 +372,7 @@ struct HomeView: View {
                         }
                         .fontDesign(.monospaced)
                         
-                        HorizontalHomeScrollView()
-
+                        
                         //MARK: - MotivationalHomeViewPart
                         
                         MotivationalHomeViewPart()
@@ -225,6 +383,7 @@ struct HomeView: View {
                     
                 }
                 .padding(.top, 10)
+                .background(Color(.orange).blur(radius: 300).opacity(0.2))
             }
             .onAppear {
                   currentDate = Date() // Update on view appearance

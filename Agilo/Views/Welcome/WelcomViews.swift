@@ -11,16 +11,21 @@ struct WelcomViews: View {
     @EnvironmentObject var user : User
     
     var body: some View {
-        Group{
-            if user != nil {
-                MainView()
-            } else {
-                content
-            }
-        }
-    }
-    
-    var content: some View {
+        //        Group{
+        //            if user != nil {
+        //                MainView()
+        //            } else {
+        //                content
+        //            Group{
+        //                if user != nil {
+        //                    MainView(eventData: EventData())
+        //                } else {
+        //                    content
+        //                }
+        //>>>>>>> parent of 010b0fa (Making the Project Container)
+        //            }
+        //        }
+        
         NavigationView {
             ZStack {
                 Color("mainColor")
@@ -83,19 +88,26 @@ struct WelcomViews: View {
                     
                 }
             }
-            .toolbar{
-                ToolbarItem(placement: .topBarTrailing){
-                    NavigationLink(destination: MainView())
-                    {
-                        Text("Skip")
-                            .shadow(radius: 10)
-                    }
+        }
+        .toolbar{
+            ToolbarItem(placement: .topBarTrailing){
+                NavigationLink(destination: MainView())
+                {
+                    Text("Skip")
+                        .shadow(radius: 10)
+                        .toolbar{
+                            ToolbarItem(placement: .topBarTrailing){
+                                NavigationLink(destination: MainView()){
+                                    Text("Skip")
+                                        .shadow(radius: 10)
+                                }
+                            }
+                        }
                 }
             }
         }
     }
 }
-
 #Preview {
     WelcomViews()
 }

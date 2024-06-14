@@ -11,8 +11,6 @@ import SwiftUI
 @main
 struct AgiloApp: App {
     
-    @State private var projectContainer = ProjectData()
-
     var body: some Scene {
         WindowGroup {
             MainView()

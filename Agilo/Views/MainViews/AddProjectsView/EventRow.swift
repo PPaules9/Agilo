@@ -9,10 +9,10 @@ import SwiftUI
 
 struct EventRow: View {
     @ScaledMetric var imageWidth: CGFloat = 40
-    let event: Project
+
+    let event: Event
     
     var body: some View {
-        
         HStack {
             Label {
                 HStack {
@@ -25,6 +25,14 @@ struct EventRow: View {
                             .foregroundStyle(.secondary)
                     }
                     Spacer()
+=======
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(event.title)
+                        .fontWeight(.bold)
+
+                    Text(event.date.formatted(date: .abbreviated, time: .shortened))
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
                 }
             } icon: {
                 Image(systemName: event.symbol)
@@ -42,9 +50,10 @@ struct EventRow: View {
         .frame(width: 380, height: 45)
         .cornerRadius(5)
         .shadow(radius: 5)
+        .badge(event.remainingTaskCount)
     }
 }
 
 #Preview {
-    EventRow(event: Project(id: UUID(), name: "", activated: false))
+    EventRow(event: Event())
 }
