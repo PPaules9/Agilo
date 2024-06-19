@@ -3,7 +3,8 @@ import PhotosUI
 
 struct NotesTaking: View {
     // States
-    @State private var notes: [Date: Note] = [:]
+    @Binding var newProject : Project
+    @State private var notes: [Note] = []
     @State private var noteText: String = ""
     @State private var showingNotesSheet = false
     @State private var showingImagePicker = false
@@ -20,12 +21,14 @@ struct NotesTaking: View {
                     .font(.title)
                     .fontWeight(.bold)
                 Image(systemName: "book.pages")
+
                 Spacer()
                 Button(action: {
                     showingNotesSheet = true
                 }) {
                     Image(systemName: "clock.arrow.circlepath")
                         .font(.title)
+                        .foregroundStyle(Color.orange)
                 }
                 .sheet(isPresented: $showingNotesSheet) {
                     NotesListView(notes: notes)
@@ -68,7 +71,7 @@ struct NotesTaking: View {
                     clearNote()
                 }) {
                     Text("Save")
-                        .font(.title2)
+                        .font(.title3)
                 }
                 Spacer()
                 Button(action: {
@@ -117,15 +120,24 @@ struct NotesTaking: View {
                 }
             }
             .padding()
-            .background(Color(UIColor.systemGray6))
+            .foregroundStyle(Color.orange)
         }
     }
     
+   
     private func saveNote() {
-        let currentDate = Date()
-        let note = Note(text: noteText, image: selectedImage)
-        notes[currentDate] = note
+        let note = Note(date: Date(), text: noteText, image: selectedImage)
+        notes.append(note)
+        // Convert notes array to array of strings
+        var notesStrings = convertNotesToStrings(notes: notes)
+        print(notesStrings)  // Print to console for testing purposes
+        
+        notesStrings = newProject.notes
     }
+    
+    private func convertNotesToStrings(notes: [Note]) -> [String] {
+           return notes.map { $0.text }
+       }
     
     private func clearNote() {
         noteText = ""
@@ -137,10 +149,13 @@ struct NotesTaking: View {
     }
 }
 
-struct Note {
+struct Note: Identifiable {
+    let id = UUID()
+    var date: Date
     var text: String
     var image: UIImage?
 }
+
 
 // DateFormatter for date display
 private let dateFormatter: DateFormatter = {
@@ -151,5 +166,5 @@ private let dateFormatter: DateFormatter = {
 }()
 
 #Preview {
-    NotesTaking()
+    NotesTaking(newProject: .constant(Project()))
 }

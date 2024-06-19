@@ -71,62 +71,33 @@ struct ProfileView: View {
                             .cornerRadius(20)
                             .frame(width: 360, height: 410)
                         
-                    
                         HStack{
-                            VStack(alignment: .leading, spacing: 5){
-                                HStack{
-                                    Text("Pavly Alkess")
-                                    Spacer()
-                                    Text("Change Name")
-                                }
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 11)
+                            VStack(alignment: .leading, spacing: 25){
                                 
-                                HStack{
-                                    Text("Email@gmail.com")
-                                    Spacer()
-                                    Text("Edit Email")
+                            Button{
+                            } label: {
+                                ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Pavly Alkess", tintColor: Color.gray, goTo: "Change Name")
+                            }
+                                Button{
+                                } label: {
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Email@gmail.com", tintColor: Color.gray, goTo: "Change Email")
                                 }
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 11)
+                                Button{
+                                } label: {
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Password", tintColor: Color.gray, goTo: "Edit Password")
+                                }
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Phone Number", tintColor: Color.gray, goTo: "01277745591")
+                               
+                               
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Member since", tintColor: Color.gray, goTo: "15 May 2024")
                                 
-                                HStack{
-                                    Text("Password")
-                                    Spacer()
-                                    Text("Edit Password")
-                                }
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 11)
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Account ID", tintColor: Color.gray, goTo: "dsahijo54kln")
                                 
-                                HStack{
-                                    Text("Your phone Number")
-                                    Spacer()
-                                    Text("01277745591")
-                                }
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 11)
-                                
-                                HStack{
-                                    Text("Member since")
-                                    Spacer()
-                                    Text("15 May 2024")
-                                }
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 11)
-                                
-                                HStack{
-                                    Text("Account ID")
-                                    Spacer()
-                                    Text("343sd345")
-                                }
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 11)
                                 
                                 HStack{
                                     Text("Go to My Projects")
                                 }
                                 .padding(.horizontal, 30)
-                                .padding(.vertical, 11)
                                 
                                 HStack{
                                     Text("Invite a Friend and get 1 month Free")
@@ -139,6 +110,7 @@ struct ProfileView: View {
                             }
                             Spacer()
                             
+                        
                         }
                     }
                     

@@ -19,7 +19,8 @@ struct HomeView: View {
 
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect() // Every 60 seconds (1 minute)
 
-    
+    @Binding var newProject : Project
+
     @State private var currentDate = Date()
     // Stores current date
 
@@ -30,7 +31,6 @@ struct HomeView: View {
      }
     
     @ObservedObject var projectContainer : ProjectData
-    @Binding var newProject : Project
 
     var body: some View {
         
@@ -66,16 +66,17 @@ struct HomeView: View {
                     ZStack {
                         
                         ActivityRings(lineWidth: 27, backgroundColor: Color.purple1.opacity(0.1), foregroundColor: Color.purple1, percentage: percentage1, percent: 75, startAngle: -99, adjustedSympol: "arrow.triangle.capsulepath")
-                            .frame(width: 130, height: 130)
+                            .frame(width: 140, height: 140)
                         
                         
                         ActivityRings(lineWidth: 32, backgroundColor: Color.mint.opacity(0.1), foregroundColor: Color.mint, percentage: percentage2, percent: 75, startAngle: -96, adjustedSympol: "arrow.forward.to.line")
-                            .frame(width: 200, height: 200)
+                            .frame(width: 210, height: 210)
                             
                         ActivityRings(lineWidth: 36, backgroundColor: Color.orange.opacity(0.1), foregroundColor: Color.orange, percentage: percentage3, percent: 75, startAngle: -95, adjustedSympol: "shippingbox")
-                            .frame(width: 280, height: 350)
+                            .frame(width: 290, height: 360)
                             
                     }
+                    .frame(height: 350)
                     .onAppear(){
                         withAnimation(.easeIn(duration: 1.2)){
                             self.percentage1 = 100.0 -  Double(Date().percentDayRemaining)
@@ -97,7 +98,7 @@ struct HomeView: View {
                         Spacer()
                         
                         NavigationLink{
-                            NotesTaking()
+                            NotesTaking(newProject: $newProject)
                         } label: {
                             HStack(spacing: 8){
                                 Image(systemName: "pencil.and.list.clipboard")
@@ -116,16 +117,20 @@ struct HomeView: View {
 
                     Divider()
                     VStack{
+                        
                         HStack{
                             ZStack{
-                                ActivityRings(lineWidth: 11, backgroundColor: (colorScheme == .dark ? Color.red : Color.purple1).opacity(0.2), foregroundColor: colorScheme == .dark ? Color.purple1 : Color.purple1, percentage: percentage1, percent: 75, startAngle: -98, adjustedSympol: "")
+                                
+                                ActivityRings(lineWidth: 11, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3, percent: 75, startAngle: -90, adjustedSympol: "")
                                     .frame(width: 70, height: 70)
-                                Image(systemName: "arrow.triangle.capsulepath")
-                                    .foregroundStyle(Color(colorScheme == .dark ? Color.red : Color.purple1))
+                                
+                                Image(systemName: "shippingbox")
+                                    .foregroundStyle(Color.orange)
+
                             }
                             VStack(alignment: .leading){
-                                Text("Daily Scrum")
-                                Text("5h 45m (\(String(format: "%.0f",100.0 -  Double(Date().percentDayRemaining.rounded())))%)")
+                                Text("Product Increment")
+                                Text(" 5 out of 10(77%)")
                                     .foregroundStyle(Color(.systemGray))
                             }
                             Spacer()
@@ -152,22 +157,20 @@ struct HomeView: View {
                         
                         HStack{
                             ZStack{
-                                
-                                ActivityRings(lineWidth: 11, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3, percent: 75, startAngle: -90, adjustedSympol: "")
+                                ActivityRings(lineWidth: 11, backgroundColor: (colorScheme == .dark ? Color.red : Color.purple1).opacity(0.2), foregroundColor: colorScheme == .dark ? Color.purple1 : Color.purple1, percentage: percentage1, percent: 75, startAngle: -98, adjustedSympol: "")
                                     .frame(width: 70, height: 70)
-                                
-                                Image(systemName: "shippingbox")
-                                    .foregroundStyle(Color.orange)
-
+                                Image(systemName: "arrow.triangle.capsulepath")
+                                    .foregroundStyle(Color(colorScheme == .dark ? Color.red : Color.purple1))
                             }
                             VStack(alignment: .leading){
-                                Text("Product Increment")
-                                Text(" 5 out of 10(77%)")
+                                Text("Daily Scrum")
+                                Text("5h 45m (\(String(format: "%.0f",100.0 -  Double(Date().percentDayRemaining.rounded())))%)")
                                     .foregroundStyle(Color(.systemGray))
                             }
                             Spacer()
                         }
                         .padding(.horizontal)
+                        
                     }
                     
                     Divider()
@@ -211,6 +214,8 @@ struct HomeView: View {
                     Text("Change your Project from here")
                         .font(.system(size: 42, design: .monospaced))
 
+                 
+                    
                     Divider()
                     
 //                    HorizontalHomeScrollView()
@@ -276,5 +281,5 @@ extension Date {
 
 
 #Preview {
-    HomeView(projectContainer: ProjectData(), newProject: .constant(Project()))
+    HomeView(newProject: .constant(Project()), projectContainer: ProjectData())
 }

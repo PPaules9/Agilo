@@ -18,7 +18,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             TabView(selection: $selectedTab){
-                HomeView(projectContainer: projectContainer, newProject: $newProject)
+                HomeView(newProject: $newProject, projectContainer: projectContainer)
                     .tag(1)
                     .tabItem {
                         Label("Home", systemImage: "house")

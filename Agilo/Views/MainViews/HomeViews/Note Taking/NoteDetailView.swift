@@ -1,34 +1,44 @@
 import SwiftUI
 
 struct NoteDetailView: View {
-    let date: Date
-    let note: Note
+    var note: Note
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Notes For \(formattedDay(date))")
-                .font(.title)
-                .padding(.bottom, 10)
-            Text(note.text)
-                .padding()
+        VStack {
+            Text("\(note.date, formatter: dateFormatter)")
+                .font(.caption)
+                .foregroundColor(.gray)
+            if !note.text.isEmpty {
+                Text(note.text)
+                    .padding(.bottom, 5)
+            }
             if let image = note.image {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFill()
                     .cornerRadius(15)
-                    .frame(maxHeight: 200)
-                    .padding()
+                    .frame(height: 200)
+                    .clipped()
             }
-            Spacer()
         }
-        .padding()
         .navigationTitle("Note Detail")
-    }
-    
-    func formattedDay(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, yyyy"
-        return dateFormatter.string(from: date)
+        .padding()
     }
 }
 
+// Preview for testing
+struct NotesListView_Previews: PreviewProvider {
+    static var previews: some View {
+        NotesListView(notes: [
+            Note(date: Date(), text: "Sample Note 1", image: UIImage(systemName: "photo")),
+            Note(date: Date().addingTimeInterval(-86400), text: "Sample Note 2", image: nil)
+        ])
+    }
+}
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    return formatter
+}()

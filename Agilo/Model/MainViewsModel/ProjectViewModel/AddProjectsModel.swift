@@ -82,7 +82,6 @@ struct Project: Identifiable, Hashable, Codable {
     var notes: [String] = []
     
     
-    
 //    static var deleteProject: Project {
 //            Project(id: UUID(), name: "Deleted Project", activated: false)
 //        }
