@@ -15,6 +15,8 @@ struct ProjectItemView: View {
             // Add other details if available, e.g., project.deadline
             
             Spacer()
+            
+
         }
         .padding()
         .navigationTitle("Project Details")
@@ -26,7 +28,7 @@ struct ProjectItemView: View {
                 
             } else {
                 VStack{
-                    ProjectCardView()
+                ProjectCardView()
                 }
                 .frame(height: 650)
             }

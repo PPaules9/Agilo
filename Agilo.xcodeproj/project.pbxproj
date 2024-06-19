@@ -43,9 +43,11 @@
 		22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A692BC0263D00196A1D /* InputView.swift */; };
 		22FA51A62C1E05FD00FCDC37 /* ProjectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA51A52C1E05FD00FCDC37 /* ProjectItemView.swift */; };
 		22FA51A82C1EF17300FCDC37 /* NotesTaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA51A72C1EF17300FCDC37 /* NotesTaking.swift */; };
-		22FA51AE2C1F05C900FCDC37 /* NoteTakingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA51AD2C1F05C900FCDC37 /* NoteTakingModel.swift */; };
-		22FEF9962C21F844009B4594 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 22FEF9952C21F844009B4594 /* SwiftUIX */; };
-		22FEF9982C21F918009B4594 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 22FEF9972C21F918009B4594 /* SwiftUIX */; };
+		22FA51AE2C1F05C900FCDC37 /* NotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA51AD2C1F05C900FCDC37 /* NotesListView.swift */; };
+		22FEF99A2C2342B7009B4594 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEF9992C2342B7009B4594 /* NoteDetailView.swift */; };
+		22FEF99C2C2342D6009B4594 /* RichTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEF99B2C2342D6009B4594 /* RichTextEditor.swift */; };
+		22FEF9A02C234303009B4594 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEF99F2C234303009B4594 /* PhotoCaptureView.swift */; };
+		22FEF9A22C23470A009B4594 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEF9A12C23470A009B4594 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,7 +89,11 @@
 		22F83A692BC0263D00196A1D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		22FA51A52C1E05FD00FCDC37 /* ProjectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItemView.swift; sourceTree = "<group>"; };
 		22FA51A72C1EF17300FCDC37 /* NotesTaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTaking.swift; sourceTree = "<group>"; };
-		22FA51AD2C1F05C900FCDC37 /* NoteTakingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTakingModel.swift; sourceTree = "<group>"; };
+		22FA51AD2C1F05C900FCDC37 /* NotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListView.swift; sourceTree = "<group>"; };
+		22FEF9992C2342B7009B4594 /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
+		22FEF99B2C2342D6009B4594 /* RichTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextEditor.swift; sourceTree = "<group>"; };
+		22FEF99F2C234303009B4594 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
+		22FEF9A12C23470A009B4594 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22FEF9962C21F844009B4594 /* SwiftUIX in Frameworks */,
-				22FEF9982C21F918009B4594 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +299,11 @@
 			isa = PBXGroup;
 			children = (
 				22FA51A72C1EF17300FCDC37 /* NotesTaking.swift */,
-				22FA51AD2C1F05C900FCDC37 /* NoteTakingModel.swift */,
+				22FA51AD2C1F05C900FCDC37 /* NotesListView.swift */,
+				22FEF9992C2342B7009B4594 /* NoteDetailView.swift */,
+				22FEF99B2C2342D6009B4594 /* RichTextEditor.swift */,
+				22FEF9A12C23470A009B4594 /* ImagePicker.swift */,
+				22FEF99F2C234303009B4594 /* PhotoCaptureView.swift */,
 			);
 			path = "Note Taking";
 			sourceTree = "<group>";
@@ -317,8 +325,6 @@
 			);
 			name = Agilo;
 			packageProductDependencies = (
-				22FEF9952C21F844009B4594 /* SwiftUIX */,
-				22FEF9972C21F918009B4594 /* SwiftUIX */,
 			);
 			productName = Agilo;
 			productReference = 22F83A3B2BBDEF5E00196A1D /* Agilo.app */;
@@ -349,7 +355,6 @@
 			);
 			mainGroup = 22F83A322BBDEF5E00196A1D;
 			packageReferences = (
-				22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 22F83A3C2BBDEF5E00196A1D /* Products */;
 			projectDirPath = "";
@@ -379,9 +384,10 @@
 			files = (
 				22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */,
 				2292B4002C01A792001A82F2 /* SymbolPicker.swift in Sources */,
+				22FEF99A2C2342B7009B4594 /* NoteDetailView.swift in Sources */,
 				22B195222C1230AE0073E453 /* AddProjectData.swift in Sources */,
 				221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */,
-				22FA51AE2C1F05C900FCDC37 /* NoteTakingModel.swift in Sources */,
+				22FA51AE2C1F05C900FCDC37 /* NotesListView.swift in Sources */,
 				22BB32582BC950F200224DB2 /* SearchView.swift in Sources */,
 				226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */,
 				22F83A662BC0262400196A1D /* SignUp.swift in Sources */,
@@ -393,7 +399,9 @@
 				22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */,
 				22FA51A82C1EF17300FCDC37 /* NotesTaking.swift in Sources */,
 				221C08032BD302F70089A9E3 /* Add.swift in Sources */,
+				22FEF99C2C2342D6009B4594 /* RichTextEditor.swift in Sources */,
 				222128752BC69D5200663C84 /* HomeCard.swift in Sources */,
+				22FEF9A02C234303009B4594 /* PhotoCaptureView.swift in Sources */,
 				22F83A5C2BC024E100196A1D /* BackLog.swift in Sources */,
 				221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */,
 				22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */,
@@ -410,6 +418,7 @@
 				221C08082BDD5DBC0089A9E3 /* ActivityRings.swift in Sources */,
 				226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */,
 				22F83A612BC0252900196A1D /* ProfileView.swift in Sources */,
+				22FEF9A22C23470A009B4594 /* ImagePicker.swift in Sources */,
 				22F83A552BBF270500196A1D /* User.swift in Sources */,
 				22F83A3F2BBDEF5E00196A1D /* AgiloApp.swift in Sources */,
 			);
@@ -636,30 +645,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		22FEF9952C21F844009B4594 /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
-			productName = SwiftUIX;
-		};
-		22FEF9972C21F918009B4594 /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
-			productName = SwiftUIX;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22F83A332BBDEF5E00196A1D /* Project object */;
 }

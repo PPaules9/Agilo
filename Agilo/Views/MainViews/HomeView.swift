@@ -82,9 +82,10 @@ struct HomeView: View {
                             self.percentage2 = 30
                             self.percentage3 = 80
                         }
-                    }.onReceive(timer) { _ in
-                        timeElapsed += 1
                     }
+                    .onReceive(timer) { _ in
+                        timeElapsed += 1
+                   }
                     HStack{
                         Text("Sprint 2")
                             .font(.system(size: 20, design: .monospaced))
@@ -96,7 +97,7 @@ struct HomeView: View {
                         Spacer()
                         
                         NavigationLink{
-                            CalendarView()
+                            NotesTaking()
                         } label: {
                             HStack(spacing: 8){
                                 Image(systemName: "pencil.and.list.clipboard")

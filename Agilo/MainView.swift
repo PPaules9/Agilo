@@ -71,7 +71,7 @@ struct MainView: View {
                             isAddingNewProject = true
                         }
                     label: {
-                        Text("Add New Project")
+                        Image(systemName: "plus.circle")
                     }
                     }
                 }
