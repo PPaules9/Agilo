@@ -11,6 +11,7 @@ struct SymbolPicker: View {
     @Binding var newProject: Project
     @State private var selectedColor: Color = ColorOptions.default
     @Environment(\.dismiss) private var dismiss
+    
     @State private var symbolNames = EventSymbols.symbolNames
     @State private var searchInput = ""
     
@@ -75,3 +76,7 @@ struct SymbolPicker: View {
     }
 }
 
+
+#Preview {
+    SymbolPicker(newProject: .constant(Project()))
+}

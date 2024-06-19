@@ -11,7 +11,6 @@ struct ProjectDetailView: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
     @State private var showProject = false
-    let event: BackLog
 
     var body: some View {
         ScrollView {
@@ -66,21 +65,18 @@ struct ProjectDetailView: View {
                         SettingsView()
                     }
                     
-                    Text(event.title)
+                    Text("kjhhjlk")
                         .font(.largeTitle.weight(.bold))
-                        .matchedGeometryEffect(id: "title_\(event.id)", in: namespace)
+                        .matchedGeometryEffect(id: "title_", in: namespace)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .fontDesign(.monospaced)
                     
 
-                    Text(event.date.formatted(date: .abbreviated, time: .shortened))
-                        .font(.footnote.weight(.semibold))
-                        .matchedGeometryEffect(id: "subtitle_\(event.id)", in: namespace)
-                        .fontDesign(.monospaced)
+                    
 
                     Text("This task belongs to")
                         .font(.footnote)
-                        .matchedGeometryEffect(id: "text_\(event.id)", in: namespace)
+                        .matchedGeometryEffect(id: "text_", in: namespace)
                         .fontDesign(.monospaced)
 
                     
@@ -104,7 +100,7 @@ struct ProjectDetailView: View {
                         Rectangle()
                             .fill(.ultraThinMaterial)
                             .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                            .matchedGeometryEffect(id: "blur_\(event.id)", in: namespace)
+                            .matchedGeometryEffect(id: "blur_", in: namespace)
                     )
                     .offset(y: 250)
                     .padding(20)
@@ -120,6 +116,6 @@ struct ProjectDetailView_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        ProjectDetailView(namespace: namespace, show: .constant(true), event: BackLog())
+        ProjectDetailView(namespace: namespace, show: .constant(true))
     }
 }

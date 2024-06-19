@@ -8,93 +8,91 @@ import SwiftUI
 
 struct MainView: View {
     @State private var moreViewisShowing = false
-    @Namespace var nameSpace
-    @State private var selectedTab = 1 // to show the middle tab first
-    @State private var isAddingNewEvent = false
+    @State private var selectedTab = 1
+    @State private var isAddingNewProject = false
     @State private var newEvent = BackLog()
-    @ObservedObject var eventData: BackLogData
     
     @ObservedObject var projectContainer : ProjectData
-    @State private var newProject = Project(id: UUID(), name: "", activated: false, backlogData: BackLogData())
-    
+    @Binding var newProject : Project
     
     var body: some View {
         NavigationStack{
-            ZStack{
+            TabView(selection: $selectedTab){
+                HomeView(projectContainer: projectContainer, newProject: $newProject)
+                    .tag(1)
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                            .fontDesign(.monospaced)
+                    }
                 
-                TabView(selection: $selectedTab){
-                    HomeView()
-                        .tag(1)
-                        .tabItem {
-                            Label("Home", systemImage: "house")
-                                .fontDesign(.monospaced)
-                        }
-                    
-                    SearchView(capsuleText: "")
-                        .tag(2)
-                        .tabItem {
-                            Label("Explore", systemImage: "magnifyingglass")
-                                .fontDesign(.monospaced)
-                            
-                        }
-                    
-                    Projects( projectContainer: ProjectData())
-                        .tag(3)
-                        .tabItem {
-                            Label("Project", systemImage: "plus.app")
-                                .fontDesign(.monospaced)
-                            
-                        }
-                    
-                    backLog(eventData: BackLogData())
-                        .tag(4)
-                        .tabItem {
-                            Label("BackLog", systemImage: "doc.plaintext")
-                                .fontDesign(.monospaced)
-                            
-                        }
-                    
-                    ProfileView()
-                        .tag(5)
-                        .tabItem {
-                            Label("Profile", systemImage: "person")
-                                .fontDesign(.monospaced)
-                            
-                        }
-                    
-                }
-                //                .offset(x: moreViewisShowing ? 900 : 0)
-                //                .navigationTitle("")
-                //                .navigationTitle(selectedTab == 1 ? "Dashboard"
-                // : (selectedTab == 2 ? "Explore" : (selectedTab == 3 ? "Add Project" : (selectedTab == 4 ? "Projects" : "Profile"))))
+                //                SearchView(capsuleText: "")
+                //                    .tag(2)
+                //                    .tabItem {
+                //                        Label("Explore", systemImage: "magnifyingglass")
+                //                            .fontDesign(.monospaced)
+                //                    }
                 
+                MyProject(projectContainer: projectContainer, newProject: $newProject)
+                    .tag(3)
+                    .tabItem {
+                        Label("My Projects", systemImage: "plus.app")
+                            .fontDesign(.monospaced)
+                    }
                 
-                //                MoreView(moreViewisShowing: $moreViewisShowing)
-                //                    .toolbar(moreViewisShowing ? .hidden : .visible, for: .navigationBar)
+                //                backLog()
+                //                    .tag(4)
+                //                    .tabItem {
+                //                        Label("BackLog", systemImage: "doc.plaintext")
+                //                            .fontDesign(.monospaced)
+                //                    }
                 
-                
+                ProfileView()
+                    .tag(5)
+                    .tabItem {
+                        Label("Profile", systemImage: "person")
+                            .fontDesign(.monospaced)
+                    }
             }
+            
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    if selectedTab != 4 {
+                    if selectedTab != 3 {
                         Button{
                             newEvent = BackLog()
-                            isAddingNewEvent = true                    }
-                        label: {
-                        Image(systemName: "plus.circle")
+                            isAddingNewProject = true
                         }
+                    label: {
+                        Image(systemName: "plus.circle")
+                    }
                         
-                    }else {
+                    } else {
                         Button{
                             newEvent = BackLog()
-                            isAddingNewEvent = true                    }
-                        label: {
-                        Text("Edit")
+                            isAddingNewProject = true
+                        }
+                    label: {
+                        Text("Add New Project")
+                    }
+                    }
+                }
+            }
+            .sheet(isPresented: $isAddingNewProject){
+                NavigationStack{
+                    Add(
+                        projectContainer: projectContainer
+                    )
+                    .environmentObject(ProjectData())
+                    .toolbar{
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel"){
+                                isAddingNewProject = false
+                            }
                         }
                     }
                 }
-                
-                
+            }
+            
+            .toolbar{
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
                         withAnimation(.bouncy) {
@@ -102,7 +100,7 @@ struct MainView: View {
                         }
                         
                     }, label: {
-                        Image(systemName: "line.3.horizontal")
+                        Image(systemName: "gear")
                         
                     }).sheet(isPresented: $moreViewisShowing){
                         MoreView()
@@ -119,30 +117,7 @@ struct MainView: View {
                             .foregroundStyle(Color(.orange))
                             .offset(x: -8)
                     }
-                    //                    .background(Color.teal, in: RoundedRectangle(cornerRadius: 8))
-                }
-            }
-            .sheet(isPresented: $isAddingNewEvent){
-                NavigationStack{
-                    Add(
-                        projectContainer: ProjectData()
-                    )
-                        .environmentObject(ProjectData())
-                        .toolbar{
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button("Cancel"){
-                                    isAddingNewEvent = false
-                                }
-                            }
-                            ToolbarItem {
-                                Button {
-                                    projectContainer.add(newProject)
-                                    isAddingNewEvent = false
-                                } label: {
-                                    Text ("Add")
-                                }
-                            }
-                        }
+                    .offset(x: 5)
                 }
             }
         }
@@ -151,9 +126,10 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(eventData: BackLogData(), projectContainer: ProjectData()
-             )
+    MainView(projectContainer: ProjectData(), newProject: .constant(Project()) )
 }
+
+
 
 
 

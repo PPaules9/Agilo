@@ -11,7 +11,6 @@
 		221C07FE2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */; };
 		221C08002BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C07FF2BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift */; };
 		221C08032BD302F70089A9E3 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08022BD302F70089A9E3 /* Add.swift */; };
-		221C08052BD45ED70089A9E3 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08042BD45ED60089A9E3 /* ProjectModel.swift */; };
 		221C08082BDD5DBC0089A9E3 /* ActivityRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08072BDD5DBC0089A9E3 /* ActivityRings.swift */; };
 		221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08092BDD5DDC0089A9E3 /* RingShape.swift */; };
 		221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */; };
@@ -19,7 +18,6 @@
 		226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */; };
 		226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */; };
 		226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */; };
-		2292B3FE2C01A699001A82F2 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2292B3FD2C01A699001A82F2 /* EventRow.swift */; };
 		2292B4002C01A792001A82F2 /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2292B3FF2C01A792001A82F2 /* SymbolPicker.swift */; };
 		22B195202C1028150073E453 /* DailyChekInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1951F2C1028150073E453 /* DailyChekInView.swift */; };
 		22B195222C1230AE0073E453 /* AddProjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B195212C1230AD0073E453 /* AddProjectData.swift */; };
@@ -43,6 +41,11 @@
 		22F83A662BC0262400196A1D /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A652BC0262400196A1D /* SignUp.swift */; };
 		22F83A682BC0263100196A1D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A672BC0263100196A1D /* Login.swift */; };
 		22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A692BC0263D00196A1D /* InputView.swift */; };
+		22FA51A62C1E05FD00FCDC37 /* ProjectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA51A52C1E05FD00FCDC37 /* ProjectItemView.swift */; };
+		22FA51A82C1EF17300FCDC37 /* NotesTaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA51A72C1EF17300FCDC37 /* NotesTaking.swift */; };
+		22FA51AE2C1F05C900FCDC37 /* NoteTakingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA51AD2C1F05C900FCDC37 /* NoteTakingModel.swift */; };
+		22FEF9962C21F844009B4594 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 22FEF9952C21F844009B4594 /* SwiftUIX */; };
+		22FEF9982C21F918009B4594 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 22FEF9972C21F918009B4594 /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +53,6 @@
 		221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalHomeScrollView.swift; sourceTree = "<group>"; };
 		221C07FF2BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationalHomeViewPart.swift; sourceTree = "<group>"; };
 		221C08022BD302F70089A9E3 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
-		221C08042BD45ED60089A9E3 /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		221C08072BDD5DBC0089A9E3 /* ActivityRings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRings.swift; sourceTree = "<group>"; };
 		221C08092BDD5DDC0089A9E3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProject.swift; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 		226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
 		226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
-		2292B3FD2C01A699001A82F2 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
 		2292B3FF2C01A792001A82F2 /* SymbolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPicker.swift; sourceTree = "<group>"; };
 		22B1951F2C1028150073E453 /* DailyChekInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChekInView.swift; sourceTree = "<group>"; };
 		22B195212C1230AD0073E453 /* AddProjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectData.swift; sourceTree = "<group>"; };
@@ -84,6 +85,9 @@
 		22F83A652BC0262400196A1D /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		22F83A672BC0263100196A1D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		22F83A692BC0263D00196A1D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		22FA51A52C1E05FD00FCDC37 /* ProjectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItemView.swift; sourceTree = "<group>"; };
+		22FA51A72C1EF17300FCDC37 /* NotesTaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTaking.swift; sourceTree = "<group>"; };
+		22FA51AD2C1F05C900FCDC37 /* NoteTakingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTakingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FEF9962C21F844009B4594 /* SwiftUIX in Frameworks */,
+				22FEF9982C21F918009B4594 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +106,7 @@
 		221C07FC2BD2EE380089A9E3 /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
+				22FA51AC2C1F039200FCDC37 /* Note Taking */,
 				221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */,
 				22B1951F2C1028150073E453 /* DailyChekInView.swift */,
 				221C07FF2BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift */,
@@ -112,7 +119,6 @@
 			children = (
 				221C08022BD302F70089A9E3 /* Add.swift */,
 				2292B3FF2C01A792001A82F2 /* SymbolPicker.swift */,
-				2292B3FD2C01A699001A82F2 /* EventRow.swift */,
 			);
 			path = AddProjectsView;
 			sourceTree = "<group>";
@@ -120,8 +126,9 @@
 		221C08062BD8DA920089A9E3 /* ProjectViews */ = {
 			isa = PBXGroup;
 			children = (
-				226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */,
+				22FA51A52C1E05FD00FCDC37 /* ProjectItemView.swift */,
 				226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */,
+				226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */,
 			);
 			path = ProjectViews;
 			sourceTree = "<group>";
@@ -150,7 +157,6 @@
 		222128762BC69DBF00663C84 /* ProjectViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				221C08042BD45ED60089A9E3 /* ProjectModel.swift */,
 				22E5ADF52C00D30E00C17F60 /* AddProjectsModel.swift */,
 				22B195212C1230AD0073E453 /* AddProjectData.swift */,
 			);
@@ -285,6 +291,15 @@
 			path = MainViewsModel;
 			sourceTree = "<group>";
 		};
+		22FA51AC2C1F039200FCDC37 /* Note Taking */ = {
+			isa = PBXGroup;
+			children = (
+				22FA51A72C1EF17300FCDC37 /* NotesTaking.swift */,
+				22FA51AD2C1F05C900FCDC37 /* NoteTakingModel.swift */,
+			);
+			path = "Note Taking";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,6 +316,10 @@
 			dependencies = (
 			);
 			name = Agilo;
+			packageProductDependencies = (
+				22FEF9952C21F844009B4594 /* SwiftUIX */,
+				22FEF9972C21F918009B4594 /* SwiftUIX */,
+			);
 			productName = Agilo;
 			productReference = 22F83A3B2BBDEF5E00196A1D /* Agilo.app */;
 			productType = "com.apple.product-type.application";
@@ -329,6 +348,9 @@
 				Base,
 			);
 			mainGroup = 22F83A322BBDEF5E00196A1D;
+			packageReferences = (
+				22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+			);
 			productRefGroup = 22F83A3C2BBDEF5E00196A1D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,6 +381,7 @@
 				2292B4002C01A792001A82F2 /* SymbolPicker.swift in Sources */,
 				22B195222C1230AE0073E453 /* AddProjectData.swift in Sources */,
 				221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */,
+				22FA51AE2C1F05C900FCDC37 /* NoteTakingModel.swift in Sources */,
 				22BB32582BC950F200224DB2 /* SearchView.swift in Sources */,
 				226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */,
 				22F83A662BC0262400196A1D /* SignUp.swift in Sources */,
@@ -368,7 +391,7 @@
 				22E5ADF62C00D30E00C17F60 /* AddProjectsModel.swift in Sources */,
 				22F83A5F2BC0251900196A1D /* MoreView.swift in Sources */,
 				22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */,
-				221C08052BD45ED70089A9E3 /* ProjectModel.swift in Sources */,
+				22FA51A82C1EF17300FCDC37 /* NotesTaking.swift in Sources */,
 				221C08032BD302F70089A9E3 /* Add.swift in Sources */,
 				222128752BC69D5200663C84 /* HomeCard.swift in Sources */,
 				22F83A5C2BC024E100196A1D /* BackLog.swift in Sources */,
@@ -376,11 +399,11 @@
 				22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */,
 				226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */,
 				22F83A522BBF269800196A1D /* WelcomViews.swift in Sources */,
-				2292B3FE2C01A699001A82F2 /* EventRow.swift in Sources */,
 				22F83A632BC0253800196A1D /* SettingRow.swift in Sources */,
 				221C08002BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift in Sources */,
 				22BB325C2BC9687D00224DB2 /* ProgressChart.swift in Sources */,
 				22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */,
+				22FA51A62C1E05FD00FCDC37 /* ProjectItemView.swift in Sources */,
 				22BB325E2BC9696900224DB2 /* EnergyLevelChart.swift in Sources */,
 				22F83A572BC024A700196A1D /* MyProject.swift in Sources */,
 				221C07FE2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift in Sources */,
@@ -613,6 +636,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22FEF9952C21F844009B4594 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+		22FEF9972C21F918009B4594 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22FEF9942C21F844009B4594 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22F83A332BBDEF5E00196A1D /* Project object */;
 }

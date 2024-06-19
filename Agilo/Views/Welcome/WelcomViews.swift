@@ -13,7 +13,7 @@ struct WelcomViews: View {
     var body: some View {
         Group{
             if user != nil {
-                MainView(eventData: BackLogData(), projectContainer: ProjectData())
+                MainView(projectContainer: ProjectData(), newProject: .constant(Project()))
             } else {
                 content
             }
@@ -85,8 +85,7 @@ struct WelcomViews: View {
             }
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing){
-                    NavigationLink(destination: MainView(
-                        eventData: BackLogData(), projectContainer: ProjectData()
+                    NavigationLink(destination: MainView(projectContainer: ProjectData(), newProject: .constant(Project())
                         )
                     )
                     {

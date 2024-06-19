@@ -3,10 +3,7 @@ import SwiftUI
 struct Add : View {
     
     @ObservedObject var projectContainer : ProjectData
-    @State private var newProject = Project(id: UUID(), name: "", activated: false, backlogData: BackLogData())
-    
-    @State private var teamMembers = ""
-    @State private var showCheckmark = false // Track whether to show checkmark
+    @State private var newProject = Project()
     
     @State var isNew = false
     @Environment(\.dismiss) private var dismiss
@@ -15,13 +12,14 @@ struct Add : View {
     @State private var isAddingNewProject = false
     
     var body: some View {
-        List {
+        Form {
             HStack {
                 Button {
                     isPickingSymbol.toggle()
                 } label: {
                     Image(systemName: newProject.symbol)
                         .imageScale(.large)
+                        .foregroundStyle(Color(newProject.color))
                 }
                 .buttonStyle(.plain)
                 .padding(.horizontal, 5)
@@ -31,24 +29,37 @@ struct Add : View {
                 
             }
             .padding(.top, 5)
-            DatePicker("Deadline", selection: $newProject.deadLine)
-                .listRowSeparator(.hidden)
-                    
+            //            DatePicker("Deadline", selection: $newProject.deadLine)
+            //                .listRowSeparator(.hidden)
+            DatePicker("Expected Deadline", selection: $newProject.deadLine, displayedComponents: .date)
             
-            Button {
-                projectContainer.add(newProject)
-                print([projectContainer.projects].count)
-            } label: {
-                HStack {
-                    Image(systemName: "plus")
-                    Text("Start Project")
+            Section{
+                TextField("Scrum Master", text: $newProject.scrumMaster)
+                
+                Picker("No. of Weeks in a single Sprint", selection: $newProject.weeksInSprint){
+                    ForEach(2..<5){
+                        Text("\($0) Weeks")
+                    }
                 }
+                
+                Stepper("No. of Sprints:   \(newProject.sprint)", value: $newProject.sprint)
             }
-        }
-        
-        
-        
-        
+                Section("Make This Project your Current Project"){
+                    Toggle("Activate The Project", isOn: $newProject.selected)
+                }
+                
+                Button {
+                    projectContainer.add(newProject)
+                    dismiss()
+                    print([projectContainer.projects].count)
+                } label: {
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("Start Project")
+                    }
+                }
+                
+            }
         
 #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
@@ -61,9 +72,6 @@ struct Add : View {
 
 
 #Preview { // Use the #Preview macro
-    NavigationView {
-        Add(
-            projectContainer: ProjectData()
-        )
-    }
+    Add(projectContainer: ProjectData(), isNew: true )
+        .environmentObject(ProjectData())
 }

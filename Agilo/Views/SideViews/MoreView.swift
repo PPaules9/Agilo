@@ -15,13 +15,9 @@ struct MoreView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    
-    
     var iconBackgroundColor: Color {
         colorScheme == .light ? Color("c") : .gray
     }
-    
-    
     
     
     
@@ -110,7 +106,7 @@ struct MoreView: View {
                             .frame(width: 340, height: 90)
                             .background(.orange.opacity(0.5))
                             .cornerRadius(15)
-                            .shadow(radius: 5)
+                            .shadow(radius: 7)
                             .offset(x: 8)
                             
                             

@@ -29,7 +29,9 @@ struct HomeView: View {
        return dateFormatter.string(from: currentDate)
      }
     
-    
+    @ObservedObject var projectContainer : ProjectData
+    @Binding var newProject : Project
+
     var body: some View {
         
         //Adjust This line to work
@@ -63,15 +65,15 @@ struct HomeView: View {
                     
                     ZStack {
                         
-                        ActivityRings(lineWidth: 30, backgroundColor: Color.indigo.opacity(0.2), foregroundColor: Color.indigo, percentage: percentage1)
-                            .frame(width: 160, height: 160)
+                        ActivityRings(lineWidth: 27, backgroundColor: Color.purple1.opacity(0.1), foregroundColor: Color.purple1, percentage: percentage1, percent: 75, startAngle: -99, adjustedSympol: "arrow.triangle.capsulepath")
+                            .frame(width: 130, height: 130)
                         
                         
-                        ActivityRings(lineWidth: 40, backgroundColor: Color.mint.opacity(0.2), foregroundColor: Color.mint, percentage: percentage2)
-                            .frame(width: 245, height: 245)
+                        ActivityRings(lineWidth: 32, backgroundColor: Color.mint.opacity(0.1), foregroundColor: Color.mint, percentage: percentage2, percent: 75, startAngle: -96, adjustedSympol: "arrow.forward.to.line")
+                            .frame(width: 200, height: 200)
                             
-                        ActivityRings(lineWidth: 40, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3)
-                            .frame(width: 330, height: 390)
+                        ActivityRings(lineWidth: 36, backgroundColor: Color.orange.opacity(0.1), foregroundColor: Color.orange, percentage: percentage3, percent: 75, startAngle: -95, adjustedSympol: "shippingbox")
+                            .frame(width: 280, height: 350)
                             
                     }
                     .onAppear(){
@@ -92,19 +94,21 @@ struct HomeView: View {
                             .cornerRadius(15)
 
                         Spacer()
-                        Image(systemName: "pencil.and.list.clipboard")
+                        
+                        NavigationLink{
+                            CalendarView()
+                        } label: {
+                            HStack(spacing: 8){
+                                Image(systemName: "pencil.and.list.clipboard")
+                                Text("SPIKE")
+                            }
                             .foregroundColor(.blue)
                             .fontDesign(.monospaced)
-                            .frame(width: 40, height: 35)
+                            .frame(width: 100, height:35)
                             .background(Color(.systemGray6))
                             .cornerRadius(10)
-
-                        Text("SPIKE")
-                            .foregroundColor(.blue)
-                            .fontDesign(.monospaced)
-                            .frame(width: 80, height:35)
-                            .background(Color(.systemGray6))
-                            .cornerRadius(10)
+                            .shadow(radius: 3)
+                        }
                     }
                     .padding(.bottom)
                     .padding(.horizontal)
@@ -112,9 +116,12 @@ struct HomeView: View {
                     Divider()
                     VStack{
                         HStack{
-                            ActivityRings(lineWidth: 10, backgroundColor: (colorScheme == .dark ? Color.red : Color.indigo).opacity(0.2), foregroundColor: colorScheme == .dark ? Color.red : Color.indigo, percentage: percentage1)
-                                .frame(width: 70, height: 70)
-                            
+                            ZStack{
+                                ActivityRings(lineWidth: 11, backgroundColor: (colorScheme == .dark ? Color.red : Color.purple1).opacity(0.2), foregroundColor: colorScheme == .dark ? Color.purple1 : Color.purple1, percentage: percentage1, percent: 75, startAngle: -98, adjustedSympol: "")
+                                    .frame(width: 70, height: 70)
+                                Image(systemName: "arrow.triangle.capsulepath")
+                                    .foregroundStyle(Color(colorScheme == .dark ? Color.red : Color.purple1))
+                            }
                             VStack(alignment: .leading){
                                 Text("Daily Scrum")
                                 Text("5h 45m (\(String(format: "%.0f",100.0 -  Double(Date().percentDayRemaining.rounded())))%)")
@@ -125,10 +132,16 @@ struct HomeView: View {
                         .padding(.horizontal)
                         
                         HStack{
-                            ActivityRings(lineWidth: 10, backgroundColor: Color.mint.opacity(0.2), foregroundColor: Color.teal, percentage: percentage2)
+                            ZStack {
+                            ActivityRings(lineWidth: 11, backgroundColor: Color.mint.opacity(0.2), foregroundColor: Color.teal, percentage: percentage2, percent: 75, startAngle: -90, adjustedSympol: "")
                                 .frame(width: 70, height: 70)
+                            
+                            Image(systemName: "arrow.forward.to.line")
+                                    .foregroundStyle(Color.mint)
+                        }
                             VStack(alignment: .leading){
-                                Text("Sprint Status")
+                                    Text("Sprint Status")
+                                
                                 Text("Day 4 (35%)")
                                     .foregroundStyle(Color(.systemGray))
                             }
@@ -137,8 +150,15 @@ struct HomeView: View {
                         .padding(.horizontal)
                         
                         HStack{
-                            ActivityRings(lineWidth: 10, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3)
-                                .frame(width: 70, height: 70)
+                            ZStack{
+                                
+                                ActivityRings(lineWidth: 11, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3, percent: 75, startAngle: -90, adjustedSympol: "")
+                                    .frame(width: 70, height: 70)
+                                
+                                Image(systemName: "shippingbox")
+                                    .foregroundStyle(Color.orange)
+
+                            }
                             VStack(alignment: .leading){
                                 Text("Product Increment")
                                 Text(" 5 out of 10(77%)")
@@ -167,6 +187,8 @@ struct HomeView: View {
                         .padding(.horizontal)
                         .padding(.top)
                         
+                        Text("Check out your Previous Notes")
+
                         
 //                        ZStack{
 //                            if !show {
@@ -198,6 +220,12 @@ struct HomeView: View {
                         Form {
                             Text("Switch between Projects")
                             Text("Change the View based on the current Project")
+                            
+                            Picker("Select your Project", selection: $newProject.selected){
+                                ForEach(projectContainer.projects) { newProject  in 
+                                    Text(newProject.name)
+                                }
+                            }
                         }
                         .fontDesign(.monospaced)
                         
@@ -247,5 +275,5 @@ extension Date {
 
 
 #Preview {
-    HomeView()
+    HomeView(projectContainer: ProjectData(), newProject: .constant(Project()))
 }

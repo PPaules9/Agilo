@@ -17,12 +17,13 @@ struct ProfileView: View {
         
         NavigationStack{
             ScrollView{
+                
                 VStack(spacing:5) {
                     Image(systemName: "person.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-                        .padding()
+                        .frame(width: 40, height: 40)
+                        .padding(.horizontal)
                     Text("Pavly Paules")
                         .font(.custom("Charter", size: 22))
                         .bold()
@@ -59,98 +60,88 @@ struct ProfileView: View {
                     .cornerRadius(15)
                     .shadow(radius: 5)
                     
-                    
                     Divider()
                     
+                    Spacer()
                     
+                    ZStack{
+                        
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .cornerRadius(20)
+                            .frame(width: 360, height: 410)
+                        
                     
-                    
-                    
-                    HStack{
-                        VStack(alignment: .leading, spacing: 5){
-                            HStack{
-                                Text("Pavly Alkess")
-                                Spacer()
-                                Text("Change Name")
+                        HStack{
+                            VStack(alignment: .leading, spacing: 5){
+                                HStack{
+                                    Text("Pavly Alkess")
+                                    Spacer()
+                                    Text("Change Name")
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 11)
+                                
+                                HStack{
+                                    Text("Email@gmail.com")
+                                    Spacer()
+                                    Text("Edit Email")
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 11)
+                                
+                                HStack{
+                                    Text("Password")
+                                    Spacer()
+                                    Text("Edit Password")
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 11)
+                                
+                                HStack{
+                                    Text("Your phone Number")
+                                    Spacer()
+                                    Text("01277745591")
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 11)
+                                
+                                HStack{
+                                    Text("Member since")
+                                    Spacer()
+                                    Text("15 May 2024")
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 11)
+                                
+                                HStack{
+                                    Text("Account ID")
+                                    Spacer()
+                                    Text("343sd345")
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 11)
+                                
+                                HStack{
+                                    Text("Go to My Projects")
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 11)
+                                
+                                HStack{
+                                    Text("Invite a Friend and get 1 month Free")
+                                }
+                                .frame(width: 340, height: 15)
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
+                                .cornerRadius(15)
+                                
                             }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .background(Color(.myGreen1))
-                            .cornerRadius(15)
-                            
-                            HStack{
-                                Text("Email@gmail.com")
-                                Spacer()
-                                Text("Edit Email")
-                            }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .background(Color(.myGreen1))
-                            .cornerRadius(15)
-                            
-                            HStack{
-                                Text("Password")
-                                Spacer()
-                                Text("Edit Password")
-                            }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .background(Color(.myGreen1))
-                            .cornerRadius(15)
-                            
-                            HStack{
-                                Text("Your phone Number")
-                                Spacer()
-                                Text("01277745591")
-                            }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .background(Color(.myGreen1))
-                            .cornerRadius(15)
-                            
-                            HStack{
-                                Text("Member since")
-                                Spacer()
-                                Text("15 May 2024")
-                            }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .background(Color(.myGreen1))
-                            .cornerRadius(15)
-                            
-                            HStack{
-                                Text("Account ID")
-                                Spacer()
-                                Text("343sd345")
-                            }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .background(Color(.myGreen1))
-                            .cornerRadius(15)
-                            
-                            HStack{
-                                Text("Go to My Projects")
-                            }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .background(Color(.myGreen1))
-                            .cornerRadius(15)
-                            
-                            
-                            HStack{
-                                Text("Invite a Friend and get 1 month Free")
-                            }
-                            .frame(width: 340, height: 15)
-                            .padding()
-                            .cornerRadius(15)
+                            Spacer()
                             
                         }
-                        Spacer()
-                        
                     }
-                    .padding()
                     
-                    Spacer()
                 }
                 
             }
