@@ -32,16 +32,11 @@ struct Add : View {
             //            DatePicker("Deadline", selection: $newProject.deadLine)
             //                .listRowSeparator(.hidden)
             DatePicker("Expected Deadline", selection: $newProject.deadLine, displayedComponents: .date)
+            DatePicker("Start Date", selection: $newProject.startDay, displayedComponents: .date)
             
             Section{
                 TextField("Scrum Master", text: $newProject.scrumMaster)
-                
-                Picker("No. of Weeks in a single Sprint", selection: $newProject.weeksInSprint){
-                    ForEach(2..<5){
-                        Text("\($0) Weeks")
-                    }
-                }
-                
+                                
                 Stepper("No. of Sprints:   \(newProject.sprint)", value: $newProject.sprint)
             }
                 Section("Make This Project your Current Project"){

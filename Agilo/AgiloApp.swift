@@ -15,7 +15,7 @@ struct AgiloApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView(projectContainer: ProjectData(), newProject: .constant(Project()))
+            MainView(projectContainer: ProjectData())
         }
     }
 }

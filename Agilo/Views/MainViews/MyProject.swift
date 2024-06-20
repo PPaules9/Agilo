@@ -1,23 +1,15 @@
-//
-//  Projects.swift
-//  Agilo
-//
-//  Created by Pavly Paules on 05/04/2024.
-//
-
 import SwiftUI
 
 struct MyProject: View {
     
-    @ObservedObject var projectContainer : ProjectData
-    @Binding var newProject : Project
-        
-    @State private var isAddingNewProject = false
-    @State private var activeProjectID: UUID?
+    @ObservedObject var projectContainer: ProjectData
+    @Binding var newProject: Project
     
+    @State private var showingDeleteAlert = false
+
     var body: some View {
-        NavigationStack{
-            List{
+        NavigationView {
+            List {
                 ForEach(projectContainer.projects) { newProject in
                     NavigationLink(destination: ProjectItemView(newProject: newProject)) {
                         HStack {
@@ -29,18 +21,21 @@ struct MyProject: View {
                             
                             if newProject.selected {
                                 Text("active")
-                                    .foregroundStyle(Color.gray)
-                                
-                            } else{
+                                    .foregroundColor(Color.gray)
+                            } else {
                                 Text("")
-                                    .foregroundStyle(Color.gray)
+                                    .foregroundColor(Color.gray)
                             }
-                            
                         }
                     }
+                    
+                }
+                .onDelete { indexSet in
+                    projectContainer.removeItems(at: indexSet)
+                    showingDeleteAlert = true
                 }
             }
-            .padding(.top, 5)
+            .navigationTitle("My Projects List")            
         }
     }
 }

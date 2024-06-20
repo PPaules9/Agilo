@@ -1,15 +1,9 @@
-//
-//  DailyChekInView.swift
-//  Agilo
-//
-//  Created by Pavly Paules on 05/06/2024.
-//
-
 import SwiftUI
 
 struct DailyChekInView: View {
+    @State private var streakCount: Int = 0
+
     var body: some View {
-        
         VStack(alignment: .leading){
             HStack {
                 Text(" ✓ DAILY CHECKIN")
@@ -22,7 +16,6 @@ struct DailyChekInView: View {
         }
         .padding(.top)
         .frame(width: 325, height: 30)
-        
         
         HStack {
             VStack{
@@ -75,7 +68,6 @@ struct DailyChekInView: View {
         .padding(.horizontal)
         .frame(width: 380)
         
-        
         HStack {
             VStack{
                 Spacer()
@@ -95,7 +87,6 @@ struct DailyChekInView: View {
                     .font(.custom("Charter", size: 16))
                     .foregroundStyle(.white)
                     .fontDesign(.monospaced)
-                
                 
                 Text("13 Days till the end of current Sprint")
                     .font(.custom("Charter", size: 12))
@@ -129,7 +120,6 @@ struct DailyChekInView: View {
                     .foregroundStyle(.white)
                     .fontDesign(.monospaced)
                 
-                
                 Text("Take notes for your spike")
                     .font(.custom("Charter", size: 22))
                     .foregroundStyle(.white)
@@ -156,12 +146,9 @@ struct DailyChekInView: View {
                         .foregroundColor(Color.gray)
                         .font(.system(size: 12))
                     
-                    
-                    Text("9")
+                    Text("\(streakCount)") // Updated to use streakCount
                         .font(.custom("Arial", size: 14))
                         .fontDesign(.monospaced)
-                    
-                    
                 }
             }
             HStack{
@@ -177,7 +164,33 @@ struct DailyChekInView: View {
             
         }
         .padding(.bottom, 9)
-        
+        .onAppear(perform: checkAndUpdateStreak)
+    }
+    
+    func checkAndUpdateStreak() {
+        let userDefaults = UserDefaults.standard
+        let lastCheckInDateKey = "lastCheckInDate"
+        let streakCountKey = "streakCount"
+
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        if let lastCheckInDate = userDefaults.object(forKey: lastCheckInDateKey) as? Date {
+            let daysDifference = calendar.dateComponents([.day], from: lastCheckInDate, to: currentDate).day ?? 0
+
+            if daysDifference == 1 {
+                streakCount = userDefaults.integer(forKey: streakCountKey) + 1
+            } else if daysDifference > 1 {
+                streakCount = 1
+            } else {
+                streakCount = userDefaults.integer(forKey: streakCountKey)
+            }
+        } else {
+            streakCount = 1
+        }
+
+        userDefaults.set(currentDate, forKey: lastCheckInDateKey)
+        userDefaults.set(streakCount, forKey: streakCountKey)
     }
 }
 

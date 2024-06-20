@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct HorizontalHomeScrollView: View {
+    @ObservedObject var projectContainer : ProjectData
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack(spacing: 10){
-                CurrentProject()
+                CurrentProject(projectContainer: projectContainer)
                 HomeCard()
             }
             .frame(maxWidth: .infinity)
@@ -24,5 +26,5 @@ struct HorizontalHomeScrollView: View {
 }
 
 #Preview {
-    HorizontalHomeScrollView()
+    HorizontalHomeScrollView(projectContainer: ProjectData())
 }

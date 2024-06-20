@@ -72,9 +72,9 @@ struct Project: Identifiable, Hashable, Codable {
     var productOwner = ""
     var teamMembers = ["Andrew", "Jan", "Leo", "Theo"]
     
-    var weeksInSprint = 2
     var sprint = 2
     
+    var startDay = Date.now
     var deadLine = Date.now
     var backlogMilestone = [BackLog(title: "", date: Date.now, energyUnit: 1)]
     
@@ -106,7 +106,8 @@ class ProjectData: ObservableObject {
                 isDone: false,
                 scrumMaster: "Pavly",
                 teamMembers: ["Andrew", "Jan", "Leo", "Theo"],
-                weeksInSprint: 5,
+                sprint: 3,
+                startDay: Date.now,
                 deadLine: Date.now,
                 backlogMilestone: [
                     BackLog(title: "Tiers", date: Date.now, energyUnit: 10),
@@ -123,7 +124,7 @@ class ProjectData: ObservableObject {
                 isDone: false,
                 scrumMaster: "ds",
                 teamMembers: ["Anddcafrew", "Jandsa", "Leo", "Theo"],
-                weeksInSprint: 5,
+                sprint: 3,
                 deadLine: Date.now,
                 backlogMilestone: [
                     BackLog(title: "Tiers", date: Date.now, energyUnit: 10),
@@ -140,7 +141,7 @@ class ProjectData: ObservableObject {
                 isDone: false,
                 scrumMaster: "ds",
                 teamMembers: ["Nader", "Jandsa", "Leo", "Theo"],
-                weeksInSprint: 5,
+                sprint: 3,
                 deadLine: Date.now,
                 backlogMilestone: [
                     BackLog(title: "Tiers", date: Date.now, energyUnit: 10),
@@ -151,59 +152,20 @@ class ProjectData: ObservableObject {
             )
     ]
     
+    // Add New Project (append to the Array)
     func add(_ project: Project) {
         projects.append(project)
     }
-        
-    func remove(_ project: Project) {
-        projects.removeAll { $0.id == project.id}
-    }
     
+    // remove a project from the list View in MyProjects
     func removeItems(at offset: IndexSet) {
         projects.remove(atOffsets: offset)
     }
-
     
-//    func getBindingToEvent(_ event: Project) -> Binding<Project>? {
-//        Binding<Project>(
-//            get: {
-//                guard let index = self.projects.firstIndex(where: { $0.id == event.id }) else { return Project.deleteProject }
-//                return self.projects[index]
-//            },
-//            set: { event in
-//                guard let index = self.projects.firstIndex(where: { $0.id == event.id }) else { return }
-//                self.projects[index] = event
-//            }
-//        )
-//    }
-    
-    
-    
-    private static func getEventsFileURL() throws -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("events.data")
+    // Catch the Activates project
+    func getActiveProject() -> Project? {
+            return projects.first { $0.selected }
     }
     
-    func load() {
-        do {
-
-            let fileURL = try ProjectData.getEventsFileURL()
-                        let data = try Data(contentsOf: fileURL)
-            projects = try JSONDecoder().decode([Project].self, from: data)
-            print("Events loaded: \(projects.count)")
-        } catch {
-            print("Failed to load from file. Backup data used")
-        }
-    }
-    
-    func save() {
-        do {
-            let fileURL = try ProjectData.getEventsFileURL()
-            let data = try JSONEncoder().encode(projects)
-            try data.write(to: fileURL, options: [.atomic, .completeFileProtection])
-        } catch {
-            print("Unable to save")
-        }
-    }
 }
 

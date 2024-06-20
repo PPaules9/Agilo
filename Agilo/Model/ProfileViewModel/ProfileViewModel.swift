@@ -2,14 +2,6 @@
 //  ProfileViewModel.swift
 //  Agilo
 //
-//  Created by Pavly Paules on 19/06/2024.
-//
-//
-//  SettingRow.swift
-//  Agilo
-//
-//  Created by Pavly Paules on 05/04/2024.
-//
 
 import SwiftUI
 

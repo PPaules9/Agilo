@@ -13,12 +13,12 @@ struct MainView: View {
     @State private var newEvent = BackLog()
     
     @ObservedObject var projectContainer : ProjectData
-    @Binding var newProject : Project
-    
+    @State private var selectedProject: Project = Project()
+
     var body: some View {
         NavigationStack{
             TabView(selection: $selectedTab){
-                HomeView(newProject: $newProject, projectContainer: projectContainer)
+                HomeView(newProject: $selectedProject, projectContainer: projectContainer)
                     .tag(1)
                     .tabItem {
                         Label("Home", systemImage: "house")
@@ -32,7 +32,7 @@ struct MainView: View {
                 //                            .fontDesign(.monospaced)
                 //                    }
                 
-                MyProject(projectContainer: projectContainer, newProject: $newProject)
+                MyProject(projectContainer: projectContainer, newProject: $selectedProject)
                     .tag(3)
                     .tabItem {
                         Label("My Projects", systemImage: "plus.app")
@@ -126,7 +126,7 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(projectContainer: ProjectData(), newProject: .constant(Project()) )
+    MainView(projectContainer: ProjectData())
 }
 
 

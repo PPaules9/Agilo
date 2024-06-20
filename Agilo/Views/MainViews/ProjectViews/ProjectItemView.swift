@@ -4,6 +4,11 @@ struct ProjectItemView: View {
     var newProject: Project
     @State var show = false
     
+//    @State private var suggestions: String = ""
+//    @State private var isLoading: Bool = false
+//    let openAIService = OpenAIService()
+    
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(newProject.name)
@@ -15,6 +20,19 @@ struct ProjectItemView: View {
             // Add other details if available, e.g., project.deadline
             
             Spacer()
+            
+//            Button("Get Task Suggestions") {
+//                fetchTaskSuggestions()
+//            }
+//            .padding()
+//            
+//            if isLoading {
+//                ProgressView()
+//                    .padding()
+//            } else {
+//                Text(suggestions)
+//                    .padding()
+//            }
             
 
         }
@@ -28,7 +46,7 @@ struct ProjectItemView: View {
                 
             } else {
                 VStack{
-                ProjectCardView()
+                    ProjectCardView()
                 }
                 .frame(height: 650)
             }
@@ -39,6 +57,27 @@ struct ProjectItemView: View {
             }
         }
     }
+    
+    
+    
+//    func fetchTaskSuggestions() {
+//            isLoading = true
+//            openAIService.suggestNextTasks(for: newProject) { result in
+//                DispatchQueue.main.async {
+//                    isLoading = false
+//                    switch result {
+//                    case .success(let response):
+//                        suggestions = response
+//                    case .failure(let error):
+//                        suggestions = "Error: \(error.localizedDescription)"
+//                    }
+//                }
+//            }
+//        }
+    
+    
+    
+    
 }
 
 #Preview {

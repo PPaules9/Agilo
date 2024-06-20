@@ -11,6 +11,8 @@ struct ProjectDetailView: View {
     var namespace : Namespace.ID
     @Binding var show : Bool
     @State private var showProject = false
+    
+    
 
     var body: some View {
         ScrollView {
