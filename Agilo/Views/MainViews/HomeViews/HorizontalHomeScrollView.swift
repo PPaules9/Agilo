@@ -12,13 +12,12 @@ struct HorizontalHomeScrollView: View {
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
-            HStack(spacing: 10){
+            LazyHStack(spacing: 10){
                 CurrentProject(projectContainer: projectContainer)
                 HomeCard()
             }
             .frame(maxWidth: .infinity)
             .frame(height: 200)
-            .padding(.leading)
             
             Divider()
         }

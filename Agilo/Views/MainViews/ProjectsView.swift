@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MyProject: View {
+struct ProjectsView: View {
     
     @ObservedObject var projectContainer: ProjectData
     @Binding var newProject: Project
@@ -11,7 +11,7 @@ struct MyProject: View {
         NavigationView {
             List {
                 ForEach(projectContainer.projects) { newProject in
-                    NavigationLink(destination: ProjectItemView(newProject: newProject)) {
+                    NavigationLink(destination: ProjectItemView(projectContainer: projectContainer, newProject: newProject)) {
                         HStack {
                             Image(systemName: newProject.symbol)
                                 .foregroundColor(Color(newProject.color))
@@ -41,5 +41,5 @@ struct MyProject: View {
 }
 
 #Preview {
-    MyProject(projectContainer: ProjectData(), newProject: .constant(Project()))
+    ProjectsView(projectContainer: ProjectData(), newProject: .constant(Project()))
 }

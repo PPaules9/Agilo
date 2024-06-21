@@ -13,6 +13,8 @@ struct ProfileView: View {
         colorScheme == .light ? Color("c") : .gray
     }
     
+    @ObservedObject var projectContainer: ProjectData
+    
     var body: some View {
         
         NavigationStack{
@@ -74,10 +76,10 @@ struct ProfileView: View {
                         HStack{
                             VStack(alignment: .leading, spacing: 25){
                                 
-                            Button{
-                            } label: {
-                                ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Pavly Alkess", tintColor: Color.blue, goTo: "Change Name")
-                            }
+                                Button{
+                                } label: {
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Pavly Alkess", tintColor: Color.blue, goTo: "Change Name")
+                                }
                                 Button{
                                 } label: {
                                     ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Email@gmail.com", tintColor: Color.blue, goTo: "Change Email")
@@ -86,16 +88,16 @@ struct ProfileView: View {
                                 } label: {
                                     ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Password", tintColor: Color.blue, goTo: "Edit Password")
                                 }
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Phone Number", tintColor: Color.blue, goTo: "01277745591")
-                               
-                               
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Member since", tintColor: Color.blue, goTo: "15 May 2024")
+                                ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Phone Number", tintColor: Color.blue, goTo: "01277745591")
                                 
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Account ID", tintColor: Color.blue, goTo: "dsahijo54kln")
+                                
+                                ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Member since", tintColor: Color.blue, goTo: "15 May 2024")
+                                
+                                ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Account ID", tintColor: Color.blue, goTo: "dsahijo54kln")
                                 
                                 
                                 HStack{
-                                    Text("Go to My Projects")
+                                    Text("Your Active Project is ")
                                 }
                                 .padding(.horizontal, 30)
                                 
@@ -109,13 +111,9 @@ struct ProfileView: View {
                                 
                             }
                             Spacer()
-                            
-                        
                         }
                     }
-                    
                 }
-                
             }
         }
         .padding(.top, 10)
@@ -124,7 +122,7 @@ struct ProfileView: View {
 
 
 #Preview {
-    ProfileView()
+    ProfileView(projectContainer: ProjectData())
 }
 
 

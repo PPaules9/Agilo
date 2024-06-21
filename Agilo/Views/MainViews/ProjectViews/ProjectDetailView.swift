@@ -12,7 +12,6 @@ struct ProjectDetailView: View {
     @Binding var show : Bool
     @State private var showProject = false
     
-    
 
     var body: some View {
         ScrollView {

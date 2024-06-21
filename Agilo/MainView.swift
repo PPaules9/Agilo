@@ -14,7 +14,7 @@ struct MainView: View {
     
     @ObservedObject var projectContainer : ProjectData
     @State private var selectedProject: Project = Project()
-
+    
     var body: some View {
         NavigationStack{
             TabView(selection: $selectedTab){
@@ -25,28 +25,28 @@ struct MainView: View {
                             .fontDesign(.monospaced)
                     }
                 
-                //                SearchView(capsuleText: "")
-                //                    .tag(2)
-                //                    .tabItem {
-                //                        Label("Explore", systemImage: "magnifyingglass")
-                //                            .fontDesign(.monospaced)
-                //                    }
+//                SearchView(capsuleText: "")
+//                    .tag(2)
+//                    .tabItem {
+//                        Label("Explore", systemImage: "magnifyingglass")
+//                            .fontDesign(.monospaced)
+//                    }
                 
-                MyProject(projectContainer: projectContainer, newProject: $selectedProject)
+                ProjectsView(projectContainer: projectContainer, newProject: $selectedProject)
                     .tag(3)
                     .tabItem {
-                        Label("My Projects", systemImage: "plus.app")
+                        Label("Projects", systemImage: "plus.app")
                             .fontDesign(.monospaced)
                     }
                 
-                //                backLog()
-                //                    .tag(4)
-                //                    .tabItem {
-                //                        Label("BackLog", systemImage: "doc.plaintext")
-                //                            .fontDesign(.monospaced)
-                //                    }
+                BacklogView(projectContainer: projectContainer)
+                    .tag(4)
+                    .tabItem {
+                        Label("BackLog", systemImage: "doc.plaintext")
+                            .fontDesign(.monospaced)
+                    }
                 
-                ProfileView()
+                ProfileView(projectContainer: projectContainer)
                     .tag(5)
                     .tabItem {
                         Label("Profile", systemImage: "person")
@@ -55,24 +55,70 @@ struct MainView: View {
             }
             
             .toolbar {
+                // Settings
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        withAnimation(.bouncy) {
+                            moreViewisShowing.toggle()
+                        }
+                        
+                    }, label: {
+                        Image(systemName: "gear")
+                        
+                    }).sheet(isPresented: $moreViewisShowing){
+                        MoreView()
+                    }
+                }
+                
+                // Agilo Word
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack{
+                        Text("Agi")
+                            .bold()
+                        Text("lo")
+                            .bold()
+                            .foregroundStyle(Color(.orange))
+                            .offset(x: -8)
+                    }
+                    .offset(x: 5)
+                }
+                
+                // Recap Button
                 ToolbarItem(placement: .topBarTrailing) {
-                    if selectedTab != 3 {
+                    if selectedTab == 5 {
                         Button{
-                            newEvent = BackLog()
-                            isAddingNewProject = true
+                            
                         }
                     label: {
-                        Image(systemName: "plus.circle")
+                        Image(systemName: "fireworks")
                     }
-                        
+                    }
+                }
+                
+                // Chart Button
+                ToolbarItem(placement: .topBarTrailing) {
+                    if selectedTab == 5 {
+                        Text("")
                     } else {
                         Button{
-                            newEvent = BackLog()
-                            isAddingNewProject = true
+                            //Adjusting Charts and analysis
                         }
                     label: {
-                        Image(systemName: "plus.circle")
+                        Image(systemName: "chart.bar.xaxis")
                     }
+                    }
+                }
+                
+                // Add Project
+                ToolbarItem(placement: .topBarTrailing) {
+                    if selectedTab == 5 {
+                        Text("")
+                    } else {
+                        Button{
+                            isAddingNewProject = true
+                        } label: {
+                            Image(systemName: "plus.circle")
+                        }
                     }
                 }
             }
@@ -89,35 +135,6 @@ struct MainView: View {
                             }
                         }
                     }
-                }
-            }
-            
-            .toolbar{
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        withAnimation(.bouncy) {
-                            moreViewisShowing.toggle()
-                        }
-                        
-                    }, label: {
-                        Image(systemName: "gear")
-                        
-                    }).sheet(isPresented: $moreViewisShowing){
-                        MoreView()
-                    }
-                    
-                }
-                
-                ToolbarItem(placement: .topBarLeading) {
-                    HStack{
-                        Text("Agi")
-                            .bold()
-                        Text("lo")
-                            .bold()
-                            .foregroundStyle(Color(.orange))
-                            .offset(x: -8)
-                    }
-                    .offset(x: 5)
                 }
             }
         }

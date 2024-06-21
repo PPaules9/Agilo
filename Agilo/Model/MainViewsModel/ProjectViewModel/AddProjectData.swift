@@ -147,25 +147,25 @@ struct EventSymbols {
 
 //MARK: - TaskRow
 
-struct TaskRow: View {
-    @Binding var task: BackLogTask
-    var focusedTask: FocusState<BackLogTask?>.Binding
-
-    var body: some View {
-        HStack {
-            Button {
-                task.isCompleted.toggle()
-            } label: {
-                Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
-            }
-            .buttonStyle(.plain)
-
-            TextField("Task Description", text: $task.text, axis: .vertical)
-                .focused(focusedTask, equals: task)
-            Spacer()
-        }
-    }
-}
+//struct TaskRow: View {
+//    @Binding var task: BackLogTask
+//    var focusedTask: FocusState<BackLogTask?>.Binding
+//
+//    var body: some View {
+//        HStack {
+//            Button {
+//                task.isCompleted.toggle()
+//            } label: {
+//                Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
+//            }
+//            .buttonStyle(.plain)
+//
+//            TextField("Task Description", text: $task.text, axis: .vertical)
+//                .focused(focusedTask, equals: task)
+//            Spacer()
+//        }
+//    }
+//}
 
 
 enum Period: String, CaseIterable, Identifiable {

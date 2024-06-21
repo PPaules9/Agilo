@@ -32,7 +32,7 @@
 		22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A4E2BBDF04A00196A1D /* MainView.swift */; };
 		22F83A522BBF269800196A1D /* WelcomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A512BBF269800196A1D /* WelcomViews.swift */; };
 		22F83A552BBF270500196A1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A542BBF270500196A1D /* User.swift */; };
-		22F83A572BC024A700196A1D /* MyProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A562BC024A700196A1D /* MyProject.swift */; };
+		22F83A572BC024A700196A1D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A562BC024A700196A1D /* ProjectsView.swift */; };
 		22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A592BC024CC00196A1D /* HomeView.swift */; };
 		22F83A5C2BC024E100196A1D /* BackLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A5B2BC024E100196A1D /* BackLog.swift */; };
 		22F83A5F2BC0251900196A1D /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A5E2BC0251900196A1D /* MoreView.swift */; };
@@ -79,7 +79,7 @@
 		22F83A4E2BBDF04A00196A1D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		22F83A512BBF269800196A1D /* WelcomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViews.swift; sourceTree = "<group>"; };
 		22F83A542BBF270500196A1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		22F83A562BC024A700196A1D /* MyProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProject.swift; sourceTree = "<group>"; };
+		22F83A562BC024A700196A1D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		22F83A592BC024CC00196A1D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		22F83A5B2BC024E100196A1D /* BackLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackLog.swift; sourceTree = "<group>"; };
 		22F83A5E2BC0251900196A1D /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
@@ -252,11 +252,11 @@
 			children = (
 				22F83A592BC024CC00196A1D /* HomeView.swift */,
 				22BB32572BC950F200224DB2 /* SearchView.swift */,
-				22F83A562BC024A700196A1D /* MyProject.swift */,
+				22F83A562BC024A700196A1D /* ProjectsView.swift */,
 				22F83A5B2BC024E100196A1D /* BackLog.swift */,
 				22F83A602BC0252900196A1D /* ProfileView.swift */,
-				221C08062BD8DA920089A9E3 /* ProjectViews */,
 				221C07FC2BD2EE380089A9E3 /* HomeViews */,
+				221C08062BD8DA920089A9E3 /* ProjectViews */,
 				221C08012BD302BD0089A9E3 /* AddProjectsView */,
 			);
 			path = MainViews;
@@ -425,7 +425,7 @@
 				22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */,
 				22FA51A62C1E05FD00FCDC37 /* ProjectItemView.swift in Sources */,
 				22BB325E2BC9696900224DB2 /* EnergyLevelChart.swift in Sources */,
-				22F83A572BC024A700196A1D /* MyProject.swift in Sources */,
+				22F83A572BC024A700196A1D /* ProjectsView.swift in Sources */,
 				221C07FE2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift in Sources */,
 				221C08082BDD5DBC0089A9E3 /* ActivityRings.swift in Sources */,
 				226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */,

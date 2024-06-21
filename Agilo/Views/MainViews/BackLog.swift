@@ -7,34 +7,43 @@
 
 import SwiftUI
 
-struct backLog: View {
+struct BacklogView: View {
     
     @State private var newEvent = BackLog()
     @State private var selection: BackLog?
     
+    @ObservedObject var projectContainer: ProjectData
     
     var body: some View {
-        
-        NavigationStack {
-            VStack(alignment: .leading){
-                HStack {
-                    Text("Backlog")
-                        .font(.system(size: 32, design: .monospaced))
-                        .bold()
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
-                        .fontWeight(.bold)
-                    Spacer()
+        if let activeProject = projectContainer.getActiveProject() {
+            
+            NavigationStack {
+                VStack(alignment: .leading){
+                    HStack {
+                        Text("Your Active Project is: \(activeProject.name)")
+                            .font(.system(size: 32, design: .monospaced))
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(1)
+                            .fontWeight(.bold)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    
+                    
                 }
-                .padding(.horizontal)
-                .padding(.bottom)
-                
-               
+                .padding(.top, 10)
             }
-            .padding(.top, 10)
+        } else {
+            ContentUnavailableView {
+                Label("Thier is no active projects yet", systemImage: "plus")
+            } description: {
+                Text("You don't have any projects")
+            }
         }
     }
 }
-#Preview {
-    backLog()
-}
+    #Preview {
+        BacklogView(projectContainer: ProjectData())
+    }

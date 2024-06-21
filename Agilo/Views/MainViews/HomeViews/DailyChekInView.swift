@@ -2,29 +2,46 @@ import SwiftUI
 
 struct DailyChekInView: View {
     @State private var streakCount: Int = 0
-
+    @State private var isGreetingVisible = true
+    
     var body: some View {
         
         //Header
         VStack(alignment: .leading){
-            
-            HStack{
-                Spacer()
-                Text("\(greeting()), Pavly \(Image(systemName: greetingImage()))")
-                Spacer()
+            VStack{
+                if isGreetingVisible {
+                    VStack{
+                        HStack{
+                            Spacer()
+                            Text("\(greeting()),  Pavly \(Image(systemName: greetingImage()))")
+                                .font(.title)
+                                .padding(.top)
+                            Spacer()
+                        }
+                    }
+                }
             }
-            .padding(.bottom, 10)
-            HStack {
-                Text(" ✓ DAILY REFRESH")
-                    .font(.custom("Arial", size: 14))
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.gray)
-                    .fontDesign(.monospaced)
-                Spacer()
+            .onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation {
+                        isGreetingVisible = false
+                    }
+                }
             }
         }
         .padding(.top)
-        .frame(width: 325, height: 30)
+        .padding(.bottom)
+        .frame(width: 325, height: 20)
+        
+        HStack {
+            Text(" ✓ DAILY REFRESH")
+                .font(.custom("Arial", size: 14))
+                .fontWeight(.semibold)
+                .foregroundColor(Color.gray)
+                .fontDesign(.monospaced)
+            Spacer()
+        }
+        .padding()
         
         
         //First Stack (The Big One)
@@ -172,7 +189,7 @@ struct DailyChekInView: View {
             HStack{
                 Text(" ☼")
                     .font(.custom("Arial", size: 15))
-
+                
                 Text("Daily Streak")
                     .font(.custom("Arial", size: 15))
                     .fontWeight(.semibold)
@@ -190,13 +207,13 @@ struct DailyChekInView: View {
         let userDefaults = UserDefaults.standard
         let lastCheckInDateKey = "lastCheckInDate"
         let streakCountKey = "streakCount"
-
+        
         let currentDate = Date()
         let calendar = Calendar.current
-
+        
         if let lastCheckInDate = userDefaults.object(forKey: lastCheckInDateKey) as? Date {
             let daysDifference = calendar.dateComponents([.day], from: lastCheckInDate, to: currentDate).day ?? 0
-
+            
             if daysDifference == 1 {
                 streakCount = userDefaults.integer(forKey: streakCountKey) + 1
             } else if daysDifference > 1 {
@@ -207,7 +224,7 @@ struct DailyChekInView: View {
         } else {
             streakCount = 1
         }
-
+        
         userDefaults.set(currentDate, forKey: lastCheckInDateKey)
         userDefaults.set(streakCount, forKey: streakCountKey)
     }
@@ -224,7 +241,7 @@ struct DailyChekInView: View {
         case 12..<17:
             return "It's Afternoon"
         case 17..<22:
-            return "Catch Remaining Tasks"
+            return "Hey 👋"
         default:
             return "Good Night"
         }

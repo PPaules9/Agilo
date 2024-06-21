@@ -6,10 +6,9 @@ struct BackLog: Identifiable, Hashable, Codable {
     
     var id = UUID()
     var title = ""
-    var date = Date.now
     var energyUnit = 1
     
-    
+}
 //    var period: Period {
 //        if date < Date.now {
 //            return .past
@@ -36,29 +35,6 @@ struct BackLog: Identifiable, Hashable, Codable {
 //    }
 
 
-    static var example = BackLog(
-//        symbol: "case.fill",
-        title: "Sayulita Trip",
-//        tasks: [
-//            BackLogTask(text: "Buy plane tickets"),
-//            BackLogTask(text: "Get a new bathing suit"),
-//            BackLogTask(text: "Find an airbnb"),
-//        ],
-        date: Date(timeIntervalSinceNow: 60 * 60 * 24 * 365 * 1.5))
-    
-//    static var delete = BackLog(symbol: "trash")
-                         
-}
-
-//MARK: - EventTask
-
-struct BackLogTask: Identifiable, Hashable, Codable {
-    var id = UUID()
-    var text: String
-    var isCompleted = false
-    var isNew = false
-}
-
 //MARK: - Project
 struct Project: Identifiable, Hashable, Codable {
     var id = UUID()
@@ -70,31 +46,18 @@ struct Project: Identifiable, Hashable, Codable {
     
     var scrumMaster = ""
     var productOwner = ""
-    var teamMembers = ["Andrew", "Jan", "Leo", "Theo"]
+    var teamMembers = [""]
     
     var sprint = 2
     var startDay = Date.now
     var deadLine = Date.now
-    var passedWeeks = 7
     
-    var backlogMilestone = [BackLog(title: "", date: Date.now, energyUnit: 1)]
+//    var milestones = In every milestone specific tasks
+    var backlogTasks = [BackLog(title: "", energyUnit: 1)]
+    var sprintBacklog = [""]
     
     var noteText: String = ""
     var notes: [String] = []
-    
-    
-//    static var deleteProject: Project {
-//            Project(id: UUID(), name: "Deleted Project", activated: false)
-//        }
-
-//    var activeProject: String {
-//        if activated {
-//            return "Paused"
-//        } else {
-//            return "Active"
-//        }
-//    }
-    
 }
 
 class ProjectData: ObservableObject {
@@ -110,11 +73,11 @@ class ProjectData: ObservableObject {
                 sprint: 3,
                 startDay: Date.now,
                 deadLine: Date.now,
-                backlogMilestone: [
-                    BackLog(title: "Tiers", date: Date.now, energyUnit: 10),
-                    BackLog(title: "Wheels", date: Date.now, energyUnit: 5),
-                    BackLog(title: "Air Conditioning", date: Date.now, energyUnit: 3),
-                    BackLog(title: "Motor", date: Date.now, energyUnit: 15),
+                backlogTasks: [
+                    BackLog(title: "Tiers", energyUnit: 10),
+                    BackLog(title: "Wheels", energyUnit: 5),
+                    BackLog(title: "Air Conditioning", energyUnit: 3),
+                    BackLog(title: "Motor", energyUnit: 15),
                 ]
             ),
             Project(
@@ -127,11 +90,11 @@ class ProjectData: ObservableObject {
                 teamMembers: ["Anddcafrew", "Jandsa", "Leo", "Theo"],
                 sprint: 3,
                 deadLine: Date.now,
-                backlogMilestone: [
-                    BackLog(title: "Tiers", date: Date.now, energyUnit: 10),
-                    BackLog(title: "Wheels", date: Date.now, energyUnit: 5),
-                    BackLog(title: "Air Conditioning", date: Date.now, energyUnit: 3),
-                    BackLog(title: "Motor", date: Date.now, energyUnit: 15),
+                backlogTasks: [
+                    BackLog(title: "Tiers", energyUnit: 10),
+                    BackLog(title: "Wheels", energyUnit: 5),
+                    BackLog(title: "Air Conditioning", energyUnit: 3),
+                    BackLog(title: "Motor", energyUnit: 15),
                 ]
             ),
             Project(
@@ -144,11 +107,11 @@ class ProjectData: ObservableObject {
                 teamMembers: ["Nader", "Jandsa", "Leo", "Theo"],
                 sprint: 3,
                 deadLine: Date.now,
-                backlogMilestone: [
-                    BackLog(title: "Tiers", date: Date.now, energyUnit: 10),
-                    BackLog(title: "Wheels", date: Date.now, energyUnit: 5),
-                    BackLog(title: "Air Conditioning", date: Date.now, energyUnit: 3),
-                    BackLog(title: "Motor", date: Date.now, energyUnit: 15),
+                backlogTasks: [
+                    BackLog(title: "Tiers", energyUnit: 10),
+                    BackLog(title: "Wheels", energyUnit: 5),
+                    BackLog(title: "Air Conditioning", energyUnit: 3),
+                    BackLog(title: "Motor", energyUnit: 15),
                 ]
             )
     ]
@@ -163,10 +126,19 @@ class ProjectData: ObservableObject {
         projects.remove(atOffsets: offset)
     }
     
-    // Catch the Activates project
+    // Catch the activated project
     func getActiveProject() -> Project? {
             return projects.first { $0.selected }
     }
+    
+    //Disable any other projets if user activates another one
+    func activateProject(_ project: Project) {
+            for i in 0..<projects.count {
+                projects[i].selected = projects[i].id == project.id
+            }
+            // Notify that projects array has changed
+            objectWillChange.send()
+        }
     
 }
 
