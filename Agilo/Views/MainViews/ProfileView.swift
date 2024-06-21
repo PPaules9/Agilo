@@ -76,22 +76,22 @@ struct ProfileView: View {
                                 
                             Button{
                             } label: {
-                                ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Pavly Alkess", tintColor: Color.gray, goTo: "Change Name")
+                                ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Pavly Alkess", tintColor: Color.blue, goTo: "Change Name")
                             }
                                 Button{
                                 } label: {
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Email@gmail.com", tintColor: Color.gray, goTo: "Change Email")
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Email@gmail.com", tintColor: Color.blue, goTo: "Change Email")
                                 }
                                 Button{
                                 } label: {
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Password", tintColor: Color.gray, goTo: "Edit Password")
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Password", tintColor: Color.blue, goTo: "Edit Password")
                                 }
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Phone Number", tintColor: Color.gray, goTo: "01277745591")
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Phone Number", tintColor: Color.blue, goTo: "01277745591")
                                
                                
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Member since", tintColor: Color.gray, goTo: "15 May 2024")
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Member since", tintColor: Color.blue, goTo: "15 May 2024")
                                 
-                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Account ID", tintColor: Color.gray, goTo: "dsahijo54kln")
+                                    ProfileViewModel(lastItem: false, imageName: "person.circle", title: "Account ID", tintColor: Color.blue, goTo: "dsahijo54kln")
                                 
                                 
                                 HStack{

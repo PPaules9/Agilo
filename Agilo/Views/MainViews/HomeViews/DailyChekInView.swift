@@ -4,9 +4,18 @@ struct DailyChekInView: View {
     @State private var streakCount: Int = 0
 
     var body: some View {
+        
+        //Header
         VStack(alignment: .leading){
+            
+            HStack{
+                Spacer()
+                Text("\(greeting()), Pavly \(Image(systemName: greetingImage()))")
+                Spacer()
+            }
+            .padding(.bottom, 10)
             HStack {
-                Text(" ✓ DAILY CHECKIN")
+                Text(" ✓ DAILY REFRESH")
                     .font(.custom("Arial", size: 14))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.gray)
@@ -17,6 +26,8 @@ struct DailyChekInView: View {
         .padding(.top)
         .frame(width: 325, height: 30)
         
+        
+        //First Stack (The Big One)
         HStack {
             VStack{
                 Spacer()
@@ -68,6 +79,8 @@ struct DailyChekInView: View {
         .padding(.horizontal)
         .frame(width: 380)
         
+        
+        //Second Stack (With Conditions related to Sprints)
         HStack {
             VStack{
                 Spacer()
@@ -104,6 +117,8 @@ struct DailyChekInView: View {
         .padding(.horizontal)
         .frame(width: 380, height: 160)
         
+        
+        //Third Stack (With Conditions related to Sprints)
         HStack {
             VStack{
                 Spacer()
@@ -136,6 +151,9 @@ struct DailyChekInView: View {
         .padding(.bottom)
         .frame(width: 380, height: 140)
         
+        
+        
+        //Streak Section
         HStack{
             ZStack{
                 Capsule()
@@ -167,6 +185,7 @@ struct DailyChekInView: View {
         .onAppear(perform: checkAndUpdateStreak)
     }
     
+    // Check and Update Streak
     func checkAndUpdateStreak() {
         let userDefaults = UserDefaults.standard
         let lastCheckInDateKey = "lastCheckInDate"
@@ -191,6 +210,42 @@ struct DailyChekInView: View {
 
         userDefaults.set(currentDate, forKey: lastCheckInDateKey)
         userDefaults.set(streakCount, forKey: streakCountKey)
+    }
+    
+    //greeting Conditions
+    func greeting() -> String {
+        let now = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: now)
+        
+        switch hour {
+        case 6..<12:
+            return "Good Morning "
+        case 12..<17:
+            return "It's Afternoon"
+        case 17..<22:
+            return "Catch Remaining Tasks"
+        default:
+            return "Good Night"
+        }
+    }
+    
+    //Can be changed later according to weather Conditions
+    func greetingImage() -> String {
+        let now = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: now)
+        
+        switch hour {
+        case 6..<12:
+            return "sunrise"
+        case 12..<17:
+            return "sun.max"
+        case 17..<22:
+            return "sunset"
+        default:
+            return "moon"
+        }
     }
 }
 

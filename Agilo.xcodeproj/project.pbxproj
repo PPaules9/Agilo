@@ -15,7 +15,6 @@
 		221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08092BDD5DDC0089A9E3 /* RingShape.swift */; };
 		221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */; };
 		222128752BC69D5200663C84 /* HomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222128742BC69D5200663C84 /* HomeCard.swift */; };
-		22698E402C2413DB00C12D33 /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E3F2C2413DB00C12D33 /* OpenAI.swift */; };
 		226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */; };
 		226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */; };
 		226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */; };
@@ -61,7 +60,6 @@
 		221C08092BDD5DDC0089A9E3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProject.swift; sourceTree = "<group>"; };
 		222128742BC69D5200663C84 /* HomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCard.swift; sourceTree = "<group>"; };
-		22698E3F2C2413DB00C12D33 /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
 		226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
 		226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 			children = (
 				22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */,
 				22F83A4E2BBDF04A00196A1D /* MainView.swift */,
-				22698E3F2C2413DB00C12D33 /* OpenAI.swift */,
 				22F83A532BBF26EF00196A1D /* Model */,
 				22F83A4D2BBDF02E00196A1D /* Views */,
 				22F83A422BBDEF6100196A1D /* Assets.xcassets */,
@@ -399,7 +396,6 @@
 				22F83A6A2BC0263D00196A1D /* InputView.swift in Sources */,
 				2292B4002C01A792001A82F2 /* SymbolPicker.swift in Sources */,
 				22FEF99A2C2342B7009B4594 /* NoteDetailView.swift in Sources */,
-				22698E402C2413DB00C12D33 /* OpenAI.swift in Sources */,
 				22B195222C1230AE0073E453 /* AddProjectData.swift in Sources */,
 				221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */,
 				22FA51AE2C1F05C900FCDC37 /* NotesListView.swift in Sources */,

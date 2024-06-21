@@ -43,7 +43,7 @@ struct HomeView: View {
             NavigationStack{
                 ScrollView (showsIndicators: false){
                     
-                    //Header
+//Header
                     HStack {
                         Text("Today")
                             .font(.title2)
@@ -56,7 +56,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                     
-                    //The 3 Big Cicles
+//The 3 Big Cicles
                     ZStack {
                         ActivityRings(lineWidth: 27, backgroundColor: Color.purple1.opacity(0.1), foregroundColor: Color.purple1, percentage: percentage1, percent: 75, startAngle: -99, adjustedSympol: "arrow.triangle.capsulepath")
                             .frame(width: 140, height: 140)
@@ -69,23 +69,26 @@ struct HomeView: View {
                             .frame(width: 290, height: 360)
                         
                     }
+                    
                     .frame(height: 350)
+                    .offset(y: -5)
                     .onAppear(){
                         withAnimation(.easeIn(duration: 1.2)){
                             self.percentage1 = 100.0 -  Double(Date().percentDayRemaining)
-                            self.percentage2 = 100 - Double(Date.remainingDaysInSprint(from: activeProject.startDay))
+                            
+                            updatePercentage2(from: activeProject.startDay)
+                            
                             self.percentage3 = 80
                             
-                            print("No of Percentage \(percentage2)")
                         }
                     }
                     .onReceive(timer) { _ in
                         timeElapsed += 1
                     }
                     
-                    // Sprint No and Note Taking Section
+// Sprint No and Note Taking Section
                     HStack{
-                        Text("Sprint \(activeProject.sprint)")
+                        Text("Sprint \(Date.noSprintsPassed(from: activeProject.startDay))")
                             .font(.system(size: 20, design: .monospaced))
                             .bold()
                             .foregroundColor(.blue)
@@ -100,10 +103,11 @@ struct HomeView: View {
                             HStack(spacing: 8){
                                 Image(systemName: "pencil.and.list.clipboard")
                                 Text("Daily Notes")
+                                    .font(.system(size: 15))
                             }
                             .foregroundColor(.blue)
                             .fontDesign(.monospaced)
-                            .frame(width: 150, height:35)
+                            .frame(width: 145, height:35)
                             .background(Color(.systemGray6))
                             .cornerRadius(10)
                             .shadow(radius: 3)
@@ -114,27 +118,27 @@ struct HomeView: View {
                     
                     Divider()
                     
-                    //Three Small Circles with illustration
+//Three Small Circles with illustration
                     VStack{
-                        HStack{
+                        // Product Increment
+                        HStack(spacing: 15){
                             ZStack{
                                 ActivityRings(lineWidth: 11, backgroundColor: Color.orange.opacity(0.2), foregroundColor: Color.orange, percentage: percentage3, percent: 75, startAngle: -90, adjustedSympol: "")
                                     .frame(width: 70, height: 70)
                                 
                                 Image(systemName: "shippingbox")
                                     .foregroundStyle(Color.orange)
-                                
                             }
                             VStack(alignment: .leading){
                                 Text("Product Increment")
-                                Text(" 5 out of 10(77%)")
+                                Text(" 5 out of 10 (77%)")
                                     .foregroundStyle(Color(.systemGray))
                             }
                             Spacer()
                         }
                         .padding(.horizontal)
-                        
-                        HStack{
+                        // Sprint Status
+                        HStack(spacing: 15){
                             ZStack {
                                 ActivityRings(lineWidth: 11, backgroundColor: Color.mint.opacity(0.2), foregroundColor: Color.teal, percentage: percentage2, percent: 75, startAngle: -90, adjustedSympol: "")
                                     .frame(width: 70, height: 70)
@@ -145,14 +149,14 @@ struct HomeView: View {
                             VStack(alignment: .leading){
                                 Text("Sprint Status")
                                 
-                                Text("Day 4 (35%)")
+                                Text("Day \(String(format: "%.0f", Double(Date.noDaysPassedInASprint(from: activeProject.startDay)))) (\(String(format: "%.0f",100.0 - Double(Date.daysPassedInASprint(from: activeProject.startDay))))%)")
                                     .foregroundStyle(Color(.systemGray))
                             }
                             Spacer()
                         }
                         .padding(.horizontal)
-                        
-                        HStack{
+                        // Daily Scrum
+                        HStack(spacing: 15){
                             ZStack{
                                 ActivityRings(lineWidth: 11, backgroundColor: (colorScheme == .dark ? Color.red : Color.purple1).opacity(0.2), foregroundColor: colorScheme == .dark ? Color.purple1 : Color.purple1, percentage: percentage1, percent: 75, startAngle: -98, adjustedSympol: "")
                                     .frame(width: 70, height: 70)
@@ -169,6 +173,7 @@ struct HomeView: View {
                         .padding(.horizontal)
                         
                     }
+                    .padding(.vertical, 5)
                     
                     Divider()
                     
@@ -270,6 +275,21 @@ struct HomeView: View {
             }
         }
     }
+    
+    func updatePercentage2(from startDate: Date) {
+            let daysPassed = Double(Date.noDaysPassedInASprint(from: startDate))
+            let totalSprintDays: Double = 14.0
+            let percentagePassed = 100 - ((daysPassed / totalSprintDays) * 100)
+        
+            if percentagePassed >= 100 {
+                self.percentage2 = 0
+                print("percentage2 \(percentage2)")
+            } else {
+                self.percentage2 = 100 - percentagePassed
+                print("This percentage2 \(percentage2)")
+            }
+    }
+    
 }
 
 extension Date {
@@ -297,29 +317,62 @@ extension Date {
         
     }
     
-    static func remainingDaysInSprint(from startDate: Date) -> Int {
+    //How many Days passed in a Sprint compared to two weeks %age
+    static func daysPassedInASprint(from startDate: Date) -> Int {
+        let calendar = Calendar.current
+            let startOfDay = calendar.startOfDay(for: startDate)
+            let totalSprintSeconds: TimeInterval = 14.0 * 24 * 60 * 60 // Total seconds in two weeks
+            
+            let totalSprintDays: Double = 14.0 // Total days in a two-week sprint
+
+            // Calculate the elapsed time from the start of the given date to now
+            let now = Date()
+            let elapsedSecondsFromStartOfDay = now.timeIntervalSince(startOfDay)
+            
+            // Use modulus operator to wrap around if elapsed seconds exceed the sprint duration
+            let wrappedElapsedSeconds = elapsedSecondsFromStartOfDay.truncatingRemainder(dividingBy: totalSprintSeconds)
+            
+            // Calculate the remaining seconds
+            let remainingSeconds = totalSprintSeconds - wrappedElapsedSeconds
+            
+            // Convert remaining seconds to remaining days
+            let remainingDays = Int(remainingSeconds / (24 * 60 * 60))
+            
+            let percentageRemaining = (Double(remainingDays) / totalSprintDays) * 100
+
+            return Int(percentageRemaining)
+        
+    }
+    
+    //How many No of Days passed in a Sprint compared to two weeks
+    static func noDaysPassedInASprint(from startDate: Date) -> Int {
         let calendar = Calendar.current
         let startOfDay = calendar.startOfDay(for: startDate)
-        let twoWeeksInSeconds: TimeInterval = 14.0 * 24 * 60 * 60 // Total seconds in two weeks
-        
-        let totalSprintDays: Double = 14.0 // Total days in a two-week sprint
 
         // Calculate the elapsed time from the start of the given date to now
         let now = Date()
         let elapsedSecondsFromStartOfDay = now.timeIntervalSince(startOfDay)
         
-        // Calculate the remaining seconds
-        let remainingSeconds = twoWeeksInSeconds - elapsedSecondsFromStartOfDay
+        // Convert elapsed seconds to elapsed days
+        let elapsedDays = Int(elapsedSecondsFromStartOfDay / (24 * 60 * 60))
         
-        // Convert remaining seconds to remaining days
-        let remainingDays = Int(remainingSeconds / (24 * 60 * 60))
-        
-        let percentageRemaining = (Double(remainingDays) / totalSprintDays) * 100
-
-        
-        return Int(percentageRemaining)
-        
+        return (elapsedDays % 14) + 1
     }
+    
+    //How many No of Sprints passed since start of project
+    static func noSprintsPassed(from startDate: Date) -> Int {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: startDate)
+
+        let now = Date()
+        let elapsedSecondsFromStartOfDay = now.timeIntervalSince(startOfDay)
+        
+        // Convert elapsed seconds to elapsed days
+        let elapsedDays = Int(elapsedSecondsFromStartOfDay / (24 * 60 * 60))
+        
+        return (elapsedDays % 14) + 1
+    }
+    
 }
 
 

@@ -66,7 +66,7 @@ struct ProfileViewModel: View {
                     .frame(height: 0.01) // Adjust height as needed
                     .background(Color(.systemGray5)) // Set border color
                 //                .blur(radius: 2)
-                    .offset(x: 64,y: -5)
+                    .offset(x: 60,y: -5)
                 
             }
             .frame(width: 380, height: 20)

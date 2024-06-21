@@ -73,9 +73,10 @@ struct Project: Identifiable, Hashable, Codable {
     var teamMembers = ["Andrew", "Jan", "Leo", "Theo"]
     
     var sprint = 2
-    
     var startDay = Date.now
     var deadLine = Date.now
+    var passedWeeks = 7
+    
     var backlogMilestone = [BackLog(title: "", date: Date.now, energyUnit: 1)]
     
     var noteText: String = ""
