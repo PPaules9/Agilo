@@ -67,9 +67,8 @@ struct HomeView: View {
                         
                         ActivityRings(lineWidth: 36, backgroundColor: Color.orange.opacity(0.1), foregroundColor: Color.orange, percentage: percentage3, percent: 75, startAngle: -95, adjustedSympol: "shippingbox")
                             .frame(width: 290, height: 360)
-                        
+
                     }
-                    
                     .frame(height: 350)
                     .offset(y: -5)
                     .onAppear(){
@@ -85,7 +84,7 @@ struct HomeView: View {
                     .onReceive(timer) { _ in
                         timeElapsed += 1
                     }
-                    
+
 // Sprint No and Note Taking Section
                     HStack{
                         Text("Sprint \(Date.noSprintsPassed(from: activeProject.startDay))")
@@ -120,6 +119,17 @@ struct HomeView: View {
                     
 //Three Small Circles with illustration
                     VStack{
+                        //Header
+                        HStack {
+                            Text("CURRENT SPRINT")
+                                .font(.custom("Arial", size: 14))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.gray)
+                                .fontDesign(.monospaced)
+                            Spacer()
+                        }
+                        .padding()
+                        
                         // Product Increment
                         HStack(spacing: 15){
                             ZStack{
@@ -177,7 +187,8 @@ struct HomeView: View {
                     
                     Divider()
                     
-                    DailyChekInView()
+                    DailyCheckInView(projectContainer: projectContainer, newProject: $newProject)
+                        .padding(.top)
                     
                     Divider()
                     //MARK: - Current Project

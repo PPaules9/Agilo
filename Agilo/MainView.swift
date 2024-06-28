@@ -25,12 +25,12 @@ struct MainView: View {
                             .fontDesign(.monospaced)
                     }
                 
-//                SearchView(capsuleText: "")
-//                    .tag(2)
-//                    .tabItem {
-//                        Label("Explore", systemImage: "magnifyingglass")
-//                            .fontDesign(.monospaced)
-//                    }
+                //                SearchView(capsuleText: "")
+                //                    .tag(2)
+                //                    .tabItem {
+                //                        Label("Explore", systemImage: "magnifyingglass")
+                //                            .fontDesign(.monospaced)
+                //                    }
                 
                 ProjectsView(projectContainer: projectContainer, newProject: $selectedProject)
                     .tag(3)
@@ -122,21 +122,10 @@ struct MainView: View {
                     }
                 }
             }
-            .sheet(isPresented: $isAddingNewProject){
-                NavigationStack{
-                    Add(
-                        projectContainer: projectContainer
-                    )
-                    .environmentObject(ProjectData())
-                    .toolbar{
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel"){
-                                isAddingNewProject = false
-                            }
-                        }
-                    }
+            NavigationLink(destination: Add(projectContainer: projectContainer)
+                .environmentObject(ProjectData()), isActive: $isAddingNewProject) {
+                    EmptyView()
                 }
-            }
         }
     }
 }

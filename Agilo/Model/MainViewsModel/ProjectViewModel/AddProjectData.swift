@@ -15,7 +15,7 @@ struct ColorOptions: Codable {
         .teal,
     ]
     
-    static var `default` : Color = Color.primary
+    static var `default` : Color = Color.teal
     
     static func random() -> Color {
         if let element = ColorOptions.all.randomElement() {

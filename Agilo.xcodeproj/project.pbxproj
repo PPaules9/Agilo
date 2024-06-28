@@ -15,17 +15,24 @@
 		221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08092BDD5DDC0089A9E3 /* RingShape.swift */; };
 		221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */; };
 		222128752BC69D5200663C84 /* HomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222128742BC69D5200663C84 /* HomeCard.swift */; };
+		22698E472C275A0E00C12D33 /* AddProjectName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E462C275A0E00C12D33 /* AddProjectName.swift */; };
+		22698E492C275A7A00C12D33 /* DatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E482C275A7A00C12D33 /* DatesView.swift */; };
+		22698E4B2C275B0D00C12D33 /* AddDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E4A2C275B0D00C12D33 /* AddDetailsView.swift */; };
+		22698E4D2C275BBD00C12D33 /* AddSprintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E4C2C275BBD00C12D33 /* AddSprintsView.swift */; };
+		22698E4F2C275BFC00C12D33 /* ActivateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E4E2C275BFC00C12D33 /* ActivateProjectView.swift */; };
 		226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */; };
 		226A9ED22BC1CA2200467A01 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */; };
 		226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */; };
 		2292B4002C01A792001A82F2 /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2292B3FF2C01A792001A82F2 /* SymbolPicker.swift */; };
-		22B195202C1028150073E453 /* DailyChekInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1951F2C1028150073E453 /* DailyChekInView.swift */; };
+		22B195202C1028150073E453 /* DailyCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1951F2C1028150073E453 /* DailyCheckInView.swift */; };
 		22B195222C1230AE0073E453 /* AddProjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B195212C1230AD0073E453 /* AddProjectData.swift */; };
 		22BB32582BC950F200224DB2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB32572BC950F200224DB2 /* SearchView.swift */; };
 		22BB325C2BC9687D00224DB2 /* ProgressChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB325B2BC9687C00224DB2 /* ProgressChart.swift */; };
 		22BB325E2BC9696900224DB2 /* EnergyLevelChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB325D2BC9696900224DB2 /* EnergyLevelChart.swift */; };
 		22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB325F2BC96A2D00224DB2 /* CurrentProject.swift */; };
 		22E5ADF62C00D30E00C17F60 /* AddProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E5ADF52C00D30E00C17F60 /* AddProjectsModel.swift */; };
+		22F82DC52C2B3D780096F175 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F82DC42C2B3D780096F175 /* CardView.swift */; };
+		22F82DC82C2BDBBF0096F175 /* FirstCardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F82DC72C2BDBBF0096F175 /* FirstCardStack.swift */; };
 		22F83A3F2BBDEF5E00196A1D /* AgiloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */; };
 		22F83A432BBDEF6100196A1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F83A422BBDEF6100196A1D /* Assets.xcassets */; };
 		22F83A472BBDEF6100196A1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F83A462BBDEF6100196A1D /* Preview Assets.xcassets */; };
@@ -60,17 +67,24 @@
 		221C08092BDD5DDC0089A9E3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProject.swift; sourceTree = "<group>"; };
 		222128742BC69D5200663C84 /* HomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCard.swift; sourceTree = "<group>"; };
+		22698E462C275A0E00C12D33 /* AddProjectName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectName.swift; sourceTree = "<group>"; };
+		22698E482C275A7A00C12D33 /* DatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesView.swift; sourceTree = "<group>"; };
+		22698E4A2C275B0D00C12D33 /* AddDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsView.swift; sourceTree = "<group>"; };
+		22698E4C2C275BBD00C12D33 /* AddSprintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSprintsView.swift; sourceTree = "<group>"; };
+		22698E4E2C275BFC00C12D33 /* ActivateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateProjectView.swift; sourceTree = "<group>"; };
 		226A9ECF2BC06B4700467A01 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		226A9ED12BC1CA2200467A01 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
 		226A9ED32BC1CA6900467A01 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 		2292B3FF2C01A792001A82F2 /* SymbolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPicker.swift; sourceTree = "<group>"; };
-		22B1951F2C1028150073E453 /* DailyChekInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChekInView.swift; sourceTree = "<group>"; };
+		22B1951F2C1028150073E453 /* DailyCheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckInView.swift; sourceTree = "<group>"; };
 		22B195212C1230AD0073E453 /* AddProjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectData.swift; sourceTree = "<group>"; };
 		22BB32572BC950F200224DB2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		22BB325B2BC9687C00224DB2 /* ProgressChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChart.swift; sourceTree = "<group>"; };
 		22BB325D2BC9696900224DB2 /* EnergyLevelChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyLevelChart.swift; sourceTree = "<group>"; };
 		22BB325F2BC96A2D00224DB2 /* CurrentProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProject.swift; sourceTree = "<group>"; };
 		22E5ADF52C00D30E00C17F60 /* AddProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectsModel.swift; sourceTree = "<group>"; };
+		22F82DC42C2B3D780096F175 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		22F82DC72C2BDBBF0096F175 /* FirstCardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCardStack.swift; sourceTree = "<group>"; };
 		22F83A3B2BBDEF5E00196A1D /* Agilo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agilo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgiloApp.swift; sourceTree = "<group>"; };
 		22F83A422BBDEF6100196A1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,8 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				22FA51AC2C1F039200FCDC37 /* Note Taking */,
+				22F82DC62C2BDB540096F175 /* DailyView */,
 				221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */,
-				22B1951F2C1028150073E453 /* DailyChekInView.swift */,
 				221C07FF2BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift */,
 			);
 			path = HomeViews;
@@ -124,7 +138,11 @@
 			isa = PBXGroup;
 			children = (
 				221C08022BD302F70089A9E3 /* Add.swift */,
-				2292B3FF2C01A792001A82F2 /* SymbolPicker.swift */,
+				22698E462C275A0E00C12D33 /* AddProjectName.swift */,
+				22698E482C275A7A00C12D33 /* DatesView.swift */,
+				22698E4A2C275B0D00C12D33 /* AddDetailsView.swift */,
+				22698E4C2C275BBD00C12D33 /* AddSprintsView.swift */,
+				22698E4E2C275BFC00C12D33 /* ActivateProjectView.swift */,
 			);
 			path = AddProjectsView;
 			sourceTree = "<group>";
@@ -177,6 +195,16 @@
 			path = MoreViewList;
 			sourceTree = "<group>";
 		};
+		22F82DC62C2BDB540096F175 /* DailyView */ = {
+			isa = PBXGroup;
+			children = (
+				22B1951F2C1028150073E453 /* DailyCheckInView.swift */,
+				22F82DC42C2B3D780096F175 /* CardView.swift */,
+				22F82DC72C2BDBBF0096F175 /* FirstCardStack.swift */,
+			);
+			path = DailyView;
+			sourceTree = "<group>";
+		};
 		22F83A322BBDEF5E00196A1D = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +227,7 @@
 				22F83A3E2BBDEF5E00196A1D /* AgiloApp.swift */,
 				22F83A4E2BBDF04A00196A1D /* MainView.swift */,
 				22F83A532BBF26EF00196A1D /* Model */,
+				2292B3FF2C01A792001A82F2 /* SymbolPicker.swift */,
 				22F83A4D2BBDF02E00196A1D /* Views */,
 				22F83A422BBDEF6100196A1D /* Assets.xcassets */,
 				22F83A442BBDEF6100196A1D /* Agilo.entitlements */,
@@ -401,25 +430,31 @@
 				22FA51AE2C1F05C900FCDC37 /* NotesListView.swift in Sources */,
 				22BB32582BC950F200224DB2 /* SearchView.swift in Sources */,
 				226A9ED42BC1CA6900467A01 /* ProjectDetailView.swift in Sources */,
+				22698E4B2C275B0D00C12D33 /* AddDetailsView.swift in Sources */,
 				22F83A662BC0262400196A1D /* SignUp.swift in Sources */,
 				220EA7D52BC714190092AB8E /* SettingsView.swift in Sources */,
-				22B195202C1028150073E453 /* DailyChekInView.swift in Sources */,
+				22B195202C1028150073E453 /* DailyCheckInView.swift in Sources */,
 				22F83A682BC0263100196A1D /* Login.swift in Sources */,
+				22698E492C275A7A00C12D33 /* DatesView.swift in Sources */,
 				22E5ADF62C00D30E00C17F60 /* AddProjectsModel.swift in Sources */,
 				22F83A5F2BC0251900196A1D /* MoreView.swift in Sources */,
 				22FEF9A52C234DA4009B4594 /* ProfileViewModel.swift in Sources */,
 				22BB32602BC96A2D00224DB2 /* CurrentProject.swift in Sources */,
+				22F82DC82C2BDBBF0096F175 /* FirstCardStack.swift in Sources */,
+				22F82DC52C2B3D780096F175 /* CardView.swift in Sources */,
 				22FA51A82C1EF17300FCDC37 /* NotesTaking.swift in Sources */,
 				221C08032BD302F70089A9E3 /* Add.swift in Sources */,
 				22FEF99C2C2342D6009B4594 /* RichTextEditor.swift in Sources */,
 				222128752BC69D5200663C84 /* HomeCard.swift in Sources */,
 				22FEF9A02C234303009B4594 /* PhotoCaptureView.swift in Sources */,
 				22F83A5C2BC024E100196A1D /* BackLog.swift in Sources */,
+				22698E4F2C275BFC00C12D33 /* ActivateProjectView.swift in Sources */,
 				221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */,
 				22F83A5A2BC024CC00196A1D /* HomeView.swift in Sources */,
 				226A9ED02BC06B4700467A01 /* BackgroundColor.swift in Sources */,
 				22F83A522BBF269800196A1D /* WelcomViews.swift in Sources */,
 				22F83A632BC0253800196A1D /* SettingRow.swift in Sources */,
+				22698E472C275A0E00C12D33 /* AddProjectName.swift in Sources */,
 				221C08002BD2F3F20089A9E3 /* MotivationalHomeViewPart.swift in Sources */,
 				22BB325C2BC9687D00224DB2 /* ProgressChart.swift in Sources */,
 				22F83A4F2BBDF04A00196A1D /* MainView.swift in Sources */,
@@ -432,6 +467,7 @@
 				22F83A612BC0252900196A1D /* ProfileView.swift in Sources */,
 				22FEF9A22C23470A009B4594 /* ImagePicker.swift in Sources */,
 				22F83A552BBF270500196A1D /* User.swift in Sources */,
+				22698E4D2C275BBD00C12D33 /* AddSprintsView.swift in Sources */,
 				22F83A3F2BBDEF5E00196A1D /* AgiloApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

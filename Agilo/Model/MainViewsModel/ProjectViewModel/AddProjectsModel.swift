@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 //MARK: - Event Structure
 
@@ -41,12 +42,14 @@ struct Project: Identifiable, Hashable, Codable {
     var symbol: String = EventSymbols.randomName()
     var color: RGBAColor = ColorOptions.random().rgbaColor
     var name = ""
+//    var image : UIImage? = nil
+    
     var selected = false
     var isDone: Bool = false
     
     var scrumMaster = ""
     var productOwner = ""
-    var teamMembers = [""]
+    var teamMembers = ["You"]
     
     var sprint = 2
     var startDay = Date.now
