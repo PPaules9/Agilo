@@ -15,6 +15,7 @@
 		221C080A2BDD5DDC0089A9E3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C08092BDD5DDC0089A9E3 /* RingShape.swift */; };
 		221C080D2BDD7EAD0089A9E3 /* SuggestedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */; };
 		222128752BC69D5200663C84 /* HomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222128742BC69D5200663C84 /* HomeCard.swift */; };
+		2236A6322C315B9A0094E8D2 /* BacklogTasksCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236A6312C315B9A0094E8D2 /* BacklogTasksCards.swift */; };
 		22698E472C275A0E00C12D33 /* AddProjectName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E462C275A0E00C12D33 /* AddProjectName.swift */; };
 		22698E492C275A7A00C12D33 /* DatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E482C275A7A00C12D33 /* DatesView.swift */; };
 		22698E4B2C275B0D00C12D33 /* AddDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22698E4A2C275B0D00C12D33 /* AddDetailsView.swift */; };
@@ -58,6 +59,19 @@
 		22FEF9A52C234DA4009B4594 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEF9A42C234DA4009B4594 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		22BC0F2B2C2F399100CDCC9C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		220EA7D42BC714190092AB8E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		221C07FD2BD2EE580089A9E3 /* HorizontalHomeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalHomeScrollView.swift; sourceTree = "<group>"; };
@@ -67,6 +81,7 @@
 		221C08092BDD5DDC0089A9E3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		221C080C2BDD7EAD0089A9E3 /* SuggestedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProject.swift; sourceTree = "<group>"; };
 		222128742BC69D5200663C84 /* HomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCard.swift; sourceTree = "<group>"; };
+		2236A6312C315B9A0094E8D2 /* BacklogTasksCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacklogTasksCards.swift; sourceTree = "<group>"; };
 		22698E462C275A0E00C12D33 /* AddProjectName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectName.swift; sourceTree = "<group>"; };
 		22698E482C275A7A00C12D33 /* DatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesView.swift; sourceTree = "<group>"; };
 		22698E4A2C275B0D00C12D33 /* AddDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsView.swift; sourceTree = "<group>"; };
@@ -82,6 +97,10 @@
 		22BB325B2BC9687C00224DB2 /* ProgressChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChart.swift; sourceTree = "<group>"; };
 		22BB325D2BC9696900224DB2 /* EnergyLevelChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyLevelChart.swift; sourceTree = "<group>"; };
 		22BB325F2BC96A2D00224DB2 /* CurrentProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProject.swift; sourceTree = "<group>"; };
+		22BC0F152C2F398B00CDCC9C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		22BC0F172C2F398B00CDCC9C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		22BC0F2C2C2F3A1000CDCC9C /* AgiloWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AgiloWidgetsExtension.entitlements; sourceTree = "<group>"; };
+		22BC0F482C2F437F00CDCC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		22E5ADF52C00D30E00C17F60 /* AddProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectsModel.swift; sourceTree = "<group>"; };
 		22F82DC42C2B3D780096F175 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		22F82DC72C2BDBBF0096F175 /* FirstCardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCardStack.swift; sourceTree = "<group>"; };
@@ -187,12 +206,29 @@
 			path = ProjectViewModel;
 			sourceTree = "<group>";
 		};
+		2236A6302C315B6D0094E8D2 /* BacklogViews */ = {
+			isa = PBXGroup;
+			children = (
+				2236A6312C315B9A0094E8D2 /* BacklogTasksCards.swift */,
+			);
+			path = BacklogViews;
+			sourceTree = "<group>";
+		};
 		22BB32562BC863CE00224DB2 /* MoreViewList */ = {
 			isa = PBXGroup;
 			children = (
 				220EA7D42BC714190092AB8E /* SettingsView.swift */,
 			);
 			path = MoreViewList;
+			sourceTree = "<group>";
+		};
+		22BC0F142C2F398B00CDCC9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22BC0F152C2F398B00CDCC9C /* WidgetKit.framework */,
+				22BC0F172C2F398B00CDCC9C /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		22F82DC62C2BDB540096F175 /* DailyView */ = {
@@ -208,7 +244,9 @@
 		22F83A322BBDEF5E00196A1D = {
 			isa = PBXGroup;
 			children = (
+				22BC0F2C2C2F3A1000CDCC9C /* AgiloWidgetsExtension.entitlements */,
 				22F83A3D2BBDEF5E00196A1D /* Agilo */,
+				22BC0F142C2F398B00CDCC9C /* Frameworks */,
 				22F83A3C2BBDEF5E00196A1D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -231,6 +269,7 @@
 				22F83A4D2BBDF02E00196A1D /* Views */,
 				22F83A422BBDEF6100196A1D /* Assets.xcassets */,
 				22F83A442BBDEF6100196A1D /* Agilo.entitlements */,
+				22BC0F482C2F437F00CDCC9C /* Info.plist */,
 				22F83A452BBDEF6100196A1D /* Preview Content */,
 			);
 			path = Agilo;
@@ -286,6 +325,7 @@
 				22F83A602BC0252900196A1D /* ProfileView.swift */,
 				221C07FC2BD2EE380089A9E3 /* HomeViews */,
 				221C08062BD8DA920089A9E3 /* ProjectViews */,
+				2236A6302C315B6D0094E8D2 /* BacklogViews */,
 				221C08012BD302BD0089A9E3 /* AddProjectsView */,
 			);
 			path = MainViews;
@@ -358,6 +398,7 @@
 				22F83A372BBDEF5E00196A1D /* Sources */,
 				22F83A382BBDEF5E00196A1D /* Frameworks */,
 				22F83A392BBDEF5E00196A1D /* Resources */,
+				22BC0F2B2C2F399100CDCC9C /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -446,6 +487,7 @@
 				221C08032BD302F70089A9E3 /* Add.swift in Sources */,
 				22FEF99C2C2342D6009B4594 /* RichTextEditor.swift in Sources */,
 				222128752BC69D5200663C84 /* HomeCard.swift in Sources */,
+				2236A6322C315B9A0094E8D2 /* BacklogTasksCards.swift in Sources */,
 				22FEF9A02C234303009B4594 /* PhotoCaptureView.swift in Sources */,
 				22F83A5C2BC024E100196A1D /* BackLog.swift in Sources */,
 				22698E4F2C275BFC00C12D33 /* ActivateProjectView.swift in Sources */,
@@ -592,6 +634,7 @@
 		22F83A4B2BBDEF6100196A1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Agilo/Agilo.entitlements;
@@ -602,13 +645,16 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Agilo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Agilo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchAgilo.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -618,12 +664,11 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = PPaules.com.Agilo;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = PPaules.com.agilo;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = PPaules.com.agilo;
+				PRODUCT_BUNDLE_IDENTIFIER = PPaules.com.agilo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -633,6 +678,7 @@
 		22F83A4C2BBDEF6100196A1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Agilo/Agilo.entitlements;
@@ -643,13 +689,16 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Agilo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Agilo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchAgilo.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -659,12 +708,11 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = PPaules.com.Agilo;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = PPaules.com.agilo;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = PPaules.com.agilo;
+				PRODUCT_BUNDLE_IDENTIFIER = PPaules.com.agilo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

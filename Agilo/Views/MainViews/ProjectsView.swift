@@ -4,7 +4,8 @@ struct ProjectsView: View {
     
     @ObservedObject var projectContainer: ProjectData
     @Binding var newProject: Project
-    
+    @Environment(\.colorScheme) var colorScheme
+
     @State private var showingDeleteAlert = false
 
     var body: some View {
@@ -35,7 +36,8 @@ struct ProjectsView: View {
                     showingDeleteAlert = true
                 }
             }
-            .navigationTitle("My Projects List")            
+            .navigationTitle("My Projects List")    
+
         }
     }
 }

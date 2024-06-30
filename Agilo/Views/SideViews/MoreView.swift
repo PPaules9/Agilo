@@ -349,8 +349,10 @@ struct MoreView: View {
             }
             .padding(.horizontal)
             .navigationBarBackButtonHidden()
+            .background(colorScheme == .dark ? Color("c") : Color.white)
 
         }
+
     }
     
 }

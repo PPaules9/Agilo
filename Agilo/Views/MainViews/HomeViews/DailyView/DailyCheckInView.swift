@@ -46,67 +46,58 @@ struct DailyCheckInView: View {
                 
                 
                 // First Stack (With Conditions related to Sprints) The Current Project Name
-                VStack(spacing: 20) {
-                    HStack {
-                        VStack {
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.01))
-                                .frame(width: 2, height: 60)
-                            Circle()
-                                .frame(width: 20, height: 20)
-                                .foregroundStyle(Color.teal.opacity(0.7))
-
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.2))
-                                .frame(width: 2, height: 80)
-                        }
-                        .padding(.horizontal, 10)
+                HStack{
+                    VStack {
+                        Spacer()
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(Color.teal.opacity(0.7))
                         
-                        FirstCardStack(imageName: activeProject.symbol, title: activeProject.name, subtitle: "Current Project is", duration: activeProject.deadLine)
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(width: 2, height: 135)
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(Color.teal.opacity(0.7))
+                        
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(width: 2, height: 100)
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(Color.teal.opacity(0.7))
+                        Spacer()
+                            .frame(height: 50)
                     }
+                    .frame(height: 500)
+                    .padding(.horizontal, 10)
                     
-                    // Second Stack (With Conditions related to Sprints)
-                    HStack {
-                        VStack {
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.2))
-                                .frame(width: 2, height: 80)
-                            Circle()
-                                .frame(width: 20, height: 20)
-                                .foregroundStyle(Color.teal.opacity(0.7))
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.2))
-                                .frame(width: 2, height: 40)
-                        }
-                        .padding(.horizontal, 10)
-                        
-                        CardView(imageName: "hand.wave", title: "God is closer than you may think.", subtitle: "Guided prayer", duration: activeProject.startDay)
-                            .onTapGesture{
-                                
-                            }
+                    VStack(spacing: 20) {
+                        HStack {
                             
-                    }
-                    
-                    // Third Stack (With Conditions related to Sprints)
-                    HStack {
-                        VStack {
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.2))
-                                .frame(width: 2, height: 40)
-                            Circle()
-                                .frame(width: 20, height: 20)
-                                .foregroundStyle(Color.teal.opacity(0.7))
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.01))
-                                .frame(width: 2, height: 60)
+                            
+                            FirstCardStack(imageName: activeProject.symbol, title: activeProject.name, subtitle: "Current Project is", duration: activeProject.deadLine)
                         }
-                        .padding(.horizontal, 10)
                         
-                        CardView(imageName: "person1", title: "Another card example", subtitle: "Another subtitle", duration: activeProject.deadLine)
+                        // Second Stack (With Conditions related to Sprints)
+                        HStack {
+                            
+                            CardView(imageName: "hand.wave", title: "God is closer than you may think.", subtitle: "Guided prayer", duration: activeProject.startDay)
+                                .onTapGesture{
+                                    
+                                }
+                            
+                        }
+                        
+                        // Third Stack (With Conditions related to Sprints)
+                        HStack {
+                            
+                            
+                            CardView(imageName: "person1", title: "Another card example", subtitle: "Another subtitle", duration: activeProject.deadLine)
+                        }
                     }
+                    .padding()
                 }
-                .padding()
-                
                 // Streak Section
                 HStack {
                     Spacer()

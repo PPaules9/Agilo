@@ -10,8 +10,8 @@ struct MainView: View {
     @State private var moreViewisShowing = false
     @State private var selectedTab = 1
     @State private var isAddingNewProject = false
-    @State private var newEvent = BackLog()
-    
+    @Environment(\.colorScheme) var colorScheme
+
     @ObservedObject var projectContainer : ProjectData
     @State private var selectedProject: Project = Project()
     
@@ -19,11 +19,13 @@ struct MainView: View {
         NavigationStack{
             TabView(selection: $selectedTab){
                 HomeView(newProject: $selectedProject, projectContainer: projectContainer)
+                    .background(colorScheme == .dark ? Color("c") : Color.white)
                     .tag(1)
                     .tabItem {
                         Label("Home", systemImage: "house")
                             .fontDesign(.monospaced)
                     }
+
                 
                 //                SearchView(capsuleText: "")
                 //                    .tag(2)
@@ -33,6 +35,7 @@ struct MainView: View {
                 //                    }
                 
                 ProjectsView(projectContainer: projectContainer, newProject: $selectedProject)
+                    .background(colorScheme == .dark ? Color("c") : Color.white)
                     .tag(3)
                     .tabItem {
                         Label("Projects", systemImage: "plus.app")
@@ -40,6 +43,7 @@ struct MainView: View {
                     }
                 
                 BacklogView(projectContainer: projectContainer)
+                    .background(colorScheme == .dark ? Color("c") : Color.white)
                     .tag(4)
                     .tabItem {
                         Label("BackLog", systemImage: "doc.plaintext")
@@ -47,13 +51,14 @@ struct MainView: View {
                     }
                 
                 ProfileView(projectContainer: projectContainer)
+                    .background(colorScheme == .dark ? Color("c") : Color.white)
                     .tag(5)
                     .tabItem {
                         Label("Profile", systemImage: "person")
                             .fontDesign(.monospaced)
                     }
             }
-            
+
             .toolbar {
                 // Settings
                 ToolbarItem(placement: .topBarLeading) {
@@ -67,6 +72,7 @@ struct MainView: View {
                         
                     }).sheet(isPresented: $moreViewisShowing){
                         MoreView()
+                            .background(colorScheme == .dark ? Color("c") : Color.white)
                     }
                 }
                 

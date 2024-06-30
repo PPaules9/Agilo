@@ -12,7 +12,6 @@ struct FirstCardStack: View {
     var title: String
     var subtitle: String
     var duration = Date.now
-    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 5) {

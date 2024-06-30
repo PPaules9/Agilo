@@ -8,7 +8,7 @@ struct BackLog: Identifiable, Hashable, Codable {
     var id = UUID()
     var title = ""
     var energyUnit = 1
-    
+    var criticalDeadline = Date.now
 }
 //    var period: Period {
 //        if date < Date.now {
@@ -56,7 +56,7 @@ struct Project: Identifiable, Hashable, Codable {
     var deadLine = Date.now
     
 //    var milestones = In every milestone specific tasks
-    var backlogTasks = [BackLog(title: "", energyUnit: 1)]
+    var backlogTasks = [BackLog(title: "", energyUnit: 1, criticalDeadline: Date.now)]
     var sprintBacklog = [""]
     
     var noteText: String = ""
@@ -78,7 +78,7 @@ class ProjectData: ObservableObject {
                 deadLine: Date.now,
                 backlogTasks: [
                     BackLog(title: "Tiers", energyUnit: 10),
-                    BackLog(title: "Wheels", energyUnit: 5),
+                    BackLog(title: "Wheels", energyUnit: 5, criticalDeadline: Date.now),
                     BackLog(title: "Air Conditioning", energyUnit: 3),
                     BackLog(title: "Motor", energyUnit: 15),
                 ]

@@ -15,7 +15,7 @@ struct Add: View {
                 // Background gradient ignoring the safe area
                 RadialGradient(
                     gradient: Gradient(colors: [
-                        colorScheme == .dark ? Color.black : Color.white,
+                        colorScheme == .dark ? Color("c").opacity(0.2) : Color.white,
                         Color.orange
                     ]),
                     center: .top,

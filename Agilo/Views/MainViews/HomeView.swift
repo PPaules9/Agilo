@@ -273,7 +273,7 @@ struct HomeView: View {
                     
                 }
                 .padding(.top, 10)
-                
+
             }
             .onAppear {
                 currentDate = Date() // Update on view appearance
